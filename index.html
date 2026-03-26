@@ -891,18 +891,287 @@
     }
 
     /* ============================================
-       SCROLL ANIMATIONS
+       SCROLL ANIMATIONS (Enhanced)
        ============================================ */
 
     .fade-in {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
     }
 
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Staggered delays for grid children */
+    .fade-in.stagger-1 { transition-delay: 0.08s; }
+    .fade-in.stagger-2 { transition-delay: 0.16s; }
+    .fade-in.stagger-3 { transition-delay: 0.24s; }
+    .fade-in.stagger-4 { transition-delay: 0.32s; }
+    .fade-in.stagger-5 { transition-delay: 0.40s; }
+    .fade-in.stagger-6 { transition-delay: 0.48s; }
+
+    /* Section headers slide up */
+    .section-header {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .section-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       BACKGROUND ANIMATIONS
+       ============================================ */
+
+    /* Floating particle canvas (behind hero) */
+    #particle-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Animated gradient orbs for section backgrounds */
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity;
+      animation: orbFloat 12s ease-in-out infinite;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.12; }
+      33% { transform: translate(30px, -20px) scale(1.08); opacity: 0.18; }
+      66% { transform: translate(-20px, 15px) scale(0.95); opacity: 0.1; }
+    }
+
+    .services { position: relative; overflow: hidden; }
+    .services .bg-orb {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(242,87,73,0.2), transparent 70%);
+      top: 20%; right: -5%;
+      animation-delay: 0s;
+    }
+
+    .pricing { position: relative; overflow: hidden; }
+    .pricing .bg-orb {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(242,87,73,0.15), transparent 70%);
+      bottom: 10%; left: -5%;
+      animation-delay: -4s;
+    }
+
+    .results { position: relative; overflow: hidden; }
+    .results .bg-orb {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(242,87,73,0.12), transparent 70%);
+      top: 30%; right: 10%;
+      animation-delay: -8s;
+    }
+
+    .contact { position: relative; overflow: hidden; }
+    .contact .bg-orb {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(242,87,73,0.1), transparent 70%);
+      top: -15%; left: 50%;
+      transform: translateX(-50%);
+      animation-delay: -2s;
+    }
+
+    /* Subtle noise/grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px;
+    }
+
+    /* ============================================
+       ICON ANIMATIONS
+       ============================================ */
+
+    /* Subtle float for card icons */
+    .card-icon, .service-icon, .referral-icon {
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
+    }
+
+    .card:hover .card-icon {
+      transform: translateY(-4px) scale(1.1);
+    }
+
+    .service-card:hover .service-icon {
+      transform: translateY(-4px) scale(1.1) rotate(-5deg);
+    }
+
+    .referral-card:hover .referral-icon {
+      transform: scale(1.15);
+    }
+
+    /* Icon entrance: gentle pop-in when visible */
+    .fade-in .card-icon,
+    .fade-in .service-icon,
+    .fade-in .referral-icon {
+      opacity: 0;
+      transform: scale(0.6) translateY(10px);
+      transition: opacity 0.5s ease 0.3s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s, color 0.3s ease;
+    }
+
+    .fade-in.visible .card-icon,
+    .fade-in.visible .service-icon,
+    .fade-in.visible .referral-icon {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Subtle SVG stroke draw on icon entrance */
+    .fade-in .card-icon svg path,
+    .fade-in .card-icon svg line,
+    .fade-in .card-icon svg circle,
+    .fade-in .card-icon svg polyline,
+    .fade-in .card-icon svg ellipse,
+    .fade-in .card-icon svg rect,
+    .fade-in .service-icon svg path,
+    .fade-in .service-icon svg line,
+    .fade-in .service-icon svg polyline,
+    .fade-in .service-icon svg polygon,
+    .fade-in .service-icon svg rect,
+    .fade-in .service-icon svg circle {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      transition: stroke-dashoffset 0.8s ease 0.5s;
+    }
+
+    .fade-in.visible .card-icon svg path,
+    .fade-in.visible .card-icon svg line,
+    .fade-in.visible .card-icon svg circle,
+    .fade-in.visible .card-icon svg polyline,
+    .fade-in.visible .card-icon svg ellipse,
+    .fade-in.visible .card-icon svg rect,
+    .fade-in.visible .service-icon svg path,
+    .fade-in.visible .service-icon svg line,
+    .fade-in.visible .service-icon svg polyline,
+    .fade-in.visible .service-icon svg polygon,
+    .fade-in.visible .service-icon svg rect,
+    .fade-in.visible .service-icon svg circle {
+      stroke-dashoffset: 0;
+    }
+
+    /* Pricing card shimmer on featured */
+    .pricing-card.featured::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px; right: -1px; bottom: -1px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, transparent 30%, rgba(242,87,73,0.15) 50%, transparent 70%);
+      background-size: 200% 200%;
+      animation: shimmer 4s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+    }
+
+    /* Stat numbers: subtle glow pulse */
+    .stat-number, .result-stat {
+      transition: text-shadow 0.3s ease;
+    }
+    .stat:hover .stat-number,
+    .result-card:hover .result-stat {
+      text-shadow: 0 0 20px rgba(242,87,73,0.4);
+    }
+
+    /* About initials: slow rotation gradient */
+    .about-initials {
+      background: linear-gradient(135deg, #F25749, rgba(242, 87, 73, 0.5), #F25749);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 6s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Hero content entrance */
+    .hero-content .hero-eyebrow,
+    .hero-content h1,
+    .hero-content .hero-subtitle,
+    .hero-content .hero-ctas {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .hero-content .hero-eyebrow { animation-delay: 0.2s; }
+    .hero-content h1 { animation-delay: 0.4s; }
+    .hero-content .hero-subtitle { animation-delay: 0.6s; }
+    .hero-content .hero-ctas { animation-delay: 0.8s; }
+
+    @keyframes heroReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Accordion smooth open */
+    .accordion-body {
+      transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.4s ease;
+    }
+
+    /* Button pulse on CTA */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 0; height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+    .btn-primary:hover::after {
+      width: 300px; height: 300px;
+    }
+
+    /* Smooth card border glow */
+    .card, .service-card, .addon-card, .referral-card {
+      position: relative;
+    }
+    .card::before, .service-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, transparent, rgba(242,87,73,0) 40%, rgba(242,87,73,0.3) 60%, transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .card:hover::before, .service-card:hover::before {
+      opacity: 1;
     }
 
     /* ============================================
@@ -1085,6 +1354,7 @@
 
   <!-- HERO SECTION -->
   <section class="hero">
+    <canvas id="particle-canvas"></canvas>
     <div class="hero-content">
       <span class="hero-eyebrow">CLAUDE AI CONSULTING</span>
       <h1>Transform how your team works with AI.</h1>
@@ -1149,6 +1419,7 @@
 
   <!-- SERVICES -->
   <section class="services" id="services">
+    <div class="bg-orb"></div>
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">#SERVICES</span>
@@ -1220,6 +1491,7 @@
 
   <!-- PRICING -->
   <section class="pricing" id="pricing">
+    <div class="bg-orb"></div>
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">#PACKAGES</span>
@@ -1363,6 +1635,7 @@
 
   <!-- RESULTS -->
   <section class="results" id="results">
+    <div class="bg-orb"></div>
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">#RESULTS</span>
@@ -1515,6 +1788,7 @@
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
+    <div class="bg-orb"></div>
     <div class="contact-content">
       <div class="section-header">
         <span class="eyebrow">#LET'S BUILD</span>
@@ -1588,7 +1862,97 @@
 
   <!-- JAVASCRIPT -->
   <script>
-    // Mobile menu toggle
+    // ============================================
+    // PARTICLE CANVAS (subtle floating dots)
+    // ============================================
+    (function() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let animId;
+      let w, h;
+
+      function resize() {
+        const hero = canvas.parentElement;
+        w = canvas.width = hero.offsetWidth;
+        h = canvas.height = hero.offsetHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const count = Math.min(Math.floor((w * h) / 18000), 60);
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            r: Math.random() * 1.5 + 0.5,
+            opacity: Math.random() * 0.3 + 0.1
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = w;
+          if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h;
+          if (p.y > h) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(242, 87, 73, ${p.opacity})`;
+          ctx.fill();
+        });
+
+        // Draw faint connections between nearby particles
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(242, 87, 73, ${0.06 * (1 - dist / 120)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        animId = requestAnimationFrame(draw);
+      }
+
+      // Only run when hero is visible (perf)
+      const heroObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            if (!animId) draw();
+          } else {
+            cancelAnimationFrame(animId);
+            animId = null;
+          }
+        });
+      }, { threshold: 0 });
+
+      resize();
+      createParticles();
+      heroObs.observe(canvas.parentElement);
+
+      window.addEventListener('resize', () => {
+        resize();
+        createParticles();
+      });
+    })();
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const nav = document.getElementById('nav');
@@ -1604,80 +1968,143 @@
       mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // Close mobile menu when clicking a link
     document.addEventListener('click', (e) => {
       if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
         mobileMenu.style.display = 'none';
       }
     });
 
-    // Accordion functionality
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-    accordionHeaders.forEach(header => {
+    // ============================================
+    // ACCORDION
+    // ============================================
+    document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.parentElement;
         const isActive = item.classList.contains('active');
+        document.querySelectorAll('.accordion-item.active').forEach(a => a.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
 
-        document.querySelectorAll('.accordion-item.active').forEach(activeItem => {
-          activeItem.classList.remove('active');
+    // ============================================
+    // SCROLL ANIMATIONS (staggered + section headers)
+    // ============================================
+    (function() {
+      // Add stagger classes to grid children
+      document.querySelectorAll('.pain-grid, .services-grid, .pricing-grid, .addons-grid, .referral-grid, .results-grid, .stats-row').forEach(grid => {
+        Array.from(grid.children).forEach((child, i) => {
+          if (child.classList.contains('fade-in') || child.classList.contains('stat')) {
+            child.classList.add('stagger-' + Math.min(i + 1, 6));
+          }
         });
-
-        if (!isActive) {
-          item.classList.add('active');
-        }
       });
-    });
 
-    // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+      const observerOptions = {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe fade-in elements and section headers
+      document.querySelectorAll('.fade-in, .section-header').forEach(el => {
+        observer.observe(el);
       });
-    }, observerOptions);
+    })();
 
-    document.querySelectorAll('.fade-in').forEach(element => {
-      observer.observe(element);
-    });
+    // ============================================
+    // COUNTER ANIMATION (stats)
+    // ============================================
+    (function() {
+      const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
 
-    // Form submission handler
+      document.querySelectorAll('.stat-number, .result-stat').forEach(el => {
+        counterObs.observe(el);
+      });
+
+      function animateCounter(el) {
+        const text = el.textContent.trim();
+        // Extract number and surrounding text (e.g., "40+ hours saved monthly", "$200K+", "3+", "1000+")
+        const match = text.match(/^([\$]?)([\d,]+)([\w\+\%]*)\s*(.*)/);
+        if (!match) return;
+
+        const prefix = match[1];
+        const targetNum = parseInt(match[2].replace(/,/g, ''), 10);
+        const suffix = match[3];
+        const extra = match[4] ? ' ' + match[4] : '';
+
+        if (isNaN(targetNum)) return;
+
+        const duration = 1200;
+        const start = performance.now();
+
+        function step(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(eased * targetNum);
+
+          const formatted = current >= 1000 ? current.toLocaleString() : current;
+          el.textContent = prefix + formatted + suffix + extra;
+
+          if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+      }
+    })();
+
+    // ============================================
+    // FORM SUBMISSION
+    // ============================================
     function handleFormSubmit(event) {
       event.preventDefault();
-
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData);
-
       console.log('Form submitted with:', data);
-
-      const formInputs = event.target.querySelectorAll('input, textarea');
-      formInputs.forEach(input => input.value = '');
-
+      event.target.querySelectorAll('input, textarea').forEach(input => input.value = '');
       alert('Thanks for reaching out! I will be in touch shortly.');
     }
 
-    // Header scroll effect
-    const header = document.querySelector('header');
-    let lastScrollTop = 0;
+    // ============================================
+    // HEADER SCROLL EFFECT
+    // ============================================
+    (function() {
+      const header = document.querySelector('header');
+      let ticking = false;
 
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollTop > 50) {
-        header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.3)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 50) {
+              header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.3)';
+              header.style.padding = '1rem 2rem';
+            } else {
+              header.style.boxShadow = 'none';
+              header.style.padding = '1.5rem 2rem';
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
