@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Claude AI consulting for custom command centers, automated workflows, and AI-powered operations.">
+  <title>Claude AI Consulting | Rad Animal</title>
+
+  <!-- Google Fonts - Roboto Flex -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto Flex', sans-serif;
+      background-color: #1E2024;
+      color: #E9ECF2;
+      line-height: 1.67;
+      font-size: 18px;
+      overflow-x: hidden;
+    }
+
+    /* ============================================
+       TYPOGRAPHY & UTILITIES
+       ============================================ */
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: #E9ECF2;
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #F25749;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .muted {
+      color: #9DA3AE;
+    }
+
+    .subtle {
+      color: rgba(233, 236, 242, 0.6);
+    }
+
+    button, .btn {
+      font-family: 'Roboto Flex', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.875rem 2rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #F25749;
+      color: #FFFFFF;
+      border: 2px solid #F25749;
+    }
+
+    .btn-primary:hover {
+      background-color: #E63E37;
+      border-color: #E63E37;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: #F25749;
+      color: #F25749;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ============================================
+       HEADER & NAVIGATION
+       ============================================ */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(11, 12, 16, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1.5rem 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+
+    nav {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: #E9ECF2;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #F25749;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #FFFFFF;
+      width: 28px;
+      height: 28px;
+    }
+
+    .hamburger svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #0B0C10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-menu a {
+      padding: 1rem 2rem;
+      color: #E9ECF2;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: background-color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      background-color: rgba(242, 87, 73, 0.1);
+      color: #F25749;
+    }
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0B0C10 0%, #1E2024 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(242, 87, 73, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      animation: glow 8s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .hero-eyebrow {
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #F25749;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      color: #FFFFFF;
+      margin-bottom: 2rem;
+      font-size: clamp(2.5rem, 9vw, 5rem);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 3vw, 1.35rem);
+      color: #9DA3AE;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================
+       PAIN POINTS SECTION
+       ============================================ */
+
+    .pain-points {
+      background-color: #1E2024;
+      padding: 6rem 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header .eyebrow {
+      margin-bottom: 1rem;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background-color: #2B2926;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: #F25749;
+      box-shadow: 0 8px 24px rgba(242, 87, 73, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.5rem;
+      color: #F25749;
+    }
+
+    .card-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .card h3 {
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      color: #9DA3AE;
+      font-size: 0.95rem;
+    }
+
+    /* ============================================
+       SERVICES SECTION
+       ============================================ */
+
+    .services {
+      background-color: #181818;
+      padding: 6rem 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: linear-gradient(135deg, #2B2926 0%, #1E2024 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: #F25749;
+      box-shadow: 0 12px 32px rgba(242, 87, 73, 0.12);
+      transform: translateY(-6px);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1.5rem;
+      color: #F25749;
+    }
+
+    .service-card h3 {
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    /* ============================================
+       PRICING SECTION
+       ============================================ */
+
+    .pricing {
+      background-color: #1E2024;
+      padding: 6rem 2rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .pricing-card {
+      background-color: #2B2926;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border-color: #F25749;
+      transform: scale(1.05);
+      box-shadow: 0 20px 60px rgba(242, 87, 73, 0.2);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background-color: #F25749;
+      color: #FFFFFF;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #F25749;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-period {
+      color: #9DA3AE;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .pricing-features li {
+      padding: 0.75rem 0;
+      padding-left: 1.75rem;
+      position: relative;
+      color: #E9ECF2;
+      font-size: 0.95rem;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #F25749;
+      font-weight: 700;
+    }
+
+    /* ============================================
+       ADD-ONS SECTION
+       ============================================ */
+
+    .addons {
+      background-color: #181818;
+      padding: 6rem 2rem;
+    }
+
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .addon-card {
+      background-color: #2B2926;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .addon-card:hover {
+      border-color: #F25749;
+      background-color: rgba(242, 87, 73, 0.05);
+    }
+
+    .addon-name {
+      color: #FFFFFF;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .addon-price {
+      color: #F25749;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* ============================================
+       REFERRAL SECTION
+       ============================================ */
+
+    .referrals {
+      background: linear-gradient(135deg, #0B0C10 0%, #1E2024 100%);
+      padding: 6rem 2rem;
+    }
+
+    .referral-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .referral-card {
+      background-color: rgba(43, 41, 38, 0.6);
+      border: 1px solid rgba(242, 87, 73, 0.3);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .referral-card:hover {
+      background-color: rgba(242, 87, 73, 0.1);
+      border-color: #F25749;
+    }
+
+    .referral-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 1.5rem;
+      color: #F25749;
+    }
+
+    .referral-card h3 {
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+    }
+
+    .referral-card p {
+      color: #9DA3AE;
+      font-size: 0.95rem;
+    }
+
+    /* ============================================
+       RESULTS SECTION
+       ============================================ */
+
+    .results {
+      background-color: #1E2024;
+      padding: 6rem 2rem;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .result-card {
+      background-color: #2B2926;
+      border-left: 4px solid #F25749;
+      border-radius: 8px;
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .result-stat {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #F25749;
+      margin-top: 1.5rem;
+    }
+
+    /* ============================================
+       ABOUT SECTION
+       ============================================ */
+
+    .about {
+      background-color: #181818;
+      padding: 6rem 2rem;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .about-text h2 {
+      color: #FFFFFF;
+    }
+
+    .about-text p {
+      color: #9DA3AE;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .about-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      position: relative;
+    }
+
+    .about-initials {
+      font-size: 120px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #F25749, rgba(242, 87, 73, 0.5));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -8px;
+      line-height: 1;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #F25749;
+    }
+
+    .stat-label {
+      color: #9DA3AE;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ============================================
+       FAQ SECTION
+       ============================================ */
+
+    .faq {
+      background-color: #1E2024;
+      padding: 6rem 2rem;
+    }
+
+    .faq-content {
+      max-width: 700px;
+      margin: 3rem auto 0;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 0;
+    }
+
+    .accordion-header {
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 1.75rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      color: #F25749;
+    }
+
+    .accordion-chevron {
+      width: 20px;
+      height: 20px;
+      color: #F25749;
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .accordion-item.active .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0;
+    }
+
+    .accordion-item.active .accordion-body {
+      max-height: 500px;
+      padding-bottom: 1.75rem;
+    }
+
+    .accordion-text {
+      color: #9DA3AE;
+      line-height: 1.8;
+    }
+
+    /* ============================================
+       CONTACT SECTION
+       ============================================ */
+
+    .contact {
+      background: linear-gradient(135deg, #0B0C10 0%, #181818 100%);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-email {
+      font-size: 1.25rem;
+      color: #F25749;
+      margin: 2rem 0;
+      font-weight: 600;
+    }
+
+    .contact-ctas {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0 3rem 0;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      color: #E9ECF2;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem;
+      background-color: rgba(233, 236, 242, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      color: #E9ECF2;
+      font-family: 'Roboto Flex', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #F25749;
+      background-color: rgba(242, 87, 73, 0.05);
+      box-shadow: 0 0 0 3px rgba(242, 87, 73, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form {
+      background-color: rgba(43, 41, 38, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin-top: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+
+    footer {
+      background-color: #0B0C10;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-left {
+      text-align: left;
+    }
+
+    .footer-left p {
+      font-size: 0.9rem;
+      color: #9DA3AE;
+      line-height: 1.5;
+    }
+
+    .footer-center {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-center a {
+      color: #9DA3AE;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-center a:hover {
+      color: #F25749;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: flex-end;
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      color: #9DA3AE;
+      transition: color 0.3s ease;
+    }
+
+    .social-icon:hover {
+      color: #F25749;
+    }
+
+    .social-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* ============================================
+       SCROLL ANIMATIONS
+       ============================================ */
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       RESPONSIVE DESIGN
+       ============================================ */
+
+    @media (max-width: 1024px) {
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-left,
+      .footer-center,
+      .footer-right {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .footer-left {
+        text-align: center;
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .hero-ctas button {
+        width: 100%;
+      }
+
+      .contact-ctas {
+        flex-direction: column;
+      }
+
+      .contact-ctas button {
+        width: 100%;
+      }
+
+      button, .btn {
+        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .pain-grid,
+      .services-grid,
+      .pricing-grid,
+      .addons-grid,
+      .referral-grid,
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pain-points,
+      .services,
+      .pricing,
+      .addons,
+      .referrals,
+      .results,
+      .about,
+      .faq,
+      .contact {
+        padding: 4rem 1.5rem;
+      }
+
+      .about-visual {
+        display: none;
+      }
+
+      .about-content {
+        margin-top: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .logo {
+        font-size: 1rem;
+      }
+
+      button, .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1.25rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .price {
+        font-size: 1.75rem;
+      }
+
+      .result-stat {
+        font-size: 1.5rem;
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .accordion-header {
+        font-size: 1rem;
+        padding: 1.25rem 0;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .hero-ctas,
+      .contact-ctas {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo">RAD ANIMAL</div>
+      <nav id="nav">
+        <a href="#services">Services</a>
+        <a href="#pricing">Packages</a>
+        <a href="#results">Results</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu"></div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow">CLAUDE AI CONSULTING</span>
+      <h1>Transform how your team works with AI.</h1>
+      <p class="hero-subtitle">Custom command centers, automated workflows, and AI-powered operations — built for teams ready to 10x their productivity.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book a Discovery Call</button>
+        <button class="btn btn-secondary" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">View Packages</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="pain-points">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#THE PROBLEM</span>
+        <h2>Sound familiar?</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="card fade-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/>
+            </svg>
+          </div>
+          <h3>Scattered Communication</h3>
+          <p>Your team juggles WhatsApp, email, Slack, and Teams — nothing connects.</p>
+        </div>
+
+        <div class="card fade-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Manual Everything</h3>
+          <p>Hours lost daily on repetitive tasks that AI could handle in seconds.</p>
+        </div>
+
+        <div class="card fade-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>
+            </svg>
+          </div>
+          <h3>Data Sitting in Silos</h3>
+          <p>Analytics, contacts, and content trapped across disconnected tools.</p>
+        </div>
+
+        <div class="card fade-in">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3>No Unified View</h3>
+          <p>No single dashboard showing what matters across your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#SERVICES</span>
+        <h2>Built for how you actually work.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>
+            </svg>
+          </div>
+          <h3>AI Command Centers</h3>
+          <p>Custom React dashboards with pipelines, calendars, and real-time insights — your team's mission control.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3>Automated Workflows</h3>
+          <p>Morning briefings, email triage, data enrichment, and follow-up sequences — running while you sleep.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+            </svg>
+          </div>
+          <h3>Claude AI Configuration</h3>
+          <p>Security hardening, custom instructions, privacy protocols, and team-wide deployment.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h3>VS Code Agent Architecture</h3>
+          <p>Parallel AI agents for development — front-end, back-end, data, and QA working simultaneously.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <h3>Data & Analytics Integration</h3>
+          <p>Connect your tools, surface insights, and turn raw data into actionable intelligence.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Team Training & Onboarding</h3>
+          <p>Hands-on workshops to get your entire team fluent in AI-powered workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#PACKAGES</span>
+        <h2>Choose your level.</h2>
+      </div>
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <div class="pricing-card fade-in">
+          <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Starter</h3>
+          <div class="price">$750</div>
+          <p class="price-period">One-time investment</p>
+          <ul class="pricing-features">
+            <li>Claude AI security & privacy setup</li>
+            <li>Custom instructions configuration</li>
+            <li>2 scheduled automated tasks</li>
+            <li>Basic Notion database architecture</li>
+            <li>1 hour of training</li>
+            <li>Email support for 2 weeks</li>
+          </ul>
+          <button class="btn btn-secondary" style="width: 100%; margin-top: 2rem;">Get Started</button>
+        </div>
+
+        <!-- Pro (Featured) -->
+        <div class="pricing-card featured fade-in">
+          <div class="pricing-badge">MOST POPULAR</div>
+          <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Pro</h3>
+          <div class="price">$3,500</div>
+          <p class="price-period">One-time investment</p>
+          <ul class="pricing-features">
+            <li>Everything in Starter, plus:</li>
+            <li>Full command center app (React + Vercel)</li>
+            <li>Up to 5 tool integrations</li>
+            <li>5 scheduled automated tasks</li>
+            <li>Content calendar & project management</li>
+            <li>Lead pipeline & enrichment setup</li>
+            <li>VS Code agent architecture</li>
+            <li>3 hours of team training</li>
+            <li>30 days of support & optimization</li>
+          </ul>
+          <button class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Book a Call</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card fade-in">
+          <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Enterprise</h3>
+          <div class="price">$7,500+</div>
+          <p class="price-period">Custom quote</p>
+          <ul class="pricing-features">
+            <li>Everything in Pro, plus:</li>
+            <li>Company-wide AI strategy & implementation</li>
+            <li>Unlimited tool integrations</li>
+            <li>Custom data enrichment pipelines</li>
+            <li>Multiple command centers</li>
+            <li>Executive dashboards & reporting</li>
+            <li>Full team onboarding (up to 20 people)</li>
+            <li>90 days of dedicated support</li>
+            <li>Quarterly optimization reviews</li>
+          </ul>
+          <button class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Let's Talk</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS -->
+  <section class="addons">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#À LA CARTE</span>
+        <h2>Need something specific?</h2>
+      </div>
+      <div class="addons-grid">
+        <div class="addon-card fade-in">
+          <div class="addon-name">Additional Integration</div>
+          <div class="addon-price">$250</div>
+        </div>
+        <div class="addon-card fade-in">
+          <div class="addon-name">Extra Scheduled Task</div>
+          <div class="addon-price">$150</div>
+        </div>
+        <div class="addon-card fade-in">
+          <div class="addon-name">Custom Data Pipeline</div>
+          <div class="addon-price">$500</div>
+        </div>
+        <div class="addon-card fade-in">
+          <div class="addon-name">Monthly Maintenance</div>
+          <div class="addon-price">$500/mo</div>
+        </div>
+        <div class="addon-card fade-in">
+          <div class="addon-name">Hourly Consulting</div>
+          <div class="addon-price">$150/hr</div>
+        </div>
+        <div class="addon-card fade-in">
+          <div class="addon-name">Emergency Support</div>
+          <div class="addon-price">$200/hr</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERRALS -->
+  <section class="referrals">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#REFERRALS</span>
+        <h2>Share the advantage.</h2>
+      </div>
+      <div class="referral-grid">
+        <div class="referral-card fade-in">
+          <div class="referral-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+            </svg>
+          </div>
+          <h3>Refer a Friend</h3>
+          <p>Both get 10% off any package</p>
+        </div>
+
+        <div class="referral-card fade-in">
+          <div class="referral-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <h3>Refer 3+</h3>
+          <p>Earn a free Starter package upgrade</p>
+        </div>
+
+        <div class="referral-card fade-in">
+          <div class="referral-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Active Client Referral</h3>
+          <p>$250 credit per successful referral</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results" id="results">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#RESULTS</span>
+        <h2>What this looks like in practice.</h2>
+      </div>
+      <div class="results-grid">
+        <div class="result-card fade-in">
+          <h3>Creative Consulting Agency</h3>
+          <p>Command center with client pipeline, lead scoring, AI insights, and revenue tracking. Automated follow-ups reduced response time by 80%.</p>
+          <div class="result-stat">40+ hours saved monthly</div>
+        </div>
+
+        <div class="result-card fade-in">
+          <h3>Experiential Events Company</h3>
+          <p>Scanned 800+ contacts, implemented LinkedIn enrichment, automated follow-up sequences, and built a comprehensive venue pipeline.</p>
+          <div class="result-stat">$200K+ reactivated relationships</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#ABOUT</span>
+      </div>
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <h2>I don't just teach AI — I run my entire business on it.</h2>
+          <p>I'm a creative director and founder of Rad Animal. I've been an early Claude AI adopter since the beginning, and I've built my entire operation around it. From custom command centers to fully automated workflows, I've learned what actually works.</p>
+          <p>My background spans creative consulting, music production, and experiential event design. I know what it means to juggle multiple businesses, coordinate teams, and need systems that actually work in the real world. That's why I don't just implement AI for clients — I implement AI the way I use it myself.</p>
+          <p>Every package I build reflects years of running businesses on Claude, automation frameworks, and integrated tools. I'm not selling you theory. I'm selling you systems that are already proven in production.</p>
+        </div>
+        <div class="about-visual fade-in">
+          <div class="about-initials">JG</div>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat fade-in">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Command Centers Built</div>
+        </div>
+        <div class="stat fade-in">
+          <div class="stat-number">1000+</div>
+          <div class="stat-label">Automated Tasks</div>
+        </div>
+        <div class="stat fade-in">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Tool Integrations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#FAQ</span>
+        <h2>Common questions.</h2>
+      </div>
+      <div class="faq-content">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>What is a command center?</span>
+            <div class="accordion-chevron">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </div>
+          </button>
+          <div class="accordion-body">
+            <p class="accordion-text">A custom-built React application that serves as your team's central hub — dashboards, pipelines, calendars, and AI-powered insights all in one place. It connects your tools, surfaces data, and gives everyone on your team a shared understanding of what matters.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Do I need technical skills?</span>
+            <div class="accordion-chevron">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </div>
+          </button>
+          <div class="accordion-body">
+            <p class="accordion-text">No. I handle all the technical setup. You just need to know what problems you want solved. I'll ask the right questions, design the system, and build it. Your team just needs to use it.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>What tools does this work with?</span>
+            <div class="accordion-chevron">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </div>
+          </button>
+          <div class="accordion-body">
+            <p class="accordion-text">Microsoft Teams, Notion, Google Calendar, Slack, WhatsApp, Shopify, Mailchimp, Meta Ads, and many more. If you use it, we can probably integrate it. If it doesn't have an API, we'll find a creative workaround.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>How long does setup take?</span>
+            <div class="accordion-chevron">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </div>
+          </button>
+          <div class="accordion-body">
+            <p class="accordion-text">Starter packages deploy in 1-2 weeks. Pro takes 4-6 weeks. Enterprise is 6-12 weeks. Timeline depends on complexity and how quickly you can provide feedback.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Can my whole team use this?</span>
+            <div class="accordion-chevron">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </div>
+          </button>
+          <div class="accordion-body">
+            <p class="accordion-text">Yes. Command centers are built for team access with role-based permissions. You control who sees what. Want a dashboard just for leadership? Done. Sales-only pipeline? Easy.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>What if I just need hourly consulting?</span>
+            <div class="accordion-chevron">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </div>
+          </button>
+          <div class="accordion-body">
+            <p class="accordion-text">Available at $150/hr for one-off sessions. No package required. Perfect if you need strategy advice, AI consulting, or help troubleshooting a specific workflow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-content">
+      <div class="section-header">
+        <span class="eyebrow">#LET'S BUILD</span>
+        <h2>Ready to transform your workflow?</h2>
+        <p class="muted" style="margin-top: 1.5rem;">Book a free 30-minute discovery call to explore what's possible.</p>
+      </div>
+
+      <div class="contact-email">jake@radanimal.co</div>
+
+      <div class="contact-ctas">
+        <button class="btn btn-primary">Book a Discovery Call</button>
+        <a href="mailto:jake@radanimal.co" class="btn btn-secondary">Email Me</a>
+      </div>
+
+      <form class="contact-form" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your biggest workflow challenge..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p>© RAD ANIMAL</p>
+        <p>ALL RIGHTS RESERVED</p>
+      </div>
+
+      <div class="footer-center">
+        <a href="#services">Services</a>
+        <a href="#pricing">Packages</a>
+        <a href="#results">Results</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', () => {
+      if (mobileMenu.children.length === 0) {
+        const navLinks = Array.from(nav.querySelectorAll('a'));
+        navLinks.forEach(link => {
+          const clone = link.cloneNode(true);
+          mobileMenu.appendChild(clone);
+        });
+      }
+      mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Close mobile menu when clicking a link
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.style.display = 'none';
+      }
+    });
+
+    // Accordion functionality
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.accordion-item.active').forEach(activeItem => {
+          activeItem.classList.remove('active');
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(element => {
+      observer.observe(element);
+    });
+
+    // Form submission handler
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
+
+      console.log('Form submitted with:', data);
+
+      const formInputs = event.target.querySelectorAll('input, textarea');
+      formInputs.forEach(input => input.value = '');
+
+      alert('Thanks for reaching out! I will be in touch shortly.');
+    }
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > 50) {
+        header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.3)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  </script>
+</body>
+</html>
