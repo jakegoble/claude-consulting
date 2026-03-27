@@ -1518,9 +1518,26 @@
         font-size: 0.8rem;
       }
 
+      /* --- Hero overrides (clamp minimums too large for mobile) --- */
+      .hero h1 {
+        font-size: 1.85rem;
+      }
+
+      h1 {
+        font-size: 1.85rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+
       /* --- Showcase --- */
       .showcase-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 1rem;
       }
 
@@ -1571,7 +1588,7 @@
       }
 
       .showcase-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 20px;
       }
 
@@ -1597,7 +1614,7 @@
        RESPONSIVE: SMALL MOBILE (480px and below)
        ============================================ */
     @media (max-width: 480px) {
-      h1 {
+      h1, .hero h1 {
         font-size: 1.6rem;
       }
 
