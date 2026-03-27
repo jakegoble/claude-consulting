@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440, initial-scale=1">
+<title>Pipeline Dashboard</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1440px; height: 900px; overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
+  background: #0f1117; color: #e4e4e7;
+}
+
+/* Layout */
+.sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: #161820; border-right: 1px solid rgba(255,255,255,0.06); padding: 20px 0; }
+.main { margin-left: 220px; padding: 24px 32px; height: 900px; overflow: hidden; }
+
+/* Sidebar */
+.logo { padding: 0 20px 24px; font-size: 18px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 16px; color: #fff; }
+.nav-section { padding: 0 12px; margin-bottom: 20px; }
+.nav-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #6b7280; padding: 0 8px; margin-bottom: 8px; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13.5px; color: #9ca3af; cursor: pointer; margin-bottom: 2px; }
+.nav-item.active { background: rgba(99, 102, 241, 0.12); color: #818cf8; font-weight: 500; }
+.nav-item .dot { width: 8px; height: 8px; border-radius: 50%; }
+.nav-badge { margin-left: auto; background: #ef4444; color: #fff; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+
+/* Header */
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.header h1 { font-size: 24px; font-weight: 700; color: #fff; }
+.header-right { display: flex; gap: 12px; align-items: center; }
+.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; }
+.btn-primary { background: #6366f1; color: #fff; }
+.btn-ghost { background: rgba(255,255,255,0.06); color: #d1d5db; border: 1px solid rgba(255,255,255,0.1); }
+.search-bar { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 8px 14px; color: #9ca3af; font-size: 13px; width: 220px; }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #ef4444); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; color: #fff; }
+
+/* Stats row */
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.stat-card { background: #1a1d27; border-radius: 12px; padding: 18px 20px; border: 1px solid rgba(255,255,255,0.06); }
+.stat-label { font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.stat-value { font-size: 28px; font-weight: 700; color: #fff; }
+.stat-change { font-size: 12px; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
+.stat-change.up { color: #22c55e; }
+.stat-change.down { color: #ef4444; }
+
+/* Pipeline board */
+.pipeline-board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.pipeline-col { background: #1a1d27; border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); }
+.col-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.col-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.col-count { font-size: 11px; background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 10px; color: #9ca3af; }
+.col-total { font-size: 13px; font-weight: 600; color: #fff; margin-top: 2px; }
+.deal-card { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 12px; margin-bottom: 8px; border: 1px solid rgba(255,255,255,0.06); }
+.deal-name { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+.deal-company { font-size: 11px; color: #6b7280; margin-bottom: 8px; }
+.deal-amount { font-size: 14px; font-weight: 700; color: #818cf8; }
+.deal-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+.deal-date { font-size: 10px; color: #6b7280; }
+.deal-avatar { width: 22px; height: 22px; border-radius: 50%; display: inline-block; }
+.deal-priority { font-size: 9px; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+.priority-high { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+.priority-med { background: rgba(234, 179, 8, 0.15); color: #facc15; }
+.priority-low { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
+
+/* Color accents for columns */
+.col-lead .col-title { color: #a78bfa; }
+.col-qualified .col-title { color: #38bdf8; }
+.col-proposal .col-title { color: #f97316; }
+.col-negotiation .col-title { color: #facc15; }
+.col-closed .col-title { color: #22c55e; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo"><div class="logo-icon">⚡</div> Command Center</div>
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <div class="nav-item active"><div class="dot" style="background:#6366f1"></div> Pipeline <span class="nav-badge">12</span></div>
+    <div class="nav-item"><div class="dot" style="background:#22c55e"></div> Contacts</div>
+    <div class="nav-item"><div class="dot" style="background:#f97316"></div> Companies</div>
+    <div class="nav-item"><div class="dot" style="background:#38bdf8"></div> Calendar</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Intelligence</div>
+    <div class="nav-item"><div class="dot" style="background:#a78bfa"></div> Reports</div>
+    <div class="nav-item"><div class="dot" style="background:#ec4899"></div> AI Insights <span class="nav-badge">3</span></div>
+    <div class="nav-item"><div class="dot" style="background:#facc15"></div> Automations</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Strategy</div>
+    <div class="nav-item"><div class="dot" style="background:#14b8a6"></div> Goals</div>
+    <div class="nav-item"><div class="dot" style="background:#f43f5e"></div> Campaigns</div>
+    <div class="nav-item"><div class="dot" style="background:#8b5cf6"></div> Integrations</div>
+  </div>
+</div>
+<div class="main">
+  <div class="header">
+    <h1>Pipeline Dashboard</h1>
+    <div class="header-right">
+      <input class="search-bar" placeholder="⌘K Search deals, contacts..." />
+      <button class="btn btn-ghost">⟳ Sync</button>
+      <button class="btn btn-primary">+ New Deal</button>
+      <div class="avatar">JR</div>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">Total Pipeline</div>
+      <div class="stat-value">$2.4M</div>
+      <div class="stat-change up">↑ 18% vs last month</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Deals Won (Q1)</div>
+      <div class="stat-value">$847K</div>
+      <div class="stat-change up">↑ 24% vs Q4</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Win Rate</div>
+      <div class="stat-value">38.2%</div>
+      <div class="stat-change up">↑ 4.1% improvement</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Avg Deal Size</div>
+      <div class="stat-value">$67.5K</div>
+      <div class="stat-change down">↓ 2.3% vs target</div>
+    </div>
+  </div>
+  <div class="pipeline-board">
+    <div class="pipeline-col col-lead">
+      <div class="col-header"><div><div class="col-title">New Leads</div><div class="col-total">$380K</div></div><div class="col-count">6</div></div>
+      <div class="deal-card"><div class="deal-name">Website Redesign</div><div class="deal-company">Apex Solutions</div><div class="deal-amount">$85,000</div><div class="deal-meta"><span class="deal-priority priority-high">Hot</span><span class="deal-date">Mar 15</span></div></div>
+      <div class="deal-card"><div class="deal-name">Brand Strategy</div><div class="deal-company">NovaTech Labs</div><div class="deal-amount">$62,000</div><div class="deal-meta"><span class="deal-priority priority-med">Warm</span><span class="deal-date">Mar 18</span></div></div>
+      <div class="deal-card"><div class="deal-name">Data Migration</div><div class="deal-company">GreenLeaf Co</div><div class="deal-amount">$45,000</div><div class="deal-meta"><span class="deal-priority priority-low">New</span><span class="deal-date">Mar 22</span></div></div>
+    </div>
+    <div class="pipeline-col col-qualified">
+      <div class="col-header"><div><div class="col-title">Qualified</div><div class="col-total">$520K</div></div><div class="col-count">4</div></div>
+      <div class="deal-card"><div class="deal-name">AI Automation Suite</div><div class="deal-company">Meridian Corp</div><div class="deal-amount">$145,000</div><div class="deal-meta"><span class="deal-priority priority-high">Hot</span><span class="deal-date">Feb 28</span></div></div>
+      <div class="deal-card"><div class="deal-name">CRM Integration</div><div class="deal-company">BlueSky Media</div><div class="deal-amount">$92,000</div><div class="deal-meta"><span class="deal-priority priority-med">Warm</span><span class="deal-date">Mar 8</span></div></div>
+      <div class="deal-card"><div class="deal-name">Mobile App Dev</div><div class="deal-company">Vertex Studios</div><div class="deal-amount">$178,000</div><div class="deal-meta"><span class="deal-priority priority-high">Hot</span><span class="deal-date">Mar 3</span></div></div>
+    </div>
+    <div class="pipeline-col col-proposal">
+      <div class="col-header"><div><div class="col-title">Proposal Sent</div><div class="col-total">$410K</div></div><div class="col-count">3</div></div>
+      <div class="deal-card"><div class="deal-name">Marketing Platform</div><div class="deal-company">Orion Ventures</div><div class="deal-amount">$210,000</div><div class="deal-meta"><span class="deal-priority priority-high">Hot</span><span class="deal-date">Feb 20</span></div></div>
+      <div class="deal-card"><div class="deal-name">Cloud Migration</div><div class="deal-company">Stellar Finance</div><div class="deal-amount">$125,000</div><div class="deal-meta"><span class="deal-priority priority-med">Warm</span><span class="deal-date">Mar 1</span></div></div>
+      <div class="deal-card"><div class="deal-name">Security Audit</div><div class="deal-company">Prism Health</div><div class="deal-amount">$75,000</div><div class="deal-meta"><span class="deal-priority priority-low">New</span><span class="deal-date">Mar 12</span></div></div>
+    </div>
+    <div class="pipeline-col col-negotiation">
+      <div class="col-header"><div><div class="col-title">Negotiation</div><div class="col-total">$340K</div></div><div class="col-count">2</div></div>
+      <div class="deal-card"><div class="deal-name">Enterprise License</div><div class="deal-company">Atlas Industries</div><div class="deal-amount">$225,000</div><div class="deal-meta"><span class="deal-priority priority-high">Hot</span><span class="deal-date">Jan 28</span></div></div>
+      <div class="deal-card"><div class="deal-name">API Integration</div><div class="deal-company">Flux Digital</div><div class="deal-amount">$115,000</div><div class="deal-meta"><span class="deal-priority priority-med">Warm</span><span class="deal-date">Feb 14</span></div></div>
+    </div>
+    <div class="pipeline-col col-closed">
+      <div class="col-header"><div><div class="col-title">Closed Won ✓</div><div class="col-total">$847K</div></div><div class="col-count">5</div></div>
+      <div class="deal-card" style="border-color: rgba(34,197,94,0.2);"><div class="deal-name">Full Platform Build</div><div class="deal-company">Cascade Events</div><div class="deal-amount" style="color:#22c55e;">$310,000</div><div class="deal-meta"><span class="deal-priority" style="background:rgba(34,197,94,0.15);color:#4ade80;">Won</span><span class="deal-date">Mar 5</span></div></div>
+      <div class="deal-card" style="border-color: rgba(34,197,94,0.2);"><div class="deal-name">Analytics Dashboard</div><div class="deal-company">Ember Creative</div><div class="deal-amount" style="color:#22c55e;">$195,000</div><div class="deal-meta"><span class="deal-priority" style="background:rgba(34,197,94,0.15);color:#4ade80;">Won</span><span class="deal-date">Feb 22</span></div></div>
+      <div class="deal-card" style="border-color: rgba(34,197,94,0.2);"><div class="deal-name">Workflow Automation</div><div class="deal-company">Peak Performance</div><div class="deal-amount" style="color:#22c55e;">$142,000</div><div class="deal-meta"><span class="deal-priority" style="background:rgba(34,197,94,0.15);color:#4ade80;">Won</span><span class="deal-date">Feb 10</span></div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

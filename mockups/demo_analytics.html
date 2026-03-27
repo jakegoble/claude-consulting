@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440, initial-scale=1">
+<title>Analytics Dashboard</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1440px; height: 900px; overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
+  background: #0f1117; color: #e4e4e7;
+}
+.sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: #161820; border-right: 1px solid rgba(255,255,255,0.06); padding: 20px 0; }
+.main { margin-left: 220px; padding: 24px 32px; height: 900px; overflow: hidden; }
+.logo { padding: 0 20px 24px; font-size: 18px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 16px; color: #fff; }
+.nav-section { padding: 0 12px; margin-bottom: 20px; }
+.nav-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #6b7280; padding: 0 8px; margin-bottom: 8px; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13.5px; color: #9ca3af; margin-bottom: 2px; }
+.nav-item.active { background: rgba(168,85,247,0.12); color: #c084fc; font-weight: 500; }
+.nav-item .dot { width: 8px; height: 8px; border-radius: 50%; }
+.nav-badge { margin-left: auto; background: #ef4444; color: #fff; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.header h1 { font-size: 24px; font-weight: 700; color: #fff; }
+.header-right { display: flex; gap: 10px; align-items: center; }
+.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; }
+.btn-primary { background: #8b5cf6; color: #fff; }
+.btn-ghost { background: rgba(255,255,255,0.06); color: #d1d5db; border: 1px solid rgba(255,255,255,0.1); }
+.period-tabs { display: flex; background: rgba(255,255,255,0.06); border-radius: 8px; overflow: hidden; }
+.period-tab { padding: 7px 16px; font-size: 12px; color: #9ca3af; cursor: pointer; }
+.period-tab.active { background: #8b5cf6; color: #fff; border-radius: 8px; }
+
+/* Stats */
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
+.stat-card { background: #1a1d27; border-radius: 12px; padding: 16px 18px; border: 1px solid rgba(255,255,255,0.06); }
+.stat-label { font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.stat-value { font-size: 26px; font-weight: 700; color: #fff; }
+.stat-change { font-size: 11px; margin-top: 3px; }
+.stat-change.up { color: #22c55e; }
+.stat-change.down { color: #ef4444; }
+.stat-sparkline { display: flex; align-items: flex-end; gap: 2px; height: 30px; margin-top: 8px; }
+.spark-bar { border-radius: 2px; min-width: 4px; flex: 1; }
+
+/* Charts layout */
+.charts-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px; }
+.chart-card { background: #1a1d27; border-radius: 12px; padding: 18px; border: 1px solid rgba(255,255,255,0.06); }
+.chart-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+.chart-subtitle { font-size: 11px; color: #6b7280; }
+
+/* Revenue chart (SVG area chart) */
+.revenue-chart { position: relative; height: 200px; }
+.chart-svg { width: 100%; height: 100%; }
+
+/* Donut chart */
+.donut-container { display: flex; align-items: center; gap: 20px; }
+.donut-svg { width: 140px; height: 140px; }
+.donut-legend { flex: 1; }
+.legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.legend-value { margin-left: auto; font-weight: 600; color: #fff; }
+
+/* Bottom row */
+.bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+/* Activity feed */
+.activity-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.activity-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.activity-text { font-size: 12.5px; color: #d1d5db; }
+.activity-text strong { color: #fff; }
+.activity-time { font-size: 10px; color: #6b7280; margin-left: auto; white-space: nowrap; }
+
+/* Top performers */
+.performer-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.performer-rank { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; }
+.performer-name { font-size: 13px; color: #fff; font-weight: 500; }
+.performer-metric { font-size: 12px; color: #6b7280; }
+.performer-value { margin-left: auto; font-size: 14px; font-weight: 700; color: #4ade80; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo"><div class="logo-icon">⚡</div> Command Center</div>
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <div class="nav-item"><div class="dot" style="background:#6366f1"></div> Pipeline</div>
+    <div class="nav-item"><div class="dot" style="background:#22c55e"></div> Contacts</div>
+    <div class="nav-item"><div class="dot" style="background:#f97316"></div> Companies</div>
+    <div class="nav-item"><div class="dot" style="background:#38bdf8"></div> Calendar</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Intelligence</div>
+    <div class="nav-item active"><div class="dot" style="background:#a78bfa"></div> Reports <span class="nav-badge">New</span></div>
+    <div class="nav-item"><div class="dot" style="background:#ec4899"></div> AI Insights</div>
+    <div class="nav-item"><div class="dot" style="background:#facc15"></div> Automations</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Strategy</div>
+    <div class="nav-item"><div class="dot" style="background:#14b8a6"></div> Goals</div>
+    <div class="nav-item"><div class="dot" style="background:#f43f5e"></div> Campaigns</div>
+    <div class="nav-item"><div class="dot" style="background:#8b5cf6"></div> Integrations</div>
+  </div>
+</div>
+<div class="main">
+  <div class="header">
+    <h1>Analytics & Reports</h1>
+    <div class="header-right">
+      <div class="period-tabs">
+        <div class="period-tab">7D</div>
+        <div class="period-tab">30D</div>
+        <div class="period-tab active">Q1 2026</div>
+        <div class="period-tab">YTD</div>
+      </div>
+      <button class="btn btn-ghost">↓ Export PDF</button>
+      <button class="btn btn-primary">Schedule Report</button>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">Revenue (Q1)</div>
+      <div class="stat-value">$847K</div>
+      <div class="stat-change up">↑ 24.3% vs Q4</div>
+      <div class="stat-sparkline">
+        <div class="spark-bar" style="height:40%;background:#6366f1;"></div>
+        <div class="spark-bar" style="height:55%;background:#6366f1;"></div>
+        <div class="spark-bar" style="height:45%;background:#6366f1;"></div>
+        <div class="spark-bar" style="height:70%;background:#6366f1;"></div>
+        <div class="spark-bar" style="height:65%;background:#6366f1;"></div>
+        <div class="spark-bar" style="height:80%;background:#818cf8;"></div>
+        <div class="spark-bar" style="height:75%;background:#818cf8;"></div>
+        <div class="spark-bar" style="height:90%;background:#a78bfa;"></div>
+        <div class="spark-bar" style="height:85%;background:#a78bfa;"></div>
+        <div class="spark-bar" style="height:100%;background:#c084fc;"></div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Deals Closed</div>
+      <div class="stat-value">38</div>
+      <div class="stat-change up">↑ 12 vs Q4</div>
+      <div class="stat-sparkline">
+        <div class="spark-bar" style="height:50%;background:#22c55e;"></div>
+        <div class="spark-bar" style="height:60%;background:#22c55e;"></div>
+        <div class="spark-bar" style="height:40%;background:#22c55e;"></div>
+        <div class="spark-bar" style="height:75%;background:#22c55e;"></div>
+        <div class="spark-bar" style="height:85%;background:#4ade80;"></div>
+        <div class="spark-bar" style="height:70%;background:#4ade80;"></div>
+        <div class="spark-bar" style="height:90%;background:#4ade80;"></div>
+        <div class="spark-bar" style="height:80%;background:#86efac;"></div>
+        <div class="spark-bar" style="height:95%;background:#86efac;"></div>
+        <div class="spark-bar" style="height:100%;background:#86efac;"></div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Meetings Held</div>
+      <div class="stat-value">142</div>
+      <div class="stat-change up">↑ 31% activity</div>
+      <div class="stat-sparkline">
+        <div class="spark-bar" style="height:60%;background:#f97316;"></div>
+        <div class="spark-bar" style="height:50%;background:#f97316;"></div>
+        <div class="spark-bar" style="height:70%;background:#f97316;"></div>
+        <div class="spark-bar" style="height:80%;background:#fb923c;"></div>
+        <div class="spark-bar" style="height:65%;background:#fb923c;"></div>
+        <div class="spark-bar" style="height:90%;background:#fb923c;"></div>
+        <div class="spark-bar" style="height:75%;background:#fdba74;"></div>
+        <div class="spark-bar" style="height:85%;background:#fdba74;"></div>
+        <div class="spark-bar" style="height:95%;background:#fdba74;"></div>
+        <div class="spark-bar" style="height:100%;background:#fed7aa;"></div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Conversion Rate</div>
+      <div class="stat-value">38.2%</div>
+      <div class="stat-change up">↑ 4.1pts improvement</div>
+      <div class="stat-sparkline">
+        <div class="spark-bar" style="height:55%;background:#ec4899;"></div>
+        <div class="spark-bar" style="height:60%;background:#ec4899;"></div>
+        <div class="spark-bar" style="height:65%;background:#ec4899;"></div>
+        <div class="spark-bar" style="height:58%;background:#f472b6;"></div>
+        <div class="spark-bar" style="height:70%;background:#f472b6;"></div>
+        <div class="spark-bar" style="height:75%;background:#f472b6;"></div>
+        <div class="spark-bar" style="height:80%;background:#f9a8d4;"></div>
+        <div class="spark-bar" style="height:78%;background:#f9a8d4;"></div>
+        <div class="spark-bar" style="height:85%;background:#f9a8d4;"></div>
+        <div class="spark-bar" style="height:92%;background:#fbcfe8;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-title">Revenue Trend <span class="chart-subtitle">Jan — Mar 2026</span></div>
+      <svg class="chart-svg" viewBox="0 0 700 200" preserveAspectRatio="none">
+        <!-- Grid lines -->
+        <line x1="0" y1="50" x2="700" y2="50" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <line x1="0" y1="100" x2="700" y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <line x1="0" y1="150" x2="700" y2="150" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <!-- Area fill -->
+        <defs>
+          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#6366f1"/>
+            <stop offset="100%" stop-color="#c084fc"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,160 L70,140 L140,150 L210,120 L280,100 L350,90 L420,70 L490,60 L560,45 L630,35 L700,20 L700,200 L0,200 Z" fill="url(#areaGrad)"/>
+        <path d="M0,160 L70,140 L140,150 L210,120 L280,100 L350,90 L420,70 L490,60 L560,45 L630,35 L700,20" fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round"/>
+        <!-- Second line (last year comparison) -->
+        <path d="M0,170 L70,165 L140,168 L210,155 L280,148 L350,140 L420,135 L490,130 L560,125 L630,120 L700,115" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4,4"/>
+        <!-- Dots -->
+        <circle cx="700" cy="20" r="5" fill="#c084fc"/>
+        <circle cx="630" cy="35" r="4" fill="#a78bfa"/>
+        <circle cx="560" cy="45" r="4" fill="#818cf8"/>
+        <!-- Labels -->
+        <text x="10" y="195" fill="#6b7280" font-size="10">Jan</text>
+        <text x="220" y="195" fill="#6b7280" font-size="10">Feb</text>
+        <text x="470" y="195" fill="#6b7280" font-size="10">Mar</text>
+        <text x="680" y="195" fill="#6b7280" font-size="10">Now</text>
+        <text x="660" y="16" fill="#c084fc" font-size="11" font-weight="600">$847K</text>
+      </svg>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Revenue by Source</div>
+      <div class="donut-container">
+        <svg class="donut-svg" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#1e1e2a" stroke-width="18"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#6366f1" stroke-width="18" stroke-dasharray="110 204" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#22c55e" stroke-width="18" stroke-dasharray="65 249" stroke-dashoffset="-110" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#f97316" stroke-width="18" stroke-dasharray="50 264" stroke-dashoffset="-175" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#ec4899" stroke-width="18" stroke-dasharray="35 279" stroke-dashoffset="-225" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#38bdf8" stroke-width="18" stroke-dasharray="54 260" stroke-dashoffset="-260" transform="rotate(-90 60 60)"/>
+          <text x="60" y="56" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">$847K</text>
+          <text x="60" y="70" text-anchor="middle" fill="#6b7280" font-size="8">Total Q1</text>
+        </svg>
+        <div class="donut-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#6366f1;"></div> Direct Sales <span class="legend-value">$297K</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#22c55e;"></div> Referrals <span class="legend-value">$186K</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#f97316;"></div> Inbound <span class="legend-value">$152K</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#ec4899;"></div> Partners <span class="legend-value">$118K</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#38bdf8;"></div> Campaigns <span class="legend-value">$94K</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-grid">
+    <div class="chart-card">
+      <div class="chart-title">Recent Activity</div>
+      <div class="activity-item">
+        <div class="activity-icon" style="background:rgba(34,197,94,0.15);">✓</div>
+        <div class="activity-text"><strong>Cascade Events</strong> deal closed — $310K</div>
+        <div class="activity-time">2h ago</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon" style="background:rgba(99,102,241,0.15);">📧</div>
+        <div class="activity-text"><strong>Sarah Mitchell</strong> opened proposal email</div>
+        <div class="activity-time">4h ago</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon" style="background:rgba(249,115,22,0.15);">📅</div>
+        <div class="activity-text">Meeting with <strong>Atlas Industries</strong> scheduled</div>
+        <div class="activity-time">6h ago</div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon" style="background:rgba(236,72,153,0.15);">🤖</div>
+        <div class="activity-text">AI detected <strong>3 follow-up opportunities</strong></div>
+        <div class="activity-time">8h ago</div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Top Performers — Q1</div>
+      <div class="performer-item">
+        <div class="performer-rank" style="background:linear-gradient(135deg,#eab308,#f97316);">1</div>
+        <div><div class="performer-name">Amanda Chen</div><div class="performer-metric">15 deals · 94% close rate</div></div>
+        <div class="performer-value">$520K</div>
+      </div>
+      <div class="performer-item">
+        <div class="performer-rank" style="background:linear-gradient(135deg,#9ca3af,#6b7280);">2</div>
+        <div><div class="performer-name">Marcus Rivera</div><div class="performer-metric">12 deals · 87% close rate</div></div>
+        <div class="performer-value">$385K</div>
+      </div>
+      <div class="performer-item">
+        <div class="performer-rank" style="background:linear-gradient(135deg,#b45309,#92400e);">3</div>
+        <div><div class="performer-name">Lisa Wang</div><div class="performer-metric">9 deals · 78% close rate</div></div>
+        <div class="performer-value">$298K</div>
+      </div>
+      <div class="performer-item">
+        <div class="performer-rank" style="background:rgba(255,255,255,0.08);">4</div>
+        <div><div class="performer-name">David Park</div><div class="performer-metric">8 deals · 82% close rate</div></div>
+        <div class="performer-value">$245K</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

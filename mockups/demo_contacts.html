@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440, initial-scale=1">
+<title>Contact Intelligence</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1440px; height: 900px; overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
+  background: #0f1117; color: #e4e4e7;
+}
+.sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: #161820; border-right: 1px solid rgba(255,255,255,0.06); padding: 20px 0; }
+.main { margin-left: 220px; padding: 24px 32px; height: 900px; overflow: hidden; }
+.logo { padding: 0 20px 24px; font-size: 18px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 16px; color: #fff; }
+.nav-section { padding: 0 12px; margin-bottom: 20px; }
+.nav-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #6b7280; padding: 0 8px; margin-bottom: 8px; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13.5px; color: #9ca3af; margin-bottom: 2px; }
+.nav-item.active { background: rgba(34,197,94,0.12); color: #4ade80; font-weight: 500; }
+.nav-item .dot { width: 8px; height: 8px; border-radius: 50%; }
+.nav-badge { margin-left: auto; background: #6366f1; color: #fff; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.header h1 { font-size: 24px; font-weight: 700; color: #fff; }
+.header-right { display: flex; gap: 10px; align-items: center; }
+.btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; }
+.btn-primary { background: #22c55e; color: #fff; }
+.btn-ghost { background: rgba(255,255,255,0.06); color: #d1d5db; border: 1px solid rgba(255,255,255,0.1); }
+.search-bar { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 8px 14px; color: #9ca3af; font-size: 13px; width: 200px; }
+
+/* Filters */
+.filters { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.filter-chip { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); color: #9ca3af; background: transparent; }
+.filter-chip.active { background: rgba(99,102,241,0.15); color: #818cf8; border-color: rgba(99,102,241,0.3); }
+
+/* Contact grid */
+.contacts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.contact-card { background: #1a1d27; border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.06); }
+.contact-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.contact-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0; }
+.contact-name { font-size: 14px; font-weight: 600; color: #fff; }
+.contact-title { font-size: 11px; color: #6b7280; margin-top: 2px; }
+.contact-company { font-size: 12px; color: #818cf8; font-weight: 500; }
+.contact-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
+.contact-stat { background: rgba(255,255,255,0.04); border-radius: 6px; padding: 8px; }
+.contact-stat-label { font-size: 9px; text-transform: uppercase; color: #6b7280; letter-spacing: 0.5px; }
+.contact-stat-value { font-size: 15px; font-weight: 700; color: #fff; margin-top: 2px; }
+.contact-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 10px; }
+.tag { padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+.tag-vip { background: rgba(234,179,8,0.15); color: #facc15; }
+.tag-hot { background: rgba(239,68,68,0.15); color: #f87171; }
+.tag-engaged { background: rgba(34,197,94,0.15); color: #4ade80; }
+.tag-enterprise { background: rgba(99,102,241,0.15); color: #818cf8; }
+.tag-new { background: rgba(56,189,248,0.15); color: #38bdf8; }
+.tag-decision { background: rgba(236,72,153,0.15); color: #f472b6; }
+
+.score-bar { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); margin-top: 10px; }
+.score-fill { height: 100%; border-radius: 2px; }
+.score-label { font-size: 10px; color: #6b7280; margin-top: 4px; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo"><div class="logo-icon">⚡</div> Command Center</div>
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <div class="nav-item"><div class="dot" style="background:#6366f1"></div> Pipeline</div>
+    <div class="nav-item active"><div class="dot" style="background:#22c55e"></div> Contacts <span class="nav-badge">247</span></div>
+    <div class="nav-item"><div class="dot" style="background:#f97316"></div> Companies</div>
+    <div class="nav-item"><div class="dot" style="background:#38bdf8"></div> Calendar</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Intelligence</div>
+    <div class="nav-item"><div class="dot" style="background:#a78bfa"></div> Reports</div>
+    <div class="nav-item"><div class="dot" style="background:#ec4899"></div> AI Insights</div>
+    <div class="nav-item"><div class="dot" style="background:#facc15"></div> Automations</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Strategy</div>
+    <div class="nav-item"><div class="dot" style="background:#14b8a6"></div> Goals</div>
+    <div class="nav-item"><div class="dot" style="background:#f43f5e"></div> Campaigns</div>
+    <div class="nav-item"><div class="dot" style="background:#8b5cf6"></div> Integrations</div>
+  </div>
+</div>
+<div class="main">
+  <div class="header">
+    <h1>Contact Intelligence</h1>
+    <div class="header-right">
+      <input class="search-bar" placeholder="Search 247 contacts..." />
+      <button class="btn btn-ghost">↓ Export</button>
+      <button class="btn btn-ghost">⚙ Filters</button>
+      <button class="btn btn-primary">+ Add Contact</button>
+    </div>
+  </div>
+  <div class="filters">
+    <div class="filter-chip active">All Contacts (247)</div>
+    <div class="filter-chip">VIP (28)</div>
+    <div class="filter-chip">Hot Leads (42)</div>
+    <div class="filter-chip">Decision Makers (65)</div>
+    <div class="filter-chip">Recently Active (89)</div>
+    <div class="filter-chip">Needs Follow-up (17)</div>
+    <div class="filter-chip">Enterprise (34)</div>
+  </div>
+  <div class="contacts-grid">
+    <!-- Row 1 -->
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">SM</div>
+        <div><div class="contact-name">Sarah Mitchell</div><div class="contact-title">VP of Operations</div><div class="contact-company">Meridian Corp</div></div>
+      </div>
+      <div class="contact-stats">
+        <div class="contact-stat"><div class="contact-stat-label">Deal Value</div><div class="contact-stat-value">$145K</div></div>
+        <div class="contact-stat"><div class="contact-stat-label">Meetings</div><div class="contact-stat-value">8</div></div>
+      </div>
+      <div class="contact-tags"><span class="tag tag-vip">VIP</span><span class="tag tag-hot">Hot Lead</span><span class="tag tag-decision">Decision Maker</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:92%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
+      <div class="score-label"><span>Lead Score</span><span style="color:#4ade80;font-weight:600;">92</span></div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-avatar" style="background:linear-gradient(135deg,#f97316,#ef4444);">MR</div>
+        <div><div class="contact-name">Marcus Rivera</div><div class="contact-title">CEO</div><div class="contact-company">Atlas Industries</div></div>
+      </div>
+      <div class="contact-stats">
+        <div class="contact-stat"><div class="contact-stat-label">Deal Value</div><div class="contact-stat-value">$225K</div></div>
+        <div class="contact-stat"><div class="contact-stat-label">Meetings</div><div class="contact-stat-value">12</div></div>
+      </div>
+      <div class="contact-tags"><span class="tag tag-vip">VIP</span><span class="tag tag-enterprise">Enterprise</span><span class="tag tag-decision">Decision Maker</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:88%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
+      <div class="score-label"><span>Lead Score</span><span style="color:#4ade80;font-weight:600;">88</span></div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-avatar" style="background:linear-gradient(135deg,#ec4899,#f43f5e);">LW</div>
+        <div><div class="contact-name">Lisa Wang</div><div class="contact-title">Head of Marketing</div><div class="contact-company">Orion Ventures</div></div>
+      </div>
+      <div class="contact-stats">
+        <div class="contact-stat"><div class="contact-stat-label">Deal Value</div><div class="contact-stat-value">$210K</div></div>
+        <div class="contact-stat"><div class="contact-stat-label">Meetings</div><div class="contact-stat-value">6</div></div>
+      </div>
+      <div class="contact-tags"><span class="tag tag-hot">Hot Lead</span><span class="tag tag-engaged">Engaged</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:85%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
+      <div class="score-label"><span>Lead Score</span><span style="color:#4ade80;font-weight:600;">85</span></div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-avatar" style="background:linear-gradient(135deg,#14b8a6,#22c55e);">DP</div>
+        <div><div class="contact-name">David Park</div><div class="contact-title">CTO</div><div class="contact-company">Vertex Studios</div></div>
+      </div>
+      <div class="contact-stats">
+        <div class="contact-stat"><div class="contact-stat-label">Deal Value</div><div class="contact-stat-value">$178K</div></div>
+        <div class="contact-stat"><div class="contact-stat-label">Meetings</div><div class="contact-stat-value">9</div></div>
+      </div>
+      <div class="contact-tags"><span class="tag tag-enterprise">Enterprise</span><span class="tag tag-decision">Decision Maker</span><span class="tag tag-hot">Hot Lead</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:79%;background:linear-gradient(90deg,#eab308,#facc15);"></div></div>
+      <div class="score-label"><span>Lead Score</span><span style="color:#facc15;font-weight:600;">79</span></div>
+    </div>
+    <!-- Row 2 -->
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-avatar" style="background:linear-gradient(135deg,#38bdf8,#6366f1);">AC</div>
+        <div><div class="contact-name">Amanda Chen</div><div class="contact-title">Director of Sales</div><div class="contact-company">Cascade Events</div></div>
+      </div>
+      <div class="contact-stats">
+        <div class="contact-stat"><div class="contact-stat-label">Deal Value</div><div class="contact-stat-value">$310K</div></div>
+        <div class="contact-stat"><div class="contact-stat-label">Meetings</div><div class="contact-stat-value">15</div></div>
+      </div>
+      <div class="contact-tags"><span class="tag tag-vip">VIP</span><span class="tag tag-engaged">Engaged</span><span class="tag tag-enterprise">Enterprise</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:95%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
+      <div class="score-label"><span>Lead Score</span><span style="color:#4ade80;font-weight:600;">95</span></div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-avatar" style="background:linear-gradient(135deg,#facc15,#f97316);">TN</div>
+        <div><div class="contact-name">Tyler Nakamura</div><div class="contact-title">Product Manager</div><div class="contact-company">Flux Digital</div></div>
+      </div>
+      <div class="contact-stats">
+        <div class="contact-stat"><div class="contact-stat-label">Deal Value</div><div class="contact-stat-value">$115K</div></div>
+        <div class="contact-stat"><div class="contact-stat-label">Meetings</div><div class="contact-stat-value">5</div></div>
+      </div>
+      <div class="contact-tags"><span class="tag tag-new">New Lead</span><span class="tag tag-engaged">Engaged</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:72%;background:linear-gradient(90deg,#eab308,#facc15);"></div></div>
+      <div class="score-label"><span>Lead Score</span><span style="color:#facc15;font-weight:600;">72</span></div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-avatar" style="background:linear-gradient(135deg,#f43f5e,#ec4899);">RS</div>
+        <div><div class="contact-name">Rachel Santos</div><div class="contact-title">COO</div><div class="contact-company">Ember Creative</div></div>
+      </div>
+      <div class="contact-stats">
+        <div class="contact-stat"><div class="contact-stat-label">Deal Value</div><div class="contact-stat-value">$195K</div></div>
+        <div class="contact-stat"><div class="contact-stat-label">Meetings</div><div class="contact-stat-value">11</div></div>
+      </div>
+      <div class="contact-tags"><span class="tag tag-vip">VIP</span><span class="tag tag-decision">Decision Maker</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:90%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
+      <div class="score-label"><span>Lead Score</span><span style="color:#4ade80;font-weight:600;">90</span></div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-avatar" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">JK</div>
+        <div><div class="contact-name">James Kim</div><div class="contact-title">VP Engineering</div><div class="contact-company">Stellar Finance</div></div>
+      </div>
+      <div class="contact-stats">
+        <div class="contact-stat"><div class="contact-stat-label">Deal Value</div><div class="contact-stat-value">$125K</div></div>
+        <div class="contact-stat"><div class="contact-stat-label">Meetings</div><div class="contact-stat-value">7</div></div>
+      </div>
+      <div class="contact-tags"><span class="tag tag-enterprise">Enterprise</span><span class="tag tag-hot">Hot Lead</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:76%;background:linear-gradient(90deg,#eab308,#facc15);"></div></div>
+      <div class="score-label"><span>Lead Score</span><span style="color:#facc15;font-weight:600;">76</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
