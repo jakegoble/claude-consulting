@@ -1459,22 +1459,20 @@
     .showcase-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 48px;
+      gap: 40px;
       margin-top: 16px;
     }
 
     .showcase-item {
       position: relative;
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(242, 87, 73, 0.03), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
     }
 
     .showcase-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      transform: translateY(-6px) scale(1.005);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
     }
 
     .showcase-item img {
@@ -1484,35 +1482,42 @@
     }
 
     .showcase-caption {
-      padding: 20px 24px;
+      padding: 18px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0,0,0,0.2);
+      background: linear-gradient(180deg, rgba(8,8,14,0.95), rgba(8,8,14,1));
     }
 
     .showcase-caption h3 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       margin-bottom: 0;
-      color: #fff;
+      color: rgba(255,255,255,0.9);
     }
 
     .showcase-caption .industry-tag {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
-      background: rgba(242, 87, 73, 0.15);
+      background: rgba(242, 87, 73, 0.12);
       color: #F25749;
+      white-space: nowrap;
     }
 
     .showcase-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .showcase-row {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1693,7 +1698,7 @@
       </div>
       <div class="showcase-grid">
         <div class="showcase-item fade-in">
-          <img src="/images/showcase_dashboard.png" alt="Madrone Studios Command Center — Pipeline Dashboard with Alerts and Relationship Intel" loading="lazy">
+          <img src="/images/showcase_dashboard.png" alt="Madrone Studios Command Center — Pipeline Dashboard with Real-time Alerts and Relationship Intel" loading="lazy">
           <div class="showcase-caption">
             <h3>Pipeline Dashboard — Alerts & Relationship Intel</h3>
             <span class="industry-tag">Experiential Events</span>
@@ -1701,17 +1706,17 @@
         </div>
         <div class="showcase-row">
           <div class="showcase-item fade-in">
-            <img src="/images/showcase_contacts.png" alt="CRM Contact Management with Lead Scoring and Filters" loading="lazy">
+            <img src="/images/showcase_contacts.png" alt="CRM Contact Management with Lead Scoring, Filters, and Mobile View" loading="lazy">
             <div class="showcase-caption">
               <h3>CRM — Contact Intelligence & Lead Scoring</h3>
               <span class="industry-tag">CRM</span>
             </div>
           </div>
           <div class="showcase-item fade-in">
-            <img src="/images/showcase_reports.png" alt="Pipeline Reports with Executive Summary and Meeting Tracking" loading="lazy">
+            <img src="/images/showcase_multi.png" alt="Multi-screen Command Center Overview showing Dashboard, CRM and Strategy views" loading="lazy">
             <div class="showcase-caption">
-              <h3>Reports — Pipeline & Meeting Analytics</h3>
-              <span class="industry-tag">Analytics</span>
+              <h3>Multi-Screen Command Center Overview</h3>
+              <span class="industry-tag">Full Platform</span>
             </div>
           </div>
         </div>
