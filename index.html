@@ -1445,6 +1445,81 @@
         gap: 1rem;
       }
     }
+
+    /* ============================================
+       SHOWCASE SECTION
+       ============================================ */
+
+    .showcase {
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      margin-top: 16px;
+    }
+
+    .showcase-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(242, 87, 73, 0.03), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .showcase-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .showcase-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .showcase-caption {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.2);
+    }
+
+    .showcase-caption h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0;
+      color: #fff;
+    }
+
+    .showcase-caption .industry-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(242, 87, 73, 0.15);
+      color: #F25749;
+    }
+
+    .showcase-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .showcase-row {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1454,6 +1529,7 @@
       <div class="logo">RAD ANIMAL</div>
       <nav id="nav">
         <a href="#services">Services</a>
+        <a href="#showcase">Showcase</a>
         <a href="#pricing">Packages</a>
         <a href="#results">Results</a>
         <a href="#about">About</a>
@@ -1602,6 +1678,42 @@
           </div>
           <h3>Team Training & Onboarding</h3>
           <p>Hands-on workshops to get your entire team fluent in AI-powered workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE -->
+  <section class="showcase" id="showcase">
+    <div class="bg-orb"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#SHOWCASE</span>
+        <h2>Real command centers. Real businesses.</h2>
+      </div>
+      <div class="showcase-grid">
+        <div class="showcase-item fade-in">
+          <img src="/images/showcase_real_estate.png" alt="Real Estate Command Center Dashboard" loading="lazy">
+          <div class="showcase-caption">
+            <h3>Apex Realty — Brokerage Dashboard</h3>
+            <span class="industry-tag">Real Estate</span>
+          </div>
+        </div>
+        <div class="showcase-row">
+          <div class="showcase-item fade-in">
+            <img src="/images/showcase_agency.png" alt="Creative Agency Command Center Dashboard" loading="lazy">
+            <div class="showcase-caption">
+              <h3>Neon Studio — Project Ops</h3>
+              <span class="industry-tag">Agency</span>
+            </div>
+          </div>
+          <div class="showcase-item fade-in">
+            <img src="/images/showcase_saas.png" alt="SaaS Company Command Center Dashboard" loading="lazy">
+            <div class="showcase-caption">
+              <h3>Nebula AI — Growth Metrics</h3>
+              <span class="industry-tag">SaaS</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
