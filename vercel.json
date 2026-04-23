@@ -7,6 +7,10 @@
                   "use": "@vercel/static"
           },
           {
+                  "src": "thanks.html",
+                  "use": "@vercel/static"
+          },
+          {
                   "src": "og-image.png",
                   "use": "@vercel/static"
           },
@@ -31,6 +35,10 @@
           {
                   "src": "/mockups/(.*)",
                   "dest": "/mockups/$1"
+          },
+          {
+                  "src": "/thanks(\\.html)?",
+                  "dest": "/thanks.html"
           },
           {
                   "src": "/(.*)",
