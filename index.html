@@ -1844,6 +1844,50 @@
       text-align: center;
     }
 
+    /* HOW IT WORKS */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .process-step {
+      background-color: #2B2926;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .process-step:hover {
+      border-color: rgba(242, 87, 73, 0.4);
+      transform: translateY(-4px);
+    }
+    .process-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgba(242, 87, 73, 0.25);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .process-timeline {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #F25749;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .process-step h3 {
+      color: #FFFFFF;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .process-step p {
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
   </style>
 </head>
 <body>
@@ -2021,6 +2065,43 @@
         </div>
       </div>
       <p class="tracks-footer">Not sure which is right for you? The discovery call figures it out. Most clients end up on Track B — Custom Build is for when a Notion hub won't cut it.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="services" id="process">
+    <div class="bg-orb"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#HOW IT WORKS</span>
+        <h2>From first call to fully operational in 2–6 weeks.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step fade-in">
+          <div class="process-number">01</div>
+          <div class="process-timeline">WEEK 1</div>
+          <h3>Discovery</h3>
+          <p>We get on a call. I audit your current tools, workflows, team structure, and pain points — and ask the questions most consultants skip. By the end, we've picked your track.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-number">02</div>
+          <div class="process-timeline">WEEK 1–2</div>
+          <h3>Your Custom Blueprint</h3>
+          <p>You receive a tailored documentation package: Call Summary, Command Center Spec, Privacy & Security Guide, Build Roadmap, Growth Strategy, and Claude Setup &amp; Usage Guide. Pro and Enterprise engagements include additional custom docs.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-number">03</div>
+          <div class="process-timeline">WEEK 2–6</div>
+          <h3>Build &amp; Launch</h3>
+          <p>I build your system, connect your integrations, set up your AI workflows, and train you and your team. You go live with a system that's yours — custom-built for your business.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-number">04</div>
+          <div class="process-timeline">ONGOING</div>
+          <h3>Monthly Support</h3>
+          <p>New automations, optimization, troubleshooting. Your business evolves — your system evolves with it.</p>
+        </div>
+      </div>
     </div>
   </section>
 
