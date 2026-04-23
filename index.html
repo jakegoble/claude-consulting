@@ -1959,6 +1959,38 @@
       font-weight: 500;
     }
 
+    /* PRICING TAGLINES + FOOTER */
+    .pricing-tagline {
+      color: #F25749;
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .pricing-footer {
+      max-width: 720px;
+      margin: 3rem auto 0;
+      text-align: center;
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding: 1.5rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      background-color: rgba(43, 41, 38, 0.5);
+    }
+    .pricing-footer strong {
+      color: #FFFFFF;
+    }
+    .pricing-footer em {
+      display: block;
+      margin-top: 0.75rem;
+      color: #9DA3AE;
+      font-size: 0.875rem;
+      font-style: normal;
+    }
+
   </style>
 </head>
 <body>
@@ -2260,21 +2292,23 @@
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">#PACKAGES</span>
-        <h2>Choose your level.</h2>
+        <h2>Packages.</h2>
+        <p class="section-subtitle">Each tier's tagline names who does the work. Price scales with how much of my time you're buying — not with feature counts.</p>
       </div>
       <div class="pricing-grid">
         <!-- Starter -->
         <div class="pricing-card fade-in">
           <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Starter</h3>
+          <p class="pricing-tagline">"I set up the foundation. You build on it."</p>
           <div class="price">$750</div>
-          <p class="price-period">One-time investment</p>
+          <p class="price-period">One-time · Notion Hub track only</p>
           <ul class="pricing-features">
-            <li>Claude AI security & privacy setup</li>
-            <li>Custom instructions configuration</li>
-            <li>2 scheduled automated tasks</li>
-            <li>Basic Notion database architecture</li>
-            <li>1 hour of training</li>
-            <li>Email support for 2 weeks</li>
+            <li>1-hour discovery call + security audit</li>
+            <li>Claude configured with your business context (Projects + custom instructions)</li>
+            <li>2 automated daily workflows (morning briefing + end-of-day review)</li>
+            <li>Basic Notion architecture</li>
+            <li>1-hour training session</li>
+            <li>2 weeks of async Q&amp;A — up to 1 hour of my time, 2-business-day response</li>
           </ul>
           <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-secondary" style="width: 100%; margin-top: 2rem; display: inline-block; text-align: center;">Get Started</a>
         </div>
@@ -2283,18 +2317,17 @@
         <div class="pricing-card featured fade-in">
           <div class="pricing-badge">MOST POPULAR</div>
           <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Pro</h3>
+          <p class="pricing-tagline">"We build it together. I handle the architecture; you handle your business."</p>
           <div class="price">$3,500</div>
-          <p class="price-period">One-time investment</p>
+          <p class="price-period">One-time · Custom Build or Notion Hub track</p>
           <ul class="pricing-features">
-            <li>Everything in Starter, plus:</li>
-            <li>Full command center app (React + Vercel)</li>
-            <li>Up to 5 tool integrations</li>
-            <li>5 scheduled automated tasks</li>
-            <li>Content calendar & project management</li>
-            <li>Lead pipeline & enrichment setup</li>
-            <li>VS Code agent architecture</li>
-            <li>3 hours of team training</li>
-            <li>30 days of support & optimization</li>
+            <li>Deep discovery call + follow-up questionnaire</li>
+            <li>Custom documentation package (5–8 tailored docs)</li>
+            <li>Full command center — Notion Hub with up to 5 integrations, or React dashboard (Custom Build track)</li>
+            <li>5+ automated workflows (briefings, meeting processing, content calendar, lead management)</li>
+            <li>Claude Projects fully configured for your team</li>
+            <li>3-hour training + video walkthroughs</li>
+            <li>30 days of post-launch support — up to 3 hours of my time, 1-business-day response via Slack or email</li>
           </ul>
           <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 2rem; display: inline-block; text-align: center;">Book a Call</a>
         </div>
@@ -2302,22 +2335,25 @@
         <!-- Enterprise -->
         <div class="pricing-card fade-in">
           <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Enterprise</h3>
+          <p class="pricing-tagline">"I build everything. You show up and use it."</p>
           <div class="price">$7,500+</div>
-          <p class="price-period">Custom quote</p>
+          <p class="price-period">Custom quote · Either track</p>
           <ul class="pricing-features">
             <li>Everything in Pro, plus:</li>
-            <li>Company-wide AI strategy & implementation</li>
-            <li>Unlimited tool integrations</li>
-            <li>Custom data enrichment pipelines</li>
-            <li>Multiple command centers</li>
-            <li>Executive dashboards & reporting</li>
-            <li>Full team onboarding (up to 20 people)</li>
-            <li>90 days of dedicated support</li>
-            <li>Quarterly optimization reviews</li>
+            <li>Full 10–12 document package (brand voice, role syllabuses, CRM specs, growth strategy)</li>
+            <li>Unlimited integrations and custom data pipelines</li>
+            <li>Multiple dashboards or workspaces for different teams</li>
+            <li>Up to 20-person team onboarding</li>
+            <li>Custom automation development</li>
+            <li>90 days of dedicated support — up to 10 hours of my time + 1-hour quarterly optimization call, same-business-day response via private Slack channel</li>
           </ul>
           <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 2rem; display: inline-block; text-align: center;">Let's Talk</a>
         </div>
       </div>
+      <p class="pricing-footer">
+        <strong>Ongoing support after launch: $150/hr</strong> — monthly optimization, new automations, troubleshooting, and integration updates. Available to any past client.
+        <em>Founding-client rate of $125/hr is available to the first 10 ongoing clients — grandfather-locked for the life of the engagement.</em>
+      </p>
     </div>
   </section>
 
