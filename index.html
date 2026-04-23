@@ -1752,6 +1752,98 @@
       gap: 32px;
     }
 
+    /* TWO TRACKS */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .track-card {
+      background-color: #2B2926;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .track-card:hover {
+      border-color: rgba(242, 87, 73, 0.4);
+      transform: translateY(-4px);
+    }
+    .track-label {
+      display: inline-block;
+      background-color: rgba(242, 87, 73, 0.15);
+      color: #F25749;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .track-card h3 {
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .track-tagline {
+      color: #9DA3AE;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .track-features {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    .track-features li {
+      padding: 0.6rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .track-features li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #F25749;
+      font-weight: 700;
+    }
+    .track-best-for {
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .track-best-for strong {
+      color: #FFFFFF;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .tracks-footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #9DA3AE;
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .section-subtitle {
+      color: #9DA3AE;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 1rem auto 0;
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -1882,6 +1974,53 @@
           <p>Hire someone? They onboard into the same system. Add a revenue stream? It plugs into the same dashboard. Your operating system grows with your business instead of breaking under it.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- TWO TRACKS -->
+  <section class="services" id="tracks">
+    <div class="bg-orb"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#TWO TRACKS</span>
+        <h2>Two ways to build your operating system.</h2>
+        <p class="section-subtitle">Every engagement starts with a discovery call. Based on your team size, tech comfort, and what you're trying to unlock, we choose one of two tracks.</p>
+      </div>
+      <div class="tracks-grid">
+        <div class="track-card fade-in">
+          <span class="track-label">TRACK A</span>
+          <h3>Custom Build</h3>
+          <p class="track-tagline">A React dashboard on Vercel. Your operating system as a piece of real software.</p>
+          <ul class="track-features">
+            <li>Custom UI tailored to your workflows</li>
+            <li>Connected to Notion, Claude, and your tool stack via API</li>
+            <li>Automated data pipelines via n8n</li>
+            <li>You own the code (GitHub repo) and the domain</li>
+            <li>~4-week build cycle</li>
+          </ul>
+          <div class="track-best-for">
+            <strong>Best for:</strong>
+            Teams of 5+, marketing ops, agencies — anyone who wants a real app their team logs into every morning.
+          </div>
+        </div>
+        <div class="track-card fade-in">
+          <span class="track-label">TRACK B</span>
+          <h3>Notion Hub</h3>
+          <p class="track-tagline">A duplicatable Notion workspace with live databases, tuned to your business.</p>
+          <ul class="track-features">
+            <li>Full command center (CRM, content calendar, media library, project management)</li>
+            <li>Claude Projects trained on your voice, team, tools, and strategy</li>
+            <li>Integrated with your existing SaaS stack (ManyChat, Later, etc.)</li>
+            <li>Role syllabuses, SOPs, and training docs for your team</li>
+            <li>2–12 week build cycle depending on scope</li>
+          </ul>
+          <div class="track-best-for">
+            <strong>Best for:</strong>
+            Solo operators, coaches, content creators, DTC brands, and small teams who want the full system without the custom-software overhead.
+          </div>
+        </div>
+      </div>
+      <p class="tracks-footer">Not sure which is right for you? The discovery call figures it out. Most clients end up on Track B — Custom Build is for when a Notion hub won't cut it.</p>
     </div>
   </section>
 
