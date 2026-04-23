@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Claude AI consulting for custom command centers, automated workflows, and AI-powered operations.">
-  <meta property="og:title" content="Claude AI Consulting — Custom command centers, automated workflows, and AI-powered operations.">
-  <meta property="og:description" content="Transform how your team works with AI. Custom command centers, automated workflows, and AI-powered operations.">
+  <meta name="description" content="Custom-built AI operating systems for leaders running real businesses. One system that connects your tools, automates your workflows, and puts everything in one place — designed around how you actually work.">
+  <meta property="og:title" content="Custom-built AI operating systems for leaders running real businesses.">
+  <meta property="og:description" content="Your business runs on a patchwork of tools that don't talk to each other. I build the system that connects them, automates them, and puts everything in one place.">
   <meta property="og:image" content="https://claude-consulting.vercel.app/og-image.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://claude-consulting.vercel.app">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Claude AI Consulting — Custom command centers, automated workflows, and AI-powered operations.">
-  <meta name="twitter:description" content="Transform how your team works with AI.">
+  <meta name="twitter:title" content="Custom-built AI operating systems for leaders running real businesses.">
+  <meta name="twitter:description" content="Your business runs on a patchwork of tools that don't talk to each other. I build the system that connects them.">
   <meta name="twitter:image" content="https://claude-consulting.vercel.app/og-image.png">
-  <title>Claude AI Consulting — Custom command centers, automated workflows, and AI-powered operations.</title>
+  <title>Rad Animal — Custom-built AI operating systems for leaders running real businesses.</title>
 
   <!-- Google Fonts - Roboto Flex -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1752,6 +1752,257 @@
       gap: 32px;
     }
 
+    /* TWO TRACKS */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .track-card {
+      background-color: #2B2926;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .track-card:hover {
+      border-color: rgba(242, 87, 73, 0.4);
+      transform: translateY(-4px);
+    }
+    .track-label {
+      display: inline-block;
+      background-color: rgba(242, 87, 73, 0.15);
+      color: #F25749;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .track-card h3 {
+      color: #FFFFFF;
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .track-tagline {
+      color: #9DA3AE;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .track-features {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    .track-features li {
+      padding: 0.6rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .track-features li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #F25749;
+      font-weight: 700;
+    }
+    .track-best-for {
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .track-best-for strong {
+      color: #FFFFFF;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .tracks-footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #9DA3AE;
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .section-subtitle {
+      color: #9DA3AE;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 1rem auto 0;
+      text-align: center;
+    }
+
+    /* HOW IT WORKS */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .process-step {
+      background-color: #2B2926;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .process-step:hover {
+      border-color: rgba(242, 87, 73, 0.4);
+      transform: translateY(-4px);
+    }
+    .process-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgba(242, 87, 73, 0.25);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .process-timeline {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #F25749;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .process-step h3 {
+      color: #FFFFFF;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .process-step p {
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* WHO THIS IS FOR */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .who-card {
+      background-color: #2B2926;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+    .who-card.who-yes {
+      border-color: rgba(242, 87, 73, 0.3);
+    }
+    .who-card h3 {
+      color: #FFFFFF;
+      font-size: 1.35rem;
+      margin-bottom: 1.5rem;
+    }
+    .who-list {
+      list-style: none;
+    }
+    .who-list li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .who-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #F25749;
+      font-weight: 700;
+    }
+    .who-list-no li::before {
+      content: "✕";
+      color: #9DA3AE;
+    }
+    .verticals {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .verticals-label {
+      color: #9DA3AE;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .verticals-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .vertical-pill {
+      background-color: rgba(242, 87, 73, 0.1);
+      border: 1px solid rgba(242, 87, 73, 0.3);
+      color: #F25749;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* PRICING CARD INTERNALS */
+    .pricing-card h3 {
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-card .btn {
+      width: 100%;
+      margin-top: 2rem;
+      display: inline-block;
+      text-align: center;
+    }
+
+    /* PRICING TAGLINES + FOOTER */
+    .pricing-tagline {
+      color: #F25749;
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .pricing-footer {
+      max-width: 720px;
+      margin: 3rem auto 0;
+      text-align: center;
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding: 1.5rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      background-color: rgba(43, 41, 38, 0.5);
+    }
+    .pricing-footer strong {
+      color: #FFFFFF;
+    }
+    .pricing-footer em {
+      display: block;
+      margin-top: 0.75rem;
+      color: #9DA3AE;
+      font-size: 0.875rem;
+      font-style: normal;
+    }
+
   </style>
 </head>
 <body>
@@ -1760,8 +2011,8 @@
     <div class="header-container">
       <div class="logo">RAD ANIMAL</div>
       <nav id="nav">
-        <a href="#services">Services</a>
-        <a href="#showcase">Showcase</a>
+        <a href="#process">How It Works</a>
+        <a href="#tracks">Two Tracks</a>
         <a href="#pricing">Packages</a>
         <a href="#results">Results</a>
         <a href="#about">About</a>
@@ -1781,9 +2032,9 @@
   <section class="hero">
     <canvas id="particle-canvas"></canvas>
     <div class="hero-content">
-      <span class="hero-eyebrow">CLAUDE AI CONSULTING</span>
-      <h1>Transform how your team works with AI.</h1>
-      <p class="hero-subtitle">Custom command centers, automated workflows, and AI-powered operations — built for teams ready to 10x their productivity.</p>
+      <span class="hero-eyebrow">RAD ANIMAL · AI CONSULTING</span>
+      <h1>Custom-built AI operating systems for leaders running real businesses.</h1>
+      <p class="hero-subtitle">Your business runs on a patchwork of tools that don't talk to each other. I build the system that connects them, automates them, and puts everything in one place — designed around your team, your voice, and your workflows. You own it. You keep your tools. You just stop managing them one at a time.</p>
       <div class="hero-ctas">
         <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-primary">Book a Discovery Call</a>
         <button class="btn btn-secondary" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">View Packages</button>
@@ -1806,8 +2057,8 @@
               <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/>
             </svg>
           </div>
-          <h3>Scattered Communication</h3>
-          <p>Your team juggles WhatsApp, email, Slack, and Teams — nothing connects.</p>
+          <h3>Spread Across Everything</h3>
+          <p>Client info in a spreadsheet. Tasks in your head. Messages across four apps. None of it talks to anything else.</p>
         </div>
 
         <div class="card fade-in">
@@ -1816,8 +2067,8 @@
               <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
             </svg>
           </div>
-          <h3>Manual Everything</h3>
-          <p>Hours lost daily on repetitive tasks that AI could handle in seconds.</p>
+          <h3>You're the Glue</h3>
+          <p>Every follow-up, every handoff, every piece of data runs through you. That's 10+ hours a week you're not building your business.</p>
         </div>
 
         <div class="card fade-in">
@@ -1827,7 +2078,7 @@
             </svg>
           </div>
           <h3>Data Sitting in Silos</h3>
-          <p>Analytics, contacts, and content trapped across disconnected tools.</p>
+          <p>Analytics, contacts, content — all in different places. Every decision means digging through three tools to find the answer.</p>
         </div>
 
         <div class="card fade-in">
@@ -1837,19 +2088,19 @@
             </svg>
           </div>
           <h3>No Unified View</h3>
-          <p>No single dashboard showing what matters across your business.</p>
+          <p>You don't have a single place that shows where your business stands today. You have a feeling — and hope it's right.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
+  <!-- TRANSFORMATION -->
+  <section class="services" id="transformation">
     <div class="bg-orb"></div>
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">#SERVICES</span>
-        <h2>Built for how you actually work.</h2>
+        <span class="eyebrow">#THE TRANSFORMATION</span>
+        <h2>What changes when you have an operating system.</h2>
       </div>
       <div class="services-grid">
         <div class="service-card fade-in">
@@ -1858,8 +2109,8 @@
               <rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>
             </svg>
           </div>
-          <h3>AI Command Centers</h3>
-          <p>Custom React dashboards with pipelines, calendars, and real-time insights — your team's mission control.</p>
+          <h3>One place. Not a patchwork.</h3>
+          <p>Every client, every task, every metric — in one place. Custom-built for how your team actually works. Your command center knows your business as well as you do.</p>
         </div>
 
         <div class="service-card fade-in">
@@ -1868,38 +2119,8 @@
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
             </svg>
           </div>
-          <h3>Automated Workflows</h3>
-          <p>Morning briefings, email triage, data enrichment, and follow-up sequences — running while you sleep.</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
-            </svg>
-          </div>
-          <h3>Claude AI Configuration</h3>
-          <p>Security hardening, custom instructions, privacy protocols, and team-wide deployment.</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-            </svg>
-          </div>
-          <h3>VS Code Agent Architecture</h3>
-          <p>Parallel AI agents for development — front-end, back-end, data, and QA working simultaneously.</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
-            </svg>
-          </div>
-          <h3>Data & Analytics Integration</h3>
-          <p>Connect your tools, surface insights, and turn raw data into actionable intelligence.</p>
+          <h3>Your AI works while you sleep.</h3>
+          <p>Morning briefings. Auto-processed meeting notes. Follow-up emails drafted before your first coffee. Content calendars that populate themselves. Not "AI features" — actual workflows that run daily.</p>
         </div>
 
         <div class="service-card fade-in">
@@ -1908,8 +2129,92 @@
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
-          <h3>Team Training & Onboarding</h3>
-          <p>Hands-on workshops to get your entire team fluent in AI-powered workflows.</p>
+          <h3>A system that scales with you.</h3>
+          <p>Hire someone? They onboard into the same system. Add a revenue stream? It plugs into the same dashboard. Your operating system grows with your business instead of breaking under it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO TRACKS -->
+  <section class="services" id="tracks">
+    <div class="bg-orb"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#TWO TRACKS</span>
+        <h2>Two ways to build your operating system.</h2>
+        <p class="section-subtitle">Every engagement starts with a discovery call. Based on your team size, tech comfort, and what you're trying to unlock, we choose one of two tracks.</p>
+      </div>
+      <div class="tracks-grid">
+        <div class="track-card fade-in">
+          <span class="track-label">TRACK A</span>
+          <h3>Custom Build</h3>
+          <p class="track-tagline">A React dashboard on Vercel. Your operating system as a piece of real software.</p>
+          <ul class="track-features">
+            <li>Custom UI tailored to your workflows</li>
+            <li>Connected to Notion, Claude, and your tool stack via API</li>
+            <li>Automated data pipelines via n8n</li>
+            <li>You own the code (GitHub repo) and the domain</li>
+            <li>~4-week build cycle</li>
+          </ul>
+          <div class="track-best-for">
+            <strong>Best for:</strong>
+            Teams of 5+, marketing ops, agencies — anyone who wants a real app their team logs into every morning.
+          </div>
+        </div>
+        <div class="track-card fade-in">
+          <span class="track-label">TRACK B</span>
+          <h3>Notion Hub</h3>
+          <p class="track-tagline">A duplicatable Notion workspace with live databases, tuned to your business.</p>
+          <ul class="track-features">
+            <li>Full command center (CRM, content calendar, media library, project management)</li>
+            <li>Claude Projects trained on your voice, team, tools, and strategy</li>
+            <li>Integrated with your existing SaaS stack (ManyChat, Later, etc.)</li>
+            <li>Role syllabuses, SOPs, and training docs for your team</li>
+            <li>2–12 week build cycle depending on scope</li>
+          </ul>
+          <div class="track-best-for">
+            <strong>Best for:</strong>
+            Solo operators, coaches, content creators, DTC brands, and small teams who want the full system without the custom-software overhead.
+          </div>
+        </div>
+      </div>
+      <p class="tracks-footer">Not sure which is right for you? The discovery call figures it out. Most clients end up on Track B — Custom Build is for when a Notion hub won't cut it.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="services" id="process">
+    <div class="bg-orb"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#HOW IT WORKS</span>
+        <h2>From first call to fully operational in 2–6 weeks.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step fade-in">
+          <div class="process-number">01</div>
+          <div class="process-timeline">WEEK 1</div>
+          <h3>Discovery</h3>
+          <p>We get on a call. I audit your current tools, workflows, team structure, and pain points — and ask the questions most consultants skip. By the end, we've picked your track.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-number">02</div>
+          <div class="process-timeline">WEEK 1–2</div>
+          <h3>Your Custom Blueprint</h3>
+          <p>You receive a tailored documentation package: Call Summary, Command Center Spec, Privacy & Security Guide, Build Roadmap, Growth Strategy, and Claude Setup &amp; Usage Guide. Pro and Enterprise engagements include additional custom docs.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-number">03</div>
+          <div class="process-timeline">WEEK 2–6</div>
+          <h3>Build &amp; Launch</h3>
+          <p>I build your system, connect your integrations, set up your AI workflows, and train you and your team. You go live with a system that's yours — custom-built for your business.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-number">04</div>
+          <div class="process-timeline">ONGOING</div>
+          <h3>Monthly Support</h3>
+          <p>New automations, optimization, troubleshooting. Your business evolves — your system evolves with it.</p>
         </div>
       </div>
     </div>
@@ -1920,8 +2225,9 @@
     <div class="bg-orb"></div>
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">#SHOWCASE</span>
-        <h2>Real command centers. Real businesses.</h2>
+        <span class="eyebrow">#CUSTOM BUILD EXAMPLES</span>
+        <h2>What a Custom Build looks like.</h2>
+        <p class="section-subtitle">Example dashboards from the Custom Build track. Notion Hub examples coming in a future update.</p>
       </div>
       <div class="showcase-grid">
         <div class="showcase-item fade-in">
@@ -1951,70 +2257,118 @@
     </div>
   </section>
 
+  <!-- WHO THIS IS FOR -->
+  <section class="services" id="who">
+    <div class="bg-orb"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#WHO THIS IS FOR</span>
+        <h2>Is this you?</h2>
+      </div>
+      <div class="who-grid">
+        <div class="who-card who-yes fade-in">
+          <h3>This is for you if:</h3>
+          <ul class="who-list">
+            <li>You run a business with 1–35 people and no dedicated CTO or ops person</li>
+            <li>You're spending 10+ hours/week on work that should be automatic</li>
+            <li>You've tried AI tools but nothing connects into a real system</li>
+            <li>You want a custom-built operating system designed around how you actually work</li>
+          </ul>
+        </div>
+        <div class="who-card fade-in">
+          <h3>This is NOT for you if:</h3>
+          <ul class="who-list who-list-no">
+            <li>You want a ChatGPT tutorial (that's YouTube)</li>
+            <li>You need enterprise IT infrastructure (that's Accenture)</li>
+            <li>You want to "learn AI" as a concept (that's a course)</li>
+            <li>You're looking for a one-time prompt template (that's a $19 Gumroad product)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="verticals">
+        <p class="verticals-label">Common verticals</p>
+        <div class="verticals-grid">
+          <span class="vertical-pill">Coaches &amp; consultants</span>
+          <span class="vertical-pill">DTC &amp; e-commerce brands</span>
+          <span class="vertical-pill">Agencies &amp; creative businesses</span>
+          <span class="vertical-pill">Content creators &amp; personal brands</span>
+          <span class="vertical-pill">Medical &amp; regulated practices</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="bg-orb"></div>
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">#PACKAGES</span>
-        <h2>Choose your level.</h2>
+        <h2>Packages.</h2>
+        <p class="section-subtitle">Each tier's tagline names who does the work. Price scales with how much of my time you're buying — not with feature counts.</p>
       </div>
       <div class="pricing-grid">
         <!-- Starter -->
         <div class="pricing-card fade-in">
-          <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Starter</h3>
+          <h3>Starter</h3>
+          <p class="pricing-tagline">"I set up the foundation. You build on it."</p>
           <div class="price">$750</div>
-          <p class="price-period">One-time investment</p>
+          <p class="price-period">One-time · Notion Hub track only</p>
           <ul class="pricing-features">
-            <li>Claude AI security & privacy setup</li>
-            <li>Custom instructions configuration</li>
-            <li>2 scheduled automated tasks</li>
-            <li>Basic Notion database architecture</li>
-            <li>1 hour of training</li>
-            <li>Email support for 2 weeks</li>
+            <li>1-hour discovery call + security audit</li>
+            <li>Claude configured with your business context (Projects + custom instructions)</li>
+            <li>2 automated daily workflows (morning briefing + end-of-day review)</li>
+            <li>Basic Notion architecture</li>
+            <li>1-hour training session</li>
+            <li>2 weeks of async Q&amp;A — up to 1 hour of my time, 2-business-day response</li>
           </ul>
-          <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-secondary" style="width: 100%; margin-top: 2rem; display: inline-block; text-align: center;">Get Started</a>
+          <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-secondary">Get Started</a>
         </div>
 
         <!-- Pro (Featured) -->
         <div class="pricing-card featured fade-in">
           <div class="pricing-badge">MOST POPULAR</div>
-          <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Pro</h3>
+          <h3>Pro</h3>
+          <p class="pricing-tagline">"We build it together. I handle the architecture; you handle your business."</p>
           <div class="price">$3,500</div>
-          <p class="price-period">One-time investment</p>
+          <p class="price-period">One-time · Custom Build or Notion Hub track</p>
           <ul class="pricing-features">
-            <li>Everything in Starter, plus:</li>
-            <li>Full command center app (React + Vercel)</li>
-            <li>Up to 5 tool integrations</li>
-            <li>5 scheduled automated tasks</li>
-            <li>Content calendar & project management</li>
-            <li>Lead pipeline & enrichment setup</li>
-            <li>VS Code agent architecture</li>
-            <li>3 hours of team training</li>
-            <li>30 days of support & optimization</li>
+            <li>Deep discovery call + follow-up questionnaire</li>
+            <li>Custom documentation package (5–8 tailored docs)</li>
+            <li>Full command center — Notion Hub with up to 5 integrations, or React dashboard (Custom Build track)</li>
+            <li>5+ automated workflows (briefings, meeting processing, content calendar, lead management)</li>
+            <li>Claude Projects fully configured for your team</li>
+            <li>3-hour training + video walkthroughs</li>
+            <li>30 days of post-launch support — up to 3 hours of my time, 1-business-day response via Slack or email</li>
           </ul>
-          <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 2rem; display: inline-block; text-align: center;">Book a Call</a>
+          <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-primary">Book a Call</a>
         </div>
 
         <!-- Enterprise -->
         <div class="pricing-card fade-in">
-          <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Enterprise</h3>
+          <h3>Enterprise</h3>
+          <p class="pricing-tagline">"I build everything. You show up and use it."</p>
           <div class="price">$7,500+</div>
-          <p class="price-period">Custom quote</p>
+          <p class="price-period">Custom quote · Either track</p>
           <ul class="pricing-features">
             <li>Everything in Pro, plus:</li>
-            <li>Company-wide AI strategy & implementation</li>
-            <li>Unlimited tool integrations</li>
-            <li>Custom data enrichment pipelines</li>
-            <li>Multiple command centers</li>
-            <li>Executive dashboards & reporting</li>
-            <li>Full team onboarding (up to 20 people)</li>
-            <li>90 days of dedicated support</li>
-            <li>Quarterly optimization reviews</li>
+            <li>Full 10–12 document package (brand voice, role syllabuses, CRM specs, growth strategy)</li>
+            <li>Unlimited integrations and custom data pipelines</li>
+            <li>Multiple dashboards or workspaces for different teams</li>
+            <li>Up to 20-person team onboarding</li>
+            <li>Custom automation development</li>
+            <li>90 days of dedicated support — up to 10 hours of my time + 1-hour quarterly optimization call, same-business-day response via private Slack channel</li>
           </ul>
-          <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 2rem; display: inline-block; text-align: center;">Let's Talk</a>
+          <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" class="btn btn-primary">Let's Talk</a>
         </div>
       </div>
+      <p class="pricing-footer">
+        <strong>Ongoing support after launch: $150/hr</strong> — monthly optimization, new automations, troubleshooting, and integration updates. Available to any past client.
+        <em>Founding-client rate of $125/hr is available to the first 10 ongoing clients — grandfather-locked for the life of the engagement.</em>
+      </p>
+      <p class="pricing-footer">
+        <strong>Upgrade anytime.</strong> Outgrow your tier? Your original payment applies as credit toward the next one — you only pay the difference. Available during active engagements and within 60 days of delivery. Starter → Pro costs $2,750. Pro → Enterprise costs $4,000.
+      </p>
     </div>
   </section>
 
@@ -2104,8 +2458,27 @@
       <div class="section-header">
         <span class="eyebrow">#RESULTS</span>
         <h2>What this looks like in practice.</h2>
+        <p class="section-subtitle">Anonymized for client privacy. Details shared with permission.</p>
       </div>
       <div class="results-grid">
+        <div class="result-card fade-in">
+          <h3>$50M DTC Skincare Brand</h3>
+          <p>35-person team, 8 years bootstrapped. Phased AI operations plan from senior marketer up through the co-founder/CMO. Content calendar, campaign analytics, and team workflows unified into one system.</p>
+          <div class="result-stat">Multi-tier engagement</div>
+        </div>
+
+        <div class="result-card fade-in">
+          <h3>Creator Brand + Clothing Line</h3>
+          <p>Personal brand plus apparel brand, run by two sisters and an assistant. Delivered full Notion Hub with 12 custom docs, 3 live databases (CRM, Content Calendar, Media Library), and Claude Projects trained on voice and team.</p>
+          <div class="result-stat">Full operating system live</div>
+        </div>
+
+        <div class="result-card fade-in">
+          <h3>Startup Advisor Running Two Businesses</h3>
+          <p>Advisory firm plus coaching practice, both run off spreadsheets and memory. Unified command center with CRM, content calendar, coaching intelligence, and daily AI briefings.</p>
+          <div class="result-stat">15–20 hrs/week projected back</div>
+        </div>
+
         <div class="result-card fade-in">
           <h3>Creative Consulting Agency</h3>
           <p>Command center with client pipeline, lead scoring, AI insights, and revenue tracking. Automated follow-ups reduced response time by 80%.</p>
@@ -2130,10 +2503,10 @@
       </div>
       <div class="about-content">
         <div class="about-text fade-in">
-          <h2>I don't just teach AI — I run my entire business on it.</h2>
-          <p>I'm a creative director and founder of Rad Animal. I've been an early Claude AI adopter since the beginning, and I've built my entire operation around it. From custom command centers to fully automated workflows, I've learned what actually works.</p>
-          <p>My background spans creative consulting, music production, and experiential event design. I know what it means to juggle multiple businesses, coordinate teams, and need systems that actually work in the real world. That's why I don't just implement AI for clients — I implement AI the way I use it myself.</p>
-          <p>Every package I build reflects years of running businesses on Claude, automation frameworks, and integrated tools. I'm not selling you theory. I'm selling you systems that are already proven in production.</p>
+          <h2>I don't just consult on this — I live it.</h2>
+          <p>I'm Jake Goble. I run my entire business — client management, content, operations, scheduling, financial tracking — on the same AI-powered system I build for clients. Every morning, my AI pulls my calendar, prioritizes my tasks, and gives me a briefing. Every meeting auto-generates notes, action items, and follow-ups. Every lead gets tracked, scored, and nurtured without me touching a spreadsheet.</p>
+          <p>I've been building with Claude since early access. Not as a hobby — as the core infrastructure of my business. That means when I build your system, I'm drawing on thousands of hours of real operational experience, not just technical knowledge.</p>
+          <p>Background: creative consulting, music production (32K monthly Spotify listeners as Jakke), and event design at a Venice Beach venue. I've run businesses where every hour matters — and I've built the system that gives those hours back.</p>
         </div>
         <div class="about-visual fade-in">
           <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAHzAZADASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAgABAwQFBgcI/8QAPxAAAQMCBQIFAgMGBQMFAQEAAQACEQMhBBIxQVEFYQYTInGBkaEUMrEWI0LB0eEHFTNS8GJy8SRDRIKSF1T/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8Aw61QNpzMAblUB1CkJGdo5VTxJVq4fpYcyYDZXm56nXc8lzzryg9ap46hP+prZWW47DACandeRt6tUAA8wqQ9adAHmuhB65/mWGAJziOxQnreDaYz7crycdVaWkOqQ5UamMJqn1OPeUHsTvEOCbo9vtm+6gq+K8IwSHN9ydl5TJcJzEghGwGNfdB6JW8aUmzkP2VCr4zqR6GuuuLzZRpbgJF0ACJ90HVVfF2LdmDABtcqlU8RY+pH7wDhYYLoNzMbpS4wQg1XdYxriZr2OqjPUMY93qxDyTybLOzEOEA6wYCfM6f1QXPxeJcBNZ873Q/iKxEOrvI91VzkRJI7ygzE8HlBafUMXe8/KhzQb3I+UBBJFz8oeLR3KCUPER/JM5/DflAC2bn4Kdrm6RA72lA73ECbqu+q4C0/KtPb5jbC8KsaFQE2sLoK7cRDgXjVb3T8XRqQBAdG6zHYUOALmRFiUBaMK0kG4vZB07sS40w10R7XhU8XTpVGsFNrSTawvKhwVZ1ejMA7p/MNF2cXg6GyCL8FiGsLjh6uU/xZSVRxhiwN912HT/FFCjR8upSqM/623C53xL1CjjKpNKHTocsEIMqnjKjAI25ROxtck+s+yq6EEi6fUDU90Fk4yvJ/eEkGFDUrPeSSTOsoBcJptp8oNPp9eplEVXNA4JWrSx+LpGWV3W+Vz2DeRUhaRectjqg3aHiDH0jdwfzdaeH8ZVmCKrHDuCuRD73mE+fc7coPR8H42wzhleS0jkLaw3ibCVjGZg+V5AHg3i/dGC2RlOU7QUHudDq2Ge21SCrLcXRqWzj44XhNLFVqR/d4l7fmVepdbx9MgNryI3Qe0Z23DXCNknOnQyvJKPirG0o8wA+zlfoeMqlL/UpvEIPTLjc2Qk3uAQDuuKwvjKk8ep2Uzo5auH8SYao2zme4Qb5kG/2SbHc3WdT6rh6jYFQf2Vini6ThAqNHHdBPa8GE1gSG3shFZpAyuH1Th+4iDsgRvOoHsmM3gkcyU52i3ZNMge8IOW8SYMVemOaBoI9l41icC7zqjQLAle9dTo5sJUbqYXi3UazsP1OrTI9IdCDGfgnh1tkJw1Qu0K2mYmm+ORud1JmpxcXQYP4R9r+9lLTwb9SSeVruLToARoigTAG30QVKFJwaBB91KKfBA5UzY1JFrJQTclBC1hJ9UQOE4YA31KZrBHJNoJUgptBvoUFdjJMmIREQYymRyVPlba+nKfOxpAN+6CnUa4tJaIjcKIAgAklX62JYKZaBqbqkG52ucgiNYF0EW4Rh3oIAjsoTTAqZTaTF1bZRaGzZBAXOOmyXrNxmIPKsNawtEkCEsrROZ30QVhTOpIunZTcCCDqrLi2IE/KZ7oHp1m0IGY7JeQT2RtrtOWwsFC+SDaVEWODrXnsgvNrNnWO6q49gqU7IMrjNoUtQHyy1u4jRBY6UclAdrQp8S4Fjso+1lFhMM9lMF3vCPIXO9f5eJQZ2Q7A/0VOqSHkP5uumbTwpbo2Y2MSuf6k1rcQ4t0nRBWIuAP7pT6bRBSAl19AmjW3CB3aaGdyhtHqBiJRXnkpa6W5JQFh/9XtwtynTaWWhYTTlIgbLVpPIpghpBI7oLDqdpgITSMEbd0PnyIMd0/mgiTYIF5Jg7kIcroBNlJ52UwCiFUE7j2QQerQ7aQna5wjbeFYGUxm+qINY6D9UFdtUi833RitEBS+SC4wR3Q+Rm331QIVmgAuIjRLzBmEEiNINoUbqGtv7KM0XTqZ4QaDMVWpx5dd4iwE6KzT6xjKQtWzX3WK5r2zB04TS7UiOyDp6XiXGMMQD3BhXaXi6s0etrj/JcYKriLgfKdtfXf3QegYfxkz+NxC0aXivDviHNPfReXCvLL6FIVATmywEHueMpZqFUCwLbLxjxJh2/wCb1A8RuvdPKzNLSLEQvLPH/h3GOxRxOFYXAagION/CQe/uiFBx3j+ahcMVScBVpPbHLU/4lzZEESUE3lkRwpCIG08hV21iXcBEK3JlBLEGTojBvF1CH/RSU5JjWeEDtIAgT8Js2kaj5VqjgMTWjJReeDH81r4Pwvj6+XPTFIayTKDnAHmePdOMO925NoXonT/A2Zv/AKio51rxZdF07wfgqHq8uSDqboPI6XS61dkU6L6nEA6qKv0zHYUQ7DVAXaCJJXv9DpWFoizItCet0vCOdPlgoPnyl0TqNR+b8HVmeFdpeHOr1WkMwrm+5AXvLOnYZrT+6HspaeEwzSf3Td5QeE0PCPV7l1Jg31lTDwb1Z7z/AKYbuJXuXlUbkMZGk5ZUgp0mmzWzrog8MHgjqYAc40x8lI+COpE3dS76r3SKWzB9E7W02wS0Ce2qDws+CupMMnyz2un/AGP6mRZrI+V7nNM/wgnukfLn8kgFB4thPBGMquBrvy9mtV/9jH0dKTqncWK9aDqbSQWGOYTuLZ9VMFB5N+yGJqflpVWj4Khp+Dcf+IYKtP8AdHX2XsBqMGjAL3SNRpafQI4QcAfA2EdT9WHGbTRef+LPCWKwmJzYTDvezdo1C9/8wX9IHEFVMVh6Vcy+mDKD5pHReougNwdc+7VM3w91ZxtgqsfC+hh0ygDemOTKkGBotE+WL6oPnj9mesH/AOE+/cIm+F+sf/43fJX0P+CogfkbzwkMHTM/u2oPBumeE+pvxlPzsNDJl3q2XrfTfD2G/CNDqDJAES2V0TcNSlsMap6cNAhokHRBy9Xwlg6t3UKZB1BaFRq+AcFUBjDtHeYhdyHGQYvyjLzBgCQg8yxH+HFEtPliq20yHSsjF/4e4umSaFYuA0zheyOqRYNuCkSHAy0QeyDwav4O6vTBim14H/VCzq/ReqYf8+FqR2v+i+hn02OEua0j21Var0+g4nNTFt0Hzu/z6JIq06jfcFD+IcNxC99r9CwrxBptA7hZmK8H4CuPVh6V/wDpQeLtxPq0k/opPxNNxAIF16Ziv8PsG6clMt2GUrJxf+HUA+TXqtjmCg4o1WEiRb3TE0y3Ye66LE+BcfT/ANKs1/YhZeJ8L9Yo3FIPHIdsgzzTZAjvYboHUg7RS1endSoSauDqgTqBKqVDiKZIqMe063aUBGlaIQPpE2uBrohOIte6L8QA6b90H0CKxDZN0FdzawIc2WnsoJJBkklFFrAm8IM6v0nC1vzU2md4lVX+HsA7XDsPuFugXO6eI1sg5h/hbp7zJoM4CiPhDAk2otkbkLq8sNhP5dzaZ7oOWb4UwLdKYsNCr+E6BgaVQRSZPtqttzYabIqbbiIQNQ6bRpwQ1tt4VxlBjRIaBbRSgW1gaXCzuodSOExDaflklxgWmEGi0ARvH3R5QDGp2TYZ3mU2uykbwpI1Oh/VAxtAO33Ti5kXSZaE4bJvogeJPp04KQG4AvyluRJI4TxIgfB5QJogR3tZOGkXd/4Tts0jjXdPsJA4vwgHdPlJbACeRMn2siLRBtYTugjaySdzGvCfLHxaUdrgbX0SGl9UEeWSllIFhEWUp2BN/wBSmtF9vhBHEbdkiLX3UpiAZudYSloPKCPKMxm6aNjsPspJaZFp7ppbIGa20lBGWSDIHN9UspLhEdiEZLBuJ2TktI1ugjy5drndKIk6FSBw0Op3SLmwLgfKCMgtuYCdrSRFinOXUGe0pZmA/mAQIixKWXe19AnzD/c26TntOjvc6oEIDe24CKDc7/ZNmad0Qc0/xNv3QMbC2w2TgSZglJzm8p8zAPzIGDASLDlINbJgE/zTyBYOEchIOE6j66IAczZwuhDdY91KHCTBGqY5XGGkX5KCB1MEQYI9lC/DUnXLG+yuy3LqBHdA6Cbkf84QZtXptBwjy9eyq1eg4aq29NttSWrbsRrqiAGpAvY3QchX8IYCrINClG5LQszEeAsBUB/cAf8AbZd+WCDFoQFrSwwZ3jhBgMsRJt7Ioh2veBuuIreNqQtTY5wVOp41qx6KZ7IPRRodeeyNpE3IPZeWP8Y40k5Rva6rv8WdQOjmhB63nbP5gfcoTXpA3e366Lx6p4k6jUJipAPGyhf1nqDpJxDhN0HsjsZhxY1Wg7IHdSwzDJrC268Zf1DFOucQ+/dRHFV3OOarUJ11Qe8U+q4UsvUahqdQ6fUIL3MtobLwsYvEBmUVqgH/AHJfia7rmq+/LkHuh61gWN/1GaaSEL/EGBb/AO42O5C8MdUqGJe4/wD2Q5nFw9Tj8oPcX+JMA2QarReblQu8VdPaSPMaPmy8UDi7UmO5uEtDEifZB7MfGHT2kxUb2EqOp42wAgeY35K8c7Iogxvzyg9ad46wI/8AcBKif4/wgFnEjgBeUn1EHaNgnZcxMDmEHp9T/EHDycua/AUbv8QacGA8g8N2XmhGx17lP+YRFuZsg9EP+IIkgMfCjd4/dlMU6hOq4A/mka72TSDbQoO9Pj6q7Sm4/MKM+O6+gpun3XDhxDRfVKQdJF4Hfug7V3j3EH/2zpyg/brFG4pn5cuOBB1tPdMJsDHayDsHeOsaY/d3/wC5N+22NMjJ21XIg+4dOyaeZJG6Drf23xxiGAd5QnxnjssED6rlWkQTGqUjMR9UHU/trj7+hvMzomPjTHzENtfUrl5kQLQmtPqJOqDqP2y6hw0Hm6YeMuo3kCR3K5gEA/luE7NIi/CDph4x6heMnY3un/bLqAiWM+65gElwFjCQ0IO6DqP2x6jBJDB8lL9suoHZo5uuXEybk7apx73nU6IOo/bPqBggM+qX7ZY+8MbHuVyx9vczqlJMW+qDqv20x8GA0TwUv21x0WYCNocbdlyp1M+xSE2jQC99UHVfttjSB6BE/wC4px43xon92P8A9LlM0gyNkxJ7oOu/bjG6eWP/ANIv25xmnl31iVx1ovb5StM/zQdgPHWLkzSEDUZkX7d4k28o27rjHWi8JomxAhB2o8e4gOP7txPui/b2tcmkSfdcOTGpvynzEbwgiALW7z2THb3RmzbA6pQfjSyAIlonZID6IgOQCdpRCwAMAIBAyyZulAg3E8IvzGCddkha83QDeLNAjSE4aSOCiAnT68JyP4j7QgYN51TuAE6ykJvmTt3sO8oGMEaj+6b8u/1Rm8Wuk7aIG6BgbzaEgCQTaI+UsuawuNOE+W+8aSEA6C2qVjzKKMpHMe6V4hAhrGo7pGdwnIk/N07hJI1QAINrJXzSR8JyIEWhPrlGnMoEBraUzZBglK0ESDunvAsIHdAg6GkETymF5kFPBLhZORH1QIRMxshboLapzAkuOW8BROxAFFz25SGg3/kgkECAQE+p9XumD8zQZFxPunnSECidNISncFO6NJt3CGMoM3CBDSZskJtIvF07pAsNUpv3HKAZNyBPE7pxrNoTgj33McJjbUhAh8TvKfs4X79kgb2I19k2hI1QNfKdE82Nu0p9TNrIWmdIPygeeJiZ1RggN+EAEXI+Eh2vPKBHUzJslNgTxwk3W1wdNpTXtBidpQJs347FLMIItCW5nTRNa243QEIBmyHUE2B9k+uk3T++o2QCPzGxtqkNxeDsnEySdeUIBLouCgVpN5hKJG2qRdFtkj2P90AGwhot3Ti47bIZg6fRLNE/ayBxaNL/ACjtrF+EAdFpMkTZIEQNjsgMO0i8JzAIObS1whG5tN0wsLkEoCAzXvZFobmyZpjtffdK5uD2QEB2m6TddTATAzYXHdKQ4DVAQnaYFkjr2SGtvukJPsgREuHCdtzIEk/VIEySNNkTPp2QNEtA42RZY3galCBOxlIui5vZA8QYAMJRpqTwkIM3vH0Tze5jhAOo7JbxM+yP0k8hNeDcIADfsnA+EFd2RmhJ3A/VQfjabTDqgcZsRugtAEtPv9VUxeKGHaQSMw2j7qKpjoBAECbHdZuIc+pVu4l2pE6ILVTqDqjS0MALj6TOiqh0OEGc1roTQcGtqDKWGLzopm4Y5S4kRGvCCIV6jKgNNziG8FT/AIt4DaomTttqo6TDmLXtggxOiN9ANElzsp3QalOux5YQYLgbHlT03Zml9sp4WG4VaLGEnPTdYObv/dT0eoZXsDtI9VkGsQBE690wAmJgg3sgZWZUMZjKkcRaZ+miAQDIi1+U4JINjZKAHaG/KUyCdkCEE39rprXNzCfb0i512SlvM/CAdDY6p7ixi26UzqZbokdCJnhAjcaW3jZBcCYujNjAJGyZ1u52CBgTIyg/KcCSDYwmtqDaeU5IGsgIFLnEj/gS11/LKcmRrITGCSgRtYmeyEkaRdOCSDoPZROmb6IJd4BB2SuZhRtcMozQN0VyJtKBOIBAmU0g2bqUzzludULdRYAkoGkXvCRI03P6IT8eyc3AgXCAheJ+yLUAXMcFRkhxO/8AJKfT6tBwgkkbgTwkTIIvohED+aRPCA23EakbpwToNeyH314SJtF73F9kDnS1kcgiyAE352SmZzXgcoDnTlPMG5QE3MbpON/VogIG19fsja7SxHfdRkxrBIummI52QSyJNwLpZhruLyo806CAikiL2lBJmiRse6QseI4uowR21vCfMQb/ANUEkxfYpgfTJBj9UAdcwJ3hLN6Z290AYur5dMuaI+b/AAsMzmLtZ77qfHVxXJZTdbUquAQ5hd+U3QRVXOJbMiBayJrw+rLtY1CVVnr3udU9OnYzCBVapYIBDmG9k9Cu9oeMxiPiEjS9Lm5ocNjoU9GjlcJMNIv2QS0Kga/94cvDuEPn5nPFSSb5r/mQPpvJBgZZ0B1CGrTy1CGkkTYkXj+qCbzcrTTn926bH7H3VZw31SOZ7oBgIi0tkNBMxN0FihVdTcx7TJYJj3Wn+IY6kXNPqYMx9uFk4Uudmm20qGtUdSquYNCDrwg6UmRa5OiYnYCI1UOHqipTYWySRxupjbeP1QKQODtBSmdZ7BMDYDQ90J3nZAZiYP8A5TTYW3Qzb1DW6QIsTr+qAoGa572T3ETom3k/SEJgiCECJgZjHsgbVaTHKVXQtJlU4Iqfqg0JkCNuUi6NVXNXKGt7KPzi58RpygtA8fRJxnTblRMeADmsAh85pMAwEETwfMzXhT54aNe6CxAuCoqroNzKA6lQuIFykysGC5EoWubvPFlDWImCDrogtAmLzO6TTIE7XQZxaNeEX8NiSSdEBmAUm39imAuHbpiZ11NkDyeLaozO9/YII73B4TmRMXAv7ICiJJghLf8Asm1aOZ1CeTFxfiEBOs7jb2TCxO0pGwHvJTnYiANUCGt7HaExB05ukZIBEae6W9roCBvbTYJZoaLahCbGU4M6X90BAxp7JtRMmQm0iLD7pE6ZtPdAQIM+6a02gJpAgxPdPO5KArEeyrY6oW0cwIDhoQrAIAM8rO6o52RmsGyCnRBkZlZyNeJsqINyAb2Wl06i+qWkMJhA7KDn7zPKnGFzNd6bxErfwXTmaELVo9Np5MpADiZPug4huDNVzYbDhYwEIwbnFxcHBrY+V3NDpYpOcGjXXuiqdKbkljYDgAY5CDhWYOpLsrTP8LRpZC7DuqOJc31EwI5Xe0+mMAhzYItZEOlU2gekQbaTKDgG4EtdDA5zhpAQVcFUj8pBGq9Bd06k2IYBOsjVU8VhWQIaL7AoOIohzJbrZZ2LdnqF8EHSCutxuDEONNuUwuZx2GdQdaC1Bc6TXB9DpzzMDhaR3JuDysLpsNxAFxsIW4LXO3KBTeCd0hG404QZgbnnTdHJiSf5oGOoLjB4hNIn5UVV3qt/ZPSdLbmyCZxHII/RCTDiJk8J2EC7plC4WJkkwgTXC4hQuqAGLEgo42MjuqtcFpMa7IJHkEAti31VZzspLrnkpTYj6qCq7VBMa06xBULqxBJkWVV7iD7/AEUZdmniUGiysDE2juidUa6+p7rODnDWZlH5hkXlBoB51P2TOcTrB/kqPnHRMKsxqJvCC7Tqzv8ACuU3AgAiT7rIa7K68q9RqQNdNkF0iT2lPfMATEqMOkhFmEek/dAUmTOo4SEgbJmuBMjThOSSBodkC1ECePdODeSL8IZgzpCLaZhAVjBvp8JONzBExadEwI57pbi8ReECL4IsizaRHxqozoY+spDXSPYygOx297Jz3OqbS+k9/wBU2ouNxdA4JgyUQI7exQ8iExsRIvKAsxkSLcSlAIMwCmMEA+6QgGd4lAUwRclVOpsL6Gb/AGH6qyPmOAo8TfD1IEmEGOWwWAEyQuq6KwNp04El1yVzZZNQa+66fpE5GCZI2QdHhaQEEXtoBqtGg2Ntvsq+EHpmBHCvsaRbUIHp05OxGylFIEaIqTYkjaynYDYG6CrVpEaN/soiwn23WjUYMpN43toq5EEg6FBTqUpEjXlZ2JpQb6dlr1dLbbqpXEzPF0HNY1pbUBkwVynV2mniCDJB7rtups176LlOrUxmE399kGLh5p4lkSCDbdbwOZg+xWLUGSq1wFwZW1EtMCBCAI7gSU5MCxkBRxBEyTsndaLAx2QBVu45TpwiZMWsNUxE6D3HZA0QZk/KCXzLxBUjXAi+vZQZYjQk9k5qCmQCJi6CR3puLyq2IcJNu3sjqVMwMTyAqVZ2Yk2lBHUqESFXe+RDZM7HZBUdOp/sgLpIIJI4QJ7vcnuhEk+lPIJ+UmkcQUDwc0OSIk8fZMP00RNN7RogY2AAuEiCR9ETgSNk1gIMTKCRzSDe208KSm7LyCE1S5ExbdCNbGyC3TqgNuPuiFWTfVUs2ubZMKhBJ17yg1WVZbpGospGuBvMxsFlNqnMMpEbFWaVbayDQIgyLjTlENbyfdQtqAtMkwFKSItfm6BxGpH0ukSYtBCTS3+L1dglbQaaoAJg3mNwk0gQSfkbJPcLgaqvmudQEFuZB+idwkAtt/JQNcT/ACsp/wCGTPwgYSeSEhf+yImJuYTEH+aBjb2TgSSRZL1SdOyfvueEDwAbnXhRYn/Qdv2Um9+dFFjJ/DVYENhBTpeoztK6HpBECbXXP4Yw4EzPC3umtLcpJiSIEoOrwzrNNtLq/Tk/XhZ+Ge3kGNVpYctMjXdBZpkzY/yClY4iZkwhYz0mJM6KRtPOJQOaktuoXSZt9dVN5JiYjZM5oAvaEFJ7XTcjMqtVtt4nRXa1Sm0S94AHJWZVx+FIhuIbJO2iDP6nBpAwZF1y3VWCxb7wumxuJp1qZFwTpOiwcQG12Fhs8aIMDEkXkWmVqUhNJkkzGizMR6XQe8laFBw/D0yd2gIJMoMaFRvgTKlN5JiFDUOv80CFQQQdeUBIk3md1VqPg8jlNSfmNz7SgsvqgDUzEXUE+Y4wdOUNUmPi6LDDXgoGcC1sl2h+yqV3SCAZHC0qrAACRYa+6o12ib/HKCifS6ZnTUIDMuJEdzupakF1rKOZIm3ZAieT8JwLppvI19kRkWiw3QKoIGg7IQ6J7cInD06+wKCwIQEJMaJydQBohF+xCK830QSVS4fmKAmR30UrqZLjlNtEJo3v/RBE55BIOiCSw2JVjyQYBBkXQuo5tJhBGHZZMTPJUtKoMu8pjRjUC2l07aIkETPCCyyvGXlWGVyNIlUQx0SB2RUwct3fKDQ84GIIi6bzfTqeYVQGOfhE6YsgndUIvJ0QC5m57KG8/wBUdG9yUF2jJF7zxdTjXaAqdKpEjRGKmvquUFoQTJuU4M3nuqjasDVEMRO4+LIJ8wDtI3hEADMRz7Kp51zdE2uI9JjugtcQZJ4UeJk4eoLkZd0WEBrV20mmCTMnZdAegU61OKWIIkEXEoOS6e3zH09IJAiV0I8x2JbTpAWuRpKz8LgqmF6qcM8Auo6lbuGoBofVIHqNkE9DAYp9NrmVmMdw4SoKuDx1IS9lWqRcupumPhS4Wpi8bihRowGzBc42aObalZVTGYs1K9OpinsrMqZRSyxIvPYRAsbmbINnp3Vq9JwbXDg4CJcYldNg8WKoBYdRdZ9bpQw4oPdUJbUY0uYSCWEi4I3Sw0UKoDYyu27oN3M4XvyCbrG6rjn02uh0EHSVpmsS2xufusLFNbVxDgZAEf8AlBztcYrFuvFzdz3QFo4Xp7Mgdia4PZugW30/AYSu2s6pXbTOUhrXOgudFpOw7Bcd+GrOxWHo+ViQ8EisSbH1WynYRrM9kG1Xw9AshjzkFg0XC57FUX0MUSbteJC2cZh3Use1uGqvq0ps1xkge+6HqOH8zDlxaczYIKDjse0jEumJEqSlUPpaySQNBqrteg2p1XCtdZlVwabLsHYfD4MGngqVPONXZbN9+6DiHVS30ubB4Iuq1StexBveV0vifBAdPOMzetjg0mImVxtR5IiLoCe/Unn6qWkQBFuyouccx2RseQBAFggvvNhBsmp1A25VM1XQZsAfqmbVhpkX4QXamIAbFrqtWqgjkgqvmJMfdD+Y6a90CdrmCEi99ZmU+0GfhOGmSCBI5QMbuak7ROM1rJ49I+0oGLRr9E0G2gOqIWA/SE1Q2j9EDD3TD8wGqa9rfCcwdr7INBzmxYiY3QFwGt1CCTqUeU3sgkmdIhKRP8lGQQNYTAZjqgNzgXRYhIum5gAaJg2QbxHbVMWx7ICcbX0hIOEXQAFyRB+e5QStd8fySBGqgeSDYm6e+WNvdBIXAf3RW/5uoQOdf0UhJB1QKS2bH6o2um02QFpMHXsnDIMyZCAyb69+yRNougJi0xGyWUnUAiEBtJcZMgIjZuonuoS6CY0TOqk2n41Qbvg17T16m19wWPmfZd/QosOOqB7sgDRdusryrouOHT+pUMUbtY6HjlpsfsvU8GG18W14IdSdSDgZ1HKDncWCeuYkuYQSG3jUcwtjC0GuoNBEmFndfhnWJvD2NIJ4khanTyHMHsgTcM5r89L0kiFYp4OagqVKTX1Tq9wGY/KuMZLTojlwBAEFBTc2CTlE8qvTvUDgQItC0K7IYbGTysyq/LVyXkXQab3+k3iNFm1AHuc8E91aqOApDNa1yQqeHeHVnNc4Qe6CxRJJEn1aTKkrUTUFwe+uqlw9OQRttZTZHHclBnMwrQ8vtKixrIpPB0IlaT2NBzHXlUMe0eW6P9qDiuoxTq03gjMyoDZdoHNHRKYAGYtzF0fmnlcR1Ug1HCPZdlTcavh/DBwl5ytQY/jHECj4epsNzVqNAjtdcDnmCJgcrovH2MFXH0cJSd6cOySP+o7fSFy0iRuOCgkNTabcJy8bXCh3SbrBiZ+UEoPpvAtKeQDyojbYxNkgeQeUEtiY/VPvJI+FGzW0lStbIsPqgK07n4RZYaZ01lBonja8DhA4ZeCAU5ZMyNk7WGbhE5gFpvygicADNrdk5bOa0WGqkyE6XSDDN7t90EORPkH8UaKUtEi90gzvA3QRZhrN/bVO19jKrgu/3GQpWXuf1QSEzYidrJC1zpqhgtBGvCAE2/RBPnEdkxcCoM5mIgFIuM6oJ5AjaUsw302VbO7gQmLyTvCDSw+Dr4mmXUWZwDBMgQi/y7FN/wDbgxpmC0OgVAcIWgyWuvsrlQmCbnb5QcuXBrxBNks19dPohxj2nFVi2C0uJH1URdAsLSgtB9xf6IjU1vfsqwcToYHvZMHTa3CCfPfa6I1IkTv9FWdpYE7ynaQHAkHLNwOEBueIsJBugGpP3WtRo4KpTHpH1Kq49mGZam0ZzrBNkFQCfcheh+Bsdn6fTDjLqOakTrAN2/Gy87zD/wALd8JdQGB6lkeYp125DOgOyDqPEr//AF+Fa4ZXtYWkH3laXTHQwWgHRZPiZpGJwlWdZaT9FfwDw6kHA6hBvUnE9vlWGAGIJmIVDCvnWxOwWjQIgB31IQFVpjI4m9jAXMZhTr0nVCPW4C/6Lpa1dtJhfUMN2XIdWx1LD1sjW5mOOYdkHQ4urhnYcgNAgXM2XPYSoyvSqVWO/K6JA1Kr1alN1F7n1HZgJDHaKpS605rmUalJoaSGy0RZB3vTIq4VjhZxE6qSozKSXCIGyq9Or0nUGNow0AWgq3WfI/ugpViGtJBWP1Cqcpbv23WtiDMxwsDHVMz3g6D9UHK48l+LLGxrHwu181mD6XSe9w8ujTzkncwuLbNTqlMbOdAKueM8caODo4Jjo8y7wOBt8oOQxWIdicZUr1D6nuLvqowRpGvCbLYmO904Et/kgGDpulmg90RGpE6boHGBEID0AB+ErGNNUIJNzveyTmzc2QSscA2CRE8aqZrhm/oqrbTJnujzEAWPuUFnM2RI3RscBPtrOipgncmR3T53aNMIL4e0ACyAObO1lT8wjQdkQcTJkxCC41wIgGRG6J1RhFj2VHMY7JnPNiUFsFnvwizQL/ZUfMMcFIVHc2QM1ShzdJ0UGgJhFt7GyAzUMBM49gdrIbTEX5S5QImYkwkCmIAJOycfAQJsTv8ARNpcTwE50sICcCTugnwuKqYapmpGJ2VvEdUr1qZY3LTGjiNSs6215Vrp/TsXj67KWDo1K1R5hrWNkuQU7RaAEgDlMX3Ks4vC1sNULK9Mtc0kGRoRyoGjOctMGToBdAwmwMogL2HeFY/AYvLm/DViP+0qsRlcQQQRsgIWB7pnSdp97Jhf03lSupS0XMxJvogi2sdoRGCTsPok5sNQgSCJ32QPpHO6YHix50T5Sd9Ei0g6/CDo39cOOwVDD12n8RRM+Zs4Rv3W/wBIxINIAmXASTC4zC0srS+AXHYnQLpOn1YDCPUMwAPPZB1+CILJHCt1sW3DUpe4De5WV06qDSdECLQCsfq1epXxtRlMSGwGh23dBL1brLq0NputMn2K5/FvqvrfvRL2ajYD/hWlRwzM4dWcDNyAN+yv0sAx1R7/ACnuDxobIOfD6gGV2Y5mzpooq1BzmuEGBcn3K7FmF8n0tw7r+xQDDljcww7QOSRsgxem4+th6ZY8OdkMe/8ARdTgerMrvDHkQfyk/oudxmFafSym5lS5kXB91A2lUpFnmEjNa+gKDscUWhhI0XMdSrBrahi8aLSGIc/plN1Vw/JJhc5jMQCHGYsQO/JQYTsZVw2KbVpFvmNP8WiqYk4rGVXV6xdWc86jbt/ZR455Na22q0KNZ1SnTLsz8hy5ZAGUiyDLqMLDDmkHuP1QRDSF0VWi84inh6VCmCIJcHH1SJ3OkKu/AU678+Xy6TjlFTLf6BBin8xaLbJo0y7qxiMLUoSRDqfIVYHQRZA95mBGyUS6wIjhO0X4JTNOsgfKB27b8pTtNv8AlknTH2EJgA0WQEN7j+qU6m4nlO2/84SceD3tugcxFk7jftuma6+4hO8zMX90DTJIFiPuiIBE2I5QjWdp0RE5QT+qAXCBJAPsmYd/snMO1MpACwB+qAYvaYRREIQXNdDzBGxSIvMmNUCJnX4Tn2iUzPSYkfyTnQxFuECJgfqiEZfhPh6FXEVW0qDC+o7QNC6vAeEXy04ypDjfy6Ykj3OyDlAwufFMTOy2ek+HsRjL4g/h6evqEuPwu/6b4fp4cAUaNOk3/dEuPyt6hgKNBmaoWt5JQecjwfncDRq1XR/uaAt/ovQMV06Kmai54sCQfT7LoX9SpD0YOkartJiBKVJuOr3e5rGn/aLoMDEeE2Yx7n4qoXZiXZWiBKt4PoXTenAFrKQcLZtStodPeRL31HTeM2qX4SjSAc/K3uSgqCs00wKNHMBaTaVy3W+i0MVWLqmHDHn+NtpXV1KskswbZMXdFlC7pL6wmq4udFpOqDzer4dq06ocx2ZoOm5VWtRrYd4fTwrm5b+sZvng/Rej1umFnpe2e8wqlTAQ0Q+Qf9wQeesbSqhhqtAA1jUn2Vit0xj8GyvhXVQ8Eh9N7RIGuYbkaLq63SabjmLQHX9TbEKm/pVTWlWqtMfmGqDkGUKjnZWNzncDVQCS/LF5gTquiq4apSqen1Vv9yoljsOw030Gms64c4aAccIJaVKpTohxoOfzOoHMI+nYkQ6noAbQqNAVsRiJL3Ag/mJk/CnbgcW2s6oQQCZ0iUHV9PxIY4+oxGafsrPTcJmr1KtS7HRAOvsuawVd2HqesHgjT4WtQ6pTpPmoXOkX7FB01emwwAAB2CAV8PSYBUJnsVnt65hnAkh9tVTxGOwLqZhj3OjU6INat1jCgtBbN7EFOMfhqzTIgEWBXMOqUHubDLD7qxSxNEAU/IcZ07INtrW1XgiIU2Op0n4YiqARNuyxvxdVlSKNIiflR1aGNrD1vkG8ToEA4/EMGHZTa45QIt9lg9SqvqAwAJsQLCVuM6Q9wOZ5B33UrvD7DGcOeZ5QcR5D31HOynXlSUmPpVAQG5SQeRMrvqHQqBAHli2xUp6JRbINJotrCDmaFcPxBfUMEm8NHqHE2gJq+NcWvbTByutmi5G0e3/NV09PpNJjmu8oHYRsph0ynmByCdbCUHDNw9QgZmvbaCI14ULukB7yWZgeCF6AMDSDoIMRIRfhGh3qYw8GEHnI6Q+ZIee4S/ylwPqbUA9pleijBtbU0F9ihdhGED03Qec/5YTJIqA7WsmHTSLnPPsvQnYOmACG27iVBVwrQ0ZACP1QcA7BvAJEgcEKJ+Fe38okdl3zqNOIyD6Kq/DULgsGXayDichbZ0zqFE8kQuuxXS6D2ktJY427LGxvSX0znYS4RqOEGU22hROcPlJ1M03gG5BTGf7oBDdTtKkY0l4a0am1kEmAJ7Lc8M4B+LxbXH8rTZBkAMrNaARIMQdUDGXLTImRdKrTdRfDiMwvI07Kaic+VxF9CUFYgsMH77LQ6FgG9Sx3lVKnl0wMz3duyFmDqY7Eso0G/vHGB/VeieGfCNDAOZVrOz1B+Y7fCCTpHQ6WHAOBpik02zm7nD3XS4TDUcO3/c7UnlR4rEUsNTlpAA25WSzGYzFvc2hFNhMB26DZxOOZTeGslz4/KFVGHxGLdmryKezArXTcAzDtDqnqebkk6qTGY6lhWOcS1g7lAVDDMogAgN9kVbF0qDYEufoANVh0uoV+o1//AEwc2kNXHdauEwBDs1X1IAGKxOIkU2imNt0VPAmpDqznOvo46q8BTpNggA8KCvj6GHaXVHtaB90EtLCMZZjcvZWBTIGgWRS6zRqHNmDZ0BN1oMxbXCXO9gCgCvR8xtgbm6z6+AmddLRutllRjg2CDbXRTNYxzYtPCDj3YBwcbmBqVLSwzmk5mh1MLqH4dkwdSqmMptbhnx/Cwwg43omAbiOqVHvYMuWQD3Ky/HuDbgMRQdkBpvbAg3ldn0cNqYt76TMgDAzWZI3XMf4msDcRhaoeM5aW+WRNuUGT4QwBr+IKFGo1sNbnge1l6RU6Ywi7BO4IVHwh4bbh+g4Tq+HpPfb11ctoK6YHMBNo2QcxU6Bh6jz5lFt7aKjW8L4eCcmUDSF2pLReLi8KCplIgXd7aIOJf4ZouZALgTcJ6XhymAWvzOveF2ooDSPy7lN5bWtDo0QcHjOkU8IaflNeQXQQBotTDdNpNZLaX/25XR1KdNwBAvvZN5IDbabhBhHBBgs2d/hSMwTCMwYRNoK1n0IgiZ3Ep/KzMjLp+qDKOELRO/ZE2g0mIIdxotXyfVbVM6g0w4hBmCgab4kZT9lPlJPrbYq35OpBBPGqc0gbumdCAgoijYh3uLpGhDrQLK55MgxdP5MMi8BBn+UTIOnZRuoztaVpeS4aXjhB5JNyIEoMxtMk3m17hOaJcbtnlafkNzEOkccJzQgOhxA/VBkjDZm6H24UT8Hlb+UkStnyAb86FP5Qgg24QYH4FhP5TrpCCp05jxBaYA+66LyYBMfKjqUb5m7aSg589NEQWjsd1A7pTY9TIBtZdMKQM6CBChq042CDiuqdAp1Gl4bDtZC5LqPSa9BxLZheq16fpIdEcrn+rYcAOke1kHnLKbnVQwE5iY7r1Dwf00UcPTcReLwFznTeljEdQFYtiCvR+n0PJpMAiQBqg8mxGGp1gGZQHbFZzMNUY54aW1Gx6SDrda9UAjX7Kx0es9mJxjS1pGJw/wCHaSAfzEZj7wD9UA9E6fiqGPp1shbkmzt+y76lisQ9omkG21lQ9OwtOlTa1rfSArWKcWUzkN/0QQVaD8QTnl7p1AsJWrhqLMJQbIgxvyo8NiKLKLDmaI/XlQ1qxxLsrZFM6lBHisfVqF1PDMkaT3WdSwX4ytmxD3VIN50WrSoMNRlIHK3eFZb5OFBdADeEE2Dw7MOwGA1sWsgxvVKWHYQ05n/7RcrNxeJrY0FtGW0dJmDCio4TLlMSRuSgjqVcVjamZ7jTZFmt1+UqWCpmC+XmNzorQGQ3BRtAkfaEEX4SkXWAka2UbsIC8FlR4cFcDSQNki02EFBTc7E0gDSqkmP4lPR6vXpGKlMOjUhHUpggFroKD8K4z+VBaZ16i6A8OYdL6IsZ1Km7DVHsrNBDczTqeyyMRhSJzN03WTicI+HGmXDMNBog6rw/Wz0XVCBmfdx7rlv8SwypUwvlyKxBvtHdH07qeJ6fTFN7M1MbrH8X9S/zFlAAEAEyRqg6Twf16p/luF6czF1hSFvILrWXbscCzXbZeFdL6h+Dx+GqRAYbr1Oh12i9g9Qyuug6OQCGyL8BC0hr8w/RZNPqdJ2jwTClZjWm4LdOUF1tRxquAH1KJwl0CxCpDEt83KI91OcSI9MIJnUmiSQMx3SJ5bI4VcYmZge0qZlbjKgPI20A6pFhgOGvcoaZsTm/up6diMxGXYoIiD3MG9kZIIOUW45RF4BuJGhTAtJlosgGm1jjoZ7ovKnS0cKbKCL/AJkgGtPpBKCv5TsxnVDkEZcqtiHHh3CdzWltwJ1QUi0SCNQiiwkWP/IVg0mkkiQVG6nDdRB1QQZJuSM3KZ9Mgb9wpct7Gw0RfmHt3QVcpi/uAmAcHCWj+isGJnWUrkEjVBFlFj8Ji2Df6FO+Q28gqI1CXWNudUDOYB+UWOygrNBB1jaFZLwe0KMkEXIjdBQfRtoDKyep4cvpEQQfZdLla71Hb4Kz8VTDnkQeUGR0TBZHDMLC8rpabQdgVWwtEMY0BX6LNNOyDxx5BknT2VXCYprepUiBZrrwoMVjZBbS0IuePZUab8tRrtgZ+6D1vC4kOotcOOU1eq6q9rdL6rJ6VX/cNnQgLSpmYdxygsUKDSZLJPur7Q1gA0GwVVhj+IKxTfckt+qBy3MYzXA1SbQbmPmDPbcomETJ1KlbLoFo7IEKYgkNH8kLqUmQCFO0bRAPZOHCNO6CqGOmXXTGnLnXAkawrT2SdfdEKZaIIvHKCo0FgAMQOdkQLXGwKnFIOcTJn2SNG+0bFADGAiBv/CmDMgjRSeWWnMCYT5jBtPwgr1GucZjbQqricGHX+baBaII/hafZPAIMH4OiDn6+BdobhZeJ6XSeSXNMjhdkabXQ0672VXEYdjwQGyUHnPUehw8vo+oC9lk1qmLw0tZVcI/hK9PrYLhsjeyxepYBlQ5C0e8IOHpdexdOQ46bLdwHXsRUYHAm4vJVfqHh4SXUpAN4Wa2hWwbrj0zug7Cl1qu2M1J0BaOE681/5vSd5Oi5PA9SLIDjAGi1m4ihXbD2tJO8aIOkp9WY/RwPvsrlHH03xlN+51XKjC4d7Qab3hx7ojRrs/JUDsuxEIOzoYxrj6SrX4gCwuNdVwrMfisOYdTMbEXWnherteYJDXd0HVNrCJMSdZUjaoFoBm/ZY1PFZhZzYjlWKdeSBug0xUcbGRwZ0RB4EBx+6oMrwASQSpG1p1bHygvtqNB4KcuERKoFwc6whEahsW78oLodEi8pvMzgzEKr5oMQe10XmSb6DRBL6SDyJ1QeYZibKIvk/mEd05eZvHCCU7xBO0bqIm5MWmLKMmHfmFu6jLjF9UEjnkC/6qImDoUgZETJ4Ub4mRugFzjmvoeEDnQQL3ROJaSNVBUdrNyglNbI03UbHGo4fVQFziRB12Vmgw7xJsgtsbAEaK1SaRMg/Kiohxt9Z1Vymz02QfNwJMooiBESulbgenzo3/8AQ/qj/AdNI0b2h4/qgXh/HNfQbTJ9bNidV0OHrZzrErBo4LAUqvmU3gH/ALx/VWKrm0xNCq2eHPH9UHVYZ5e0CbRpurTDk0H1XKYTrDaBy1nMbwcwK28NjqdYSx4IJ1BQabXFrpvKssm0G26zRU00kK1TfNj90F5sOi47oxo2dAqrXST/AMKmDgaepJCCwA2LnTZINzG3sZQUzLfcbo2HWSQUDhoESLdki2PytBHIRNdcsN4COLfZBBJnsdeyAUyZJmDeVakQU7SIiEFXyzFjAT+U6DN40VkgDbVBBDjH9kFcMcBBt3RBhO1va6sfwlwieEzXWIAg7oITTAlou4qucFT1IBcfsrrCKgGVsH9UIDswcbyUGVX6SwtGUXJuQVnV/D7KmYPGbZdSW+md9UJp3HpAHCDhH+F6Wcw0tvo1Z+N6A/Dsc7DvfbYr00MpiS7bc7LnOv8AV8NTilTaKkmC4RZBwVHEYuk8sIJy7hbFCpjW0POfRf5WheBICz8dWph72smZ1Wl0Hq1dlP8ADPl9IzEjQIJKGPpuHqMHuirvp1AXCA4/VbPSOjdHqNrYjG4CnVLTLs9RwnsANF0/TOsf4TyW47oGDw1Zti2pVrGUHmdTHVcE5hpVoaQXOBvYDbumwfi0ubNbDVA292/zC9cPWv8AB2CR0bpelrViq2K6/wD4Rkg0eh9LbtanWQcLgvEuFrEDOWk7EQtaj1ei8D1tuOVr4rrX+GNTyjR6Z0+kWkEhmHqHNGxus+r1f/D/AM1zqdDDNBcSA3CPgTtqgmZimPZIeLqVlTNN7LLq9c8Gs/0ahYQZhuDd/VZ9XrfQqb89Hq2PMn8v4UBrR2QdRn2IskHGJ1HC43FeLMLRaPwr8RiLR66eWVHh/GlFwArUKje8Sg7UWFwb8os0a/VczT8W4BwGZxaI/iCtUvEXTqwDfPpg+6DcDiQY100UbyALyqDOq4J9xiqUf90JHqWDifxVKI/3aoLrnmYBQmoSAP4T3WfV6tgaZn8VSvcXWfifE2Bp2bWzGP4Qg3i8XvoLKs941B/suYxPiyhH7mlVd3yrLxHiPE1S406FSPZB21JwqVxFwtiiDlaNtRbdch4VxFfE+uqxzSTN9l19I6EfCCxTBsbnhaFIEHvCz6fIJutCgbAkyg+cxh6k3CcYd+oXtA6P07Q4SlO1kX+T9OAj8JRif9qDxY4WoXCUQwlQiDEFey/5R08wPwlIcelIdFwDjfB0gPaEHjJwNQiczQFPh8PisO7NSxBaRpEr2JvRunjTC0/kaqRvSMCRfC0tZiNEHmvTet4qgQ3FhtRsfmAgrocF1fDYiB5uR3Dl1X+UYACPw1If/VJ3R8Cf/jU5PbRBltrhzLRe9lNSfJBsOY5Vp3SaDQRRbkI4NlX/AANelP8AFCCfzJEzEWUgqSSZgDWVQf51IgPpuA5CjdjQ2oWusNSSNEGqHwJmZ+yLzIaYkRoVlf5lRILWuLj2CD/M2O0OWDF0GwKhnncohUB123IWczHUy7IXXiQkzHUzVLc/qOyDU832sOEIeQRxKqsrBzJB1T+cJiMxOiC6HidLHdRsMZr3hVxVzOINgbJF4sJm3MILTXNNxoBoiY5uUkaBUxVF4PZJtUZrHUT7oL4jLueAmL5MybcKsKoIgT7hVOrY0YbBvqAw/bugzfEnWTRDadC8kh2y4RzjUJeHZXNcbHRXcQ52KxJfmgPdJnS60ukdMdinVKVZrTSn838kFBuBz4gtqUXepnpc0K5hsO/C0GvNIipTPp7juu0oYSjhsOG02gQALqpimNdoD2Qc7iesF1YGnTNNsAFipdXwWF6rQpupejFZvzRqtbF4FlazbO2clhOo06NVuFxWDGkB3KCLoPgPEY+ifKxTS4GMtgtN/wDhjjmj1VmAD/rC1PD1J73ms0hrDoF0TWz+YkkDmUHCP/w2xY/+Qy+2cIT/AIdYgPDXV2X/AOtd7kzQDr3sl5YERI2QcD//ADypEuxI98yc/wCHwaINafYrvxTgTtwkWCNLIOC/YFgaCak2/wByceAqQcbj6rvC2SW6JBoQcJ+wdHU5CIi2ik/YXDNuW0125bIjt9U2SRo0IONHgnDNbIbSna6ceDKDWx+69wuwI07XQEajT+aDkv2Qw+xox7KQeE6Dbl1Jv/1XUZdhEbpsoExa1ig5xnhii3/3GgDhqMeHKABHmu0jRbpEXiVJTpy4mEGDTwLMGYpnNCnbdwVnFjNUyiLX91GGzsPlAdIjQa6K9hyNNAqbGwdN1bwt3RElBT8p2YCBspDScDIFztyrrWXGgPJRuAgAD66oM/ySTOyLyDEC0FXwxsWmUXlti0EHhBnilAJg66p2UyBpv9VoCmLZRfZFkBNhAQUfKuBFt0Xk30Mq62mDaD87IsjYAH0CCj5JIA+0pxQMERfsr3ljLtHKNrAGxG8IM84QO1APwq1bpdOp+am0juFtZGgS37BPkvpblBzb+h0SLNDRvFlUq+G6LwYDm/xWO67DKJsLcFOaYtIBlBw58MOL8zaxG2iZ/hyo2qHtquL4jRdyaQ+BdIUmzIsg4F3RMYw/u6pIJU1LAYym31kOau4FFoM2KbyGnhBxbcJiS0yzLvI2Q1MLWaZexx9l2v4du7WklMcKySco11CDhxSqalroGtk8OnQgTuF2pwjCBb2lRvwVPKdPpdByIcWA3AOghY3iJtWtRDqYLg0XbuRuvQKvS6Tgc1NvF1SxnRqL6b8jbgEAcIPL8Lhw4im5stqXnccrrsDSbRpNbTEACAVg08O/CdYq0qhMjTgLp8I30wgTnkG+pVes4uBiDMq5WoiAXT7Kq+MpAvKCg8i0H54VPG0s7Q4QCOFcLfzgSTshd6h6hAGoJQW/DGMDaoouMNNl2zG5mAgWNrLzLM7D4kOZYE6r0Hw3j24zDhp/Pugu+VIMG6PyrA6+yuBgOpEGyWWDcDRBRdSkWEeyRpFXTTvH/AnLAZgADW6CgaVjol5OVsDYK7kEZRoLpZIBkSgp+WYggHsgfT44kK/lBAMJgzWbj2QUCz6j7JjTMiLewV7yxKWSDaIQURTMCBaUvKvIH9lcDbz/ACQlsGQgpuo3OvICHEDyqN7E3MK86xBABAG6yeoVMzg0axJjZBTmXZpmdN0QG8JmQBP2Um82hALBcSrmFP7wC99lXFzI+qs4UDzQBrPKCWQL32S9oI11TxcGe0Ig3c7lA7YvpERdPF7za/umDRrrwnAtqZ4CA9rfZOHanUoRLQIsOyJpvLt7oD/58JxGkfIQcA33+UTCZKA7QSPqnuROyB3cX1hGDBED2QGDwPomaYKa2gsU7dbi+yAhE6IgTHEoNCRPblODzY8QgIAbIuNL9kIuOflIHXRAUzc66JyLk78JpBI3twkDrEICMXj80pWixhM6ZITCJ/sgfLc3sllmJCTTJibd0nWJAi3ygFzRYnXugc3UI80GDdA4g727IOX8SdG86qzGUGgPb+YcrNw7gBFwd+V27xLSCJkLk+tYN1CsajLsN0CLvMAlQvw8mefuiwjgcsyf5K+bcCBH90HO1qTqdQ5gYKgyEOcButfqAaQBF5QU8KKjBNoQYVekXUzIuDvqrPRcc7A4ppAIA1R43DGjW9Vw79VSr0nMbICD1XB124igyoyDItCmtrZcR4S6t5LxRrOlp0XasIe2RJtKApbpI+Nk12iyIEQkQJEjbUIBiDYCUnXAJMHeE5NyJiNExuTGv6oGm253gJAzsT+iR7ieUxIuSR/ZAJt2GiYafy5Tg6zbZMXCJP8AZALiMw11ulEDUj+aRJ5shcYkkaCZhBWxVQ02wRc6hZNeSZIkyrWIqOrV2tJkayocdZsCb3CCEOjX2lOTMC5BUTXF2v0UgdDplBK0kzIMDVXME31EwqDHAGZstTps+nfe/CAWk5hZEIgyhnMJsk07wP1QSROka2hO0Wm4MwEPYxyim9gYj6oC3BmOEg03m19immWiQYGpTjSJPugMACNeUpF8qaZHBP3Svm9OiAtSBbKeEQ9xCAS6JEQb90RIvb45QFPa+3dEDEgH54UcbCZ19kTSLT7aICJvqCNEWptuhm1jlPsmJtMkAIJfytOs7obtE/KadNjH0SkBpve+yAweZNk5MnQnfRBoTp/RECHR9EDm1/vylNzMFNtrr2SuRBIsgcnTSeOUxdvFkjY3MJsojMIjbugUmPmLoSRMASE4uRFt0zjuDJ2QMCNYKrYik2tSc14HZWC4/wAJ+6B9zAF0HHNBw+OqU80QYCvOcMncpdZw2THtqtgB1ioqshiDPxLy7EtGpla7G5WC1o2WG5046nZbjTNJvqugzeqw7KO6L8IKlIGBIEqDqLj5lMDnZabCW0/VGiDl8Uw4PFWdAJ2Xc+Guo/icO1r3S9tlx/XWSWgH+KEPS8VUwWIaWutv3QeoARpoSmJggyCVWwNcYnDMqNOovBVmSLC6BXDpj4CYOJG8fqn1HN9JQWiBYcBA7jYnbYEIQ6ABBnhMTr95Tb313QMXQ6LTulv/AGTE7n5hOTpoJQC514vHdVcfiC1uQaxEKeo7K3NmHZZsGrXn+EGxlAeEpQ6bzNyi6jSzMBEn3VugwM2B290eJph9Mi0xBQc3cHck8hPMAcKWtTLXX+qAGRwgkYL6mNFu9OZlbI9pWLhWF1QW034XQYNhDRfWLoM5zrHSAnbFv6IGkwSdE5Mi0jtCA51tf3RHt/zugMx6jfayeDxCA9ND7J26EC5TAca/yTwNbmyA9oMJQewvohElxEzdE20j9UD5rbCER07IToDrPZPaDaLoHmRMkomwCLm/3QtmQcv0TnS+yAg6Jn6pCJIOk/VIaDgfqmLdI1m/CBGdLTojtEyI9kLQImICI/mmx+UDCIOk6ohZxvB+soYk8WRCQRsBsgczoYmUhIMGzfqh+pRcC9+2iB4I0BS+BBvwlPq7xuEx3jXVA0kkydd0hNwNTuk60m3cpyPqgAgHsN7IHDedEY1vf+aFw1CDD6y7NWY0wYWdWcQ22+qu453m414OoBVHFkBsRcIMmpULupU2i1pXQs/0Y5C5nBPFXqz98oXSC9OQgxupODa7SbiZstlpb+FDpAt9Vh9YccmY2vIW2H0KvQGMpMPnZfUY390HMdYx1N+JbTJ0MyLp8Q8ZWPB+ZWT1tpw2NpvcLHcq3nlsBxI1hB6J4bJPTKfq2Wxc6rB8KVQ7ptPaDeFvC5In6IHzRIBQzqTpNpRRYix3AQutqLIAMxoUJMEzoeUbhxI5lM6J7+yAXHhMdbA/ARO51B0hVsVWFNvBKCviqhc7I3bZTYSnlF7yJ0VbCtL3Zz8LVpMsI+qBMaAO+4UjmhzIiZ+qKANQI1TTlhBj4+jkJOhWeRB3lb2OaHMJELDrSHw0GSUFzp9OSZ32XQ4ZuVscarJ6YwwJmy3BZsSQSg57L3Gvujykfm2tKINETZFEE7d+EAAAH0ifdE0WMQUYsYAvpATN5FkDfxQniAQGn5SyxcE67ogLG+tpQMTG+2yWUGLRGkqQttJAnsiDAPZBGBe6ItB2TiACNtJRhu5InndBHlg3H1Thu2o2RtbIE325hHEgDSEEXc66xKJoHeRuEZZMW1skG3FroGESIiSE2WCSJj20UmXgJBsa/YoAdqOTbTRJlO2v1REaWvupA0jQQghA7XT5b7SVIA5xNjHCRY7WUEb7yU4kDvupMgmLiUhTMxHdBFfYkykWkklpupMptJt23T5TaLHlBCQA2RKjq2aTwJVprCR7XVPqRNLBVHCxiyDnM01nvmZKzes1xToOcNQLK20enMJCwPEFTNTjUkTEoK/htxfiajjMzNl1jnZaUjYLnfC1CxcRdxXQ4u1OL/XRBz/VjmJA3sOxW10RmfCmninhoy2AMT8rFrTVxTGC8GSt+mA2lFjEIMrxlSwOM8PUm0QRXpWJ3/4Vz/SqU4V5BJyiFr9bMMcGQAfoo8PR8vASBBIQdH4Irk0H09mmYXWtBg9tOVw3gep/62rTv7LvGsMzBjvdAAE3g/CaL3Cm8u0j3lOabgdDyggyiPTadExaYBhTmmXEQCNtLJjTtJaCPZBVqWab6CVj1qjq9fKBIF40VvqtfJDYAKr4Gno4ySeUF7C0y0AcK81ttbKCmC0i3ZWQ6B/JAJEAknsFDUcG2J2UlesGDfS3ZZWIrlxIEgIJa1WZAcbyFXZh89SYkBBTkm867LSwVPgCe6C1gaMNtCuOEWiBCVJuRvHCe5i9kGM0fXunAv3lQCoBILh/REazCLOgH7oJw2BtA/VONwI94UHnN/3BI1WiRPwgsWmYudEQFgW7XVcV2ZwAQU5xTc35gPZBYaG2IB9kQFzcqt+IaWRm0Q/iWRc3myC4A07yeyINaNx8KmMQNAYT/iWiLkFBbFibCeyICJM+6qDEtmRPeAnGIEaEILYymdk7YE2tt2VI4nsb2lF58RYlBdBB/NAuiaGxE35VA13WEH4S85/+1yC+0Uw6SZHdGzJeDJF4WeapJnISRtMJvNfeKd+UGlFMn1EBGCzL6tfsssvrEAhlilNa/pIAQagdQ0cZ7DlO99CLyJt7rKzVgBLJTubWLiPL+qDWD6EZQJHBRB2GymPYd+yx2iuLlo+icMxGwie6DX83DZSXQTsIWV4lr4f/AC14YLkocmIMkxrEqtjsHXxGFyanYSg5Oq5woZtRFu65fH1DVrGb7ArtK/TMY4CkGCBYmVzOO6Pi8NjRmYDTm5Qa/Q6HlYcANgwpep1QBrteVJhiKVAbFYnXsb5VB5m8QEFTpuL/ABHU6zYnKYF11AaRR4K4/wAHUQ7zKrpzOdquxrDJR0EboOf6y7M4iQrgpZsA1psY3Wfi/wB5jadOLkraxQDMNaLBBneEsT5HXG5hI010XqzMfQGX0CCN14p0wE9cpfvMgzfZepUcPS8thdVOnKDW/HUpnI0Duhfj2ubAAB91n/hqU/6pLd7pjhaO73EROqC/+NaQR6fZVsTjwKZA2FpUAoUZEEk7n9FlY+o3MWUiYn6IALvxOJzOMjZaeHaA2DrqqWDowJ1C1Gw28X3MIJREGeJSFSBcxOyje8NZuZ3CoYnESSASgLGVs5gRc/RQasJgEQgGZzvWbwpA2B/JAqDS+oALgmbLewVOwBIlZmCpXB3PZbWHYGt0+UErmwY/uk3Swt+iTpkfWEsp2INre6DmfIp63J3T+SyTF+8KuW1M1qphIsdP+sYQWhTpQTlvM6ohTpg+ka2VQMOnmPHcIgyD/qP4QWxTZYR7p8lPZtiqgpiT63GfhO2m25L3G/KC4BT1hsa3TjJIhjb3VQ0xAEunUwkKbC6znCe6C4AwAekXvqilvAsZKp+XTIEZpFtU4p0gB+Ywgu5mbhoPvZIPpi/pgaKmG0gbtn5SinY5Pfugu+a3bJ9U4qU7XaqWWkQJYLWRTTgHyxxCC22u0A5nNvui85htIvCqfu/SMjZS9Lohg+Cgs/iaeWC5sdkxxTJHrEE8KuHiAcgHwnDxM5Gj4QWDi239f9k34xs/mM8kKDzA1xhrfonNT/pAPZBP+MbaHE9o1THGCYOct7DVV/MFnQJ9k4q3OiCYYuYjzDeyTsVADoeoTVcAAdSOEhVfqDvsglOLi0PPYofxfqs2oo/Nfu628ITVP8JQSOxLgXeh5Ouiw+s4oVqwpgG1yFrvqvDSQ5cvWe6viajgb3uUAYuoGsADhAC47xBXNd/ltmJhbXWapotytIvfVZGCw34nEZnCWi5JQdD4dpeRg2MNj3WnjH5WTIAVXBtNJkDbdUesYsspkSghwDvN6k4jRtpWtjquXDuJtAWP4eYSHPMFxV/qzow7o1i5QYfSWVK3WGeW6PVuvT6IrtYASy3fVeXdBeR1SmRpK9Ka8loM2HCC6fOIu5k8BNNSB62e06KrmdH6Ji4t9kB4qs9lOS9p2sqVEZ3Fx3tdBUeajo1hXKDMgEhBZoNIAme2ys/wwJUDALEDbZDVqimOSOdkDYmqYgG11SvM7JOqFzgQUQmCflAmCDBBmYurFJheRAUDRuDI77rQwdOTrrBQXsLShthbW6v2DcsQFHQYA2dkRJjQ9roH39Rg8qRoga6b9kAnf6wiaJ130QceDExHunE77IAR7RZE20gCUDt3MyUQkiNP5Ifi+wSAj2hAQ5Btykbz2SIg7gBIXN//ACEDh3qjbuiBhp5QgbjUdkQnRA/EyCOE8/lIsgJMCI/ong2I03QGddR7pi4tPbZMPUBF27wn1I4vrqgcn6pAiZ32ul2GicDaSEC1MjQayiJEyHD3Tbw4z8JSInQ7yEDkmQQmE66julEagwnkGJKBdhqnItIEnfumtcFODBjU90DAxAMzynN9tdglJJIHE8ITECbDdAUyARI5StH8whmbGycbAD5QI9ohMBLfumExGt4KWjr2sgUSI0JEQFiYzAVW1XOpaHstwk95QxOovqg4vqnRcTUaC31OTYXAuwOGDXthzjeV2bhE8rG6yJrsmICCo9zaNKdbbLler4jzHFrSfZdH1Os2nhyG3+y5Cpmq4giJJO2sIN/w/Iw9gm6+SKJIsOCrfTsHVw+EY6JCp9ZFevQIbSdDedkGd4caX9RaePsvR2NIYB24XEeEcO4V3Oe1wM6ldu0wARZBIJI/MSq2KqQ0NBniFI9+UTx8wqYmpVJJ31QTYZm5grRY3K0DXdV6LYsFYZYjbe6Aqjsok6qlUqFxHG6lruBMcWULYImY90AsmY+dFMLn+WijiLE3OymbBEHTdAqdMvcANFtYKnAF7bKnhKI+T+i2qDA0AkCI2QSD0tH3hRztt9kTxJG3CcWOluUCjk25RAb7JmEyCYt9kbReXG3dBxm0myZsgZtvuhBkBGG7zP2QMNAICIfmuNRpCYAwDYngWRkGLRKBRc3t3SFzwmjkn9U82H0CBxe0pa7ablKIbIFykNRpbZA4sTeZTgyP7pAGJ+UQFjOoQM0ExzCcGJgXH2RNHYX+ybLImIhA5dYT9Uw2kfARARHASAveJQMNz+qeQAAbgpZZ4Hun/wC5Aw2KfaxjskLH+YTm8HT3CBjMwEjcTBhPpppwkb6H5QMeBrrKaIMk7wnNxEC/CR/LEIBN5TgTZt/ZKADYpDcR3QIH6Hunjn/ykb2iYTXi4QImQbGUEaEaHbdFMTFvdMTf+iBtdtNiquLwwxLYfAPKtwCBfXRDsOEGGehsuHuzBUWeG208WKgcS0XAXUuYIuAZ5Qi8RBugr0aQp0w2xAScxhBBY3L7KZ1pNhtohgX50QQ06TGO9DGj4U+wIImEIFwTJHuhrOIbJME8IIMTUJdlG+ikwzcrZO97qvRYalbMYIOivU2wADBBG26CVliNt/ZKtUyjU6JnOhsgA8Kq92b6oHDi5wza91I0Ew4g32UbWgGTfid1MO0RsZQIAbC6loguddATzfur2BZMHnVBfwdOBN4Gi0BAaON7KKi0Bmke6KNIEoFI0E6ogOJKbe3yEQHGqBwwWn5lSNAE8nZRsgjS8cqUNsAZn2QcP+YjSE41EpxM3TgAxBACAhAjnsnEECJEoRuLgndFEHU8oHykgQTKUAxBPeydo9I50REW7oGhsCPvwlI4MpHbc8pZRcEfCBxJBAB+icXIA3tokQGgCbaIgIi/ygbcg7J7xMC6cGLQlFxG5iUC3nQpCI7pGCOPhOAbEkhApJGicaidITaQQRCc62154QIC1hHF0zQTrxwiAABABg7pCUAi4vF/0T6bn+qYcWunP5oKBiJIn7bpEXg/KIzF40TE6xrAQJ0yfaI7pvaxCd0EwSUpEyJQMQZ97zKYRA2Raxom2mPZAzgSIA3TFsEwNERNv5BNOxNkAk31KZwAsBqjyxNkIGh3hADhYgod4spHkR7FMTffugAjTTVDluRtr7IyLcfzSgAkD4QRm0kiCqOIcXPytGnKtYl4YywE8hVaYJvNtAglw7fSOeIVo2mPqo6dgeOEqz8rTqgaq70lp3UdMHWAVHTEmXae6maPTIFkCEWNxsp2wZm03/uoxc6COVIwHcE7IJKTMzwLEA7rYwVIWtoqeEpg3Oq18OwNYNrSgkgCnHCYAk2MkXMpnOg2F0QPqgT8oE0XgfThE29xeNwkARHOt0YB0NxugXsZRs1i8hCILY0+VI3i4OpPKDi9yk1ozhJJBKGjNGyYtEabpJICyjNpsUWURpvCSSBw0SLJg0Z3Da/2SSQC4AERyjaBJ7RCSSB2gEmRulUsQBYJJIBbqByid/qtGxSSQI/oUbQIb3CSSAASYB0RwIJSSQM0DO0RYFOWguIISSQCRcHclDETG/8AVJJAiANEUDMe0JJIHaLwk8CHdkkkCcB5ZO9lHAifdJJA7RDGlDUJaJFjCSSAdWAnVSBrTAItdJJBGfyn4TOAaz02SSQZuLP7wDbhFSAEgJJILcXj2VeqNUkkAsEmfdWGgBrY3sUkkBOaA6wUjGjOexSSQa+EY2W22WhAEgaBJJAmtDnOm8FO0nKzuTKSSCVjRniLQiIAfEW/ukkgVIAuEjUqRoE/VJJB/9k=" alt="Jake Goble" class="about-photo">
@@ -2175,7 +2548,7 @@
             </div>
           </button>
           <div class="accordion-body">
-            <p class="accordion-text">A custom-built React application that serves as your team's central hub — dashboards, pipelines, calendars, and AI-powered insights all in one place. It connects your tools, surfaces data, and gives everyone on your team a shared understanding of what matters.</p>
+            <p class="accordion-text">One system that connects your tools, automates your workflows, and puts everything in one place. Depending on your track, it's either a custom React dashboard on Vercel (Custom Build) or a duplicatable Notion workspace with Claude Projects trained on your business (Notion Hub). Either way: one place for every client, task, and metric — designed around how your team actually works.</p>
           </div>
         </div>
 
@@ -2217,7 +2590,7 @@
             </div>
           </button>
           <div class="accordion-body">
-            <p class="accordion-text">Starter packages deploy in 1-2 weeks. Pro takes 4-6 weeks. Enterprise is 6-12 weeks. Timeline depends on complexity and how quickly you can provide feedback.</p>
+            <p class="accordion-text">Starter deploys in 1–2 weeks. Pro takes 2–4 weeks for Custom Build or 3–6 weeks for Notion Hub (scope-dependent). Enterprise is 6–12 weeks. Timelines depend on complexity and how quickly you can provide feedback.</p>
           </div>
         </div>
 
@@ -2245,7 +2618,21 @@
             </div>
           </button>
           <div class="accordion-body">
-            <p class="accordion-text">Available at $150/hr for one-off sessions. No package required. Perfect if you need strategy advice, AI consulting, or help troubleshooting a specific workflow.</p>
+            <p class="accordion-text">Available at $150/hr for one-off sessions. No package required. Perfect if you need strategy advice, AI consulting, or help troubleshooting a specific workflow. Past clients on ongoing engagements get a founding rate of $125/hr (first 10 clients, grandfather-locked).</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Can I upgrade my package later?</span>
+            <div class="accordion-chevron">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </div>
+          </button>
+          <div class="accordion-body">
+            <p class="accordion-text">Yes. If you outgrow your tier during your engagement or within 60 days of delivery, the price you paid applies as credit toward the next tier — you just pay the difference. Starter → Pro costs $2,750 to upgrade. Pro → Enterprise costs $4,000. Starter → Enterprise costs $6,750. Works across tracks (Notion Hub or Custom Build).</p>
           </div>
         </div>
       </div>
@@ -2269,29 +2656,18 @@
         <a href="mailto:jake@radanimal.co" class="btn btn-secondary">Email Me</a>
       </div>
 
-      <form class="contact-form" onsubmit="handleFormSubmit(event)">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="company">Company</label>
-          <input type="text" id="company" name="company">
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell me about your biggest workflow challenge..."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Send Message</button>
-      </form>
+      <div class="tally-embed-wrapper" style="margin-top: 2rem;">
+        <iframe
+          data-tally-src="https://tally.so/embed/LZEPby?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="400"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Contact Rad Animal AI Consulting"
+        ></iframe>
+      </div>
     </div>
   </section>
 
@@ -2301,10 +2677,12 @@
       <div class="footer-left">
         <p>© RAD ANIMAL</p>
         <p>ALL RIGHTS RESERVED</p>
+        <p style="margin-top: 0.75rem; font-size: 0.8rem;"><a href="/privacy" style="color: #9DA3AE; text-decoration: none;">Privacy</a> · <a href="/terms" style="color: #9DA3AE; text-decoration: none;">Terms</a></p>
       </div>
 
       <div class="footer-center">
-        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#tracks">Two Tracks</a>
         <a href="#pricing">Packages</a>
         <a href="#results">Results</a>
         <a href="#about">About</a>
@@ -2312,12 +2690,12 @@
       </div>
 
       <div class="footer-right">
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/jakegoble" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
           </svg>
         </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+        <a href="https://www.instagram.com/jakke" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
           </svg>
@@ -2574,18 +2952,6 @@
     })();
 
     // ============================================
-    // FORM SUBMISSION
-    // ============================================
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-      const data = Object.fromEntries(formData);
-      console.log('Form submitted with:', data);
-      event.target.querySelectorAll('input, textarea').forEach(input => input.value = '');
-      alert('Thanks for reaching out! I will be in touch shortly.');
-    }
-
-    // ============================================
     // HEADER SCROLL EFFECT
     // ============================================
     (function() {
@@ -2610,5 +2976,6 @@
       });
     })();
   </script>
+  <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
