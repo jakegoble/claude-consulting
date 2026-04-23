@@ -1888,6 +1888,77 @@
       line-height: 1.6;
     }
 
+    /* WHO THIS IS FOR */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .who-card {
+      background-color: #2B2926;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+    .who-card.who-yes {
+      border-color: rgba(242, 87, 73, 0.3);
+    }
+    .who-card h3 {
+      color: #FFFFFF;
+      font-size: 1.35rem;
+      margin-bottom: 1.5rem;
+    }
+    .who-list {
+      list-style: none;
+    }
+    .who-list li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: #E9ECF2;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .who-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #F25749;
+      font-weight: 700;
+    }
+    .who-list-no li::before {
+      content: "✕";
+      color: #9DA3AE;
+    }
+    .verticals {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .verticals-label {
+      color: #9DA3AE;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .verticals-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .vertical-pill {
+      background-color: rgba(242, 87, 73, 0.1);
+      border: 1px solid rgba(242, 87, 73, 0.3);
+      color: #F25749;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
   </style>
 </head>
 <body>
@@ -2136,6 +2207,47 @@
               <span class="industry-tag">Analytics</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="services" id="who">
+    <div class="bg-orb"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">#WHO THIS IS FOR</span>
+        <h2>Is this you?</h2>
+      </div>
+      <div class="who-grid">
+        <div class="who-card who-yes fade-in">
+          <h3>This is for you if:</h3>
+          <ul class="who-list">
+            <li>You run a business with 1–35 people and no dedicated CTO or ops person</li>
+            <li>You're spending 10+ hours/week on work that should be automatic</li>
+            <li>You've tried AI tools but nothing connects into a real system</li>
+            <li>You want a custom-built operating system designed around how you actually work</li>
+          </ul>
+        </div>
+        <div class="who-card fade-in">
+          <h3>This is NOT for you if:</h3>
+          <ul class="who-list who-list-no">
+            <li>You want a ChatGPT tutorial (that's YouTube)</li>
+            <li>You need enterprise IT infrastructure (that's Accenture)</li>
+            <li>You want to "learn AI" as a concept (that's a course)</li>
+            <li>You're looking for a one-time prompt template (that's a $19 Gumroad product)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="verticals">
+        <p class="verticals-label">Common verticals</p>
+        <div class="verticals-grid">
+          <span class="vertical-pill">Coaches &amp; consultants</span>
+          <span class="vertical-pill">DTC &amp; e-commerce brands</span>
+          <span class="vertical-pill">Agencies &amp; creative businesses</span>
+          <span class="vertical-pill">Content creators &amp; personal brands</span>
+          <span class="vertical-pill">Medical &amp; regulated practices</span>
         </div>
       </div>
     </div>
