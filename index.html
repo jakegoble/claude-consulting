@@ -2093,6 +2093,235 @@
       }
     }
 
+    /* ============================================
+       TRACK CARD ICONS
+       ============================================ */
+    .track-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(242, 87, 73, 0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .track-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: #F25749;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ============================================
+       PROCESS STEP ICONS
+       ============================================ */
+    .process-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(242, 87, 73, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .process-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #F25749;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ============================================
+       RESULT CARD ICONS
+       ============================================ */
+    .result-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(242, 87, 73, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .result-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #F25749;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ============================================
+       ADDON CARD ICONS
+       ============================================ */
+    .addon-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(242, 87, 73, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+    }
+    .addon-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: #F25749;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ============================================
+       SECTION DIVIDER ACCENT
+       ============================================ */
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(242, 87, 73, 0.3) 20%, rgba(242, 87, 73, 0.5) 50%, rgba(242, 87, 73, 0.3) 80%, transparent);
+      margin: 0;
+      position: relative;
+    }
+    .section-divider::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 7px;
+      height: 7px;
+      background: #F25749;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(242, 87, 73, 0.6);
+    }
+
+    /* ============================================
+       VERTICAL PILL ICONS
+       ============================================ */
+    .vertical-pill svg {
+      width: 16px;
+      height: 16px;
+      stroke: #F25749;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: -2px;
+      margin-right: 0.35rem;
+      flex-shrink: 0;
+    }
+    .vertical-pill {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* ============================================
+       WHO CARD HEADER ICONS
+       ============================================ */
+    .who-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .who-card-header-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .who-yes .who-card-header-icon {
+      background: rgba(242, 87, 73, 0.12);
+    }
+    .who-card:not(.who-yes) .who-card-header-icon {
+      background: rgba(157, 163, 174, 0.12);
+    }
+    .who-card-header-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    .who-yes .who-card-header-icon svg {
+      stroke: #F25749;
+    }
+    .who-card:not(.who-yes) .who-card-header-icon svg {
+      stroke: #9DA3AE;
+    }
+    .who-card-header h3 {
+      margin-bottom: 0;
+    }
+
+    /* ============================================
+       FLOATING ACCENT DOTS
+       ============================================ */
+    .accent-dots {
+      position: absolute;
+      pointer-events: none;
+    }
+    .accent-dots .dot {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(242, 87, 73, 0.15);
+      animation: floatDot 6s ease-in-out infinite;
+    }
+    .accent-dots .dot:nth-child(2) {
+      animation-delay: -2s;
+      animation-duration: 8s;
+    }
+    .accent-dots .dot:nth-child(3) {
+      animation-delay: -4s;
+      animation-duration: 7s;
+    }
+    @keyframes floatDot {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.6; }
+    }
+
+    /* Process step connecting line */
+    .process-grid {
+      position: relative;
+    }
+    .process-step::after {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      right: -1rem;
+      width: 2rem;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(242, 87, 73, 0.4), transparent);
+      display: none;
+    }
+    @media (min-width: 769px) {
+      .process-step:not(:last-child)::after {
+        display: block;
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .accent-dots .dot { animation: none; opacity: 0.2; }
+      .section-divider::after { box-shadow: none; }
+    }
+
 
     /* ============================================
        KINETIC HERO TEXT
@@ -2525,9 +2754,12 @@
     </div>
   </section>
 
+  <div class="section-divider"></div>
+
   <!-- TRANSFORMATION -->
-  <section class="services cursor-glow" id="transformation">
+  <section class="services cursor-glow" id="transformation" style="position:relative;overflow:hidden;">
     <div class="bg-orb"></div>
+    <div class="accent-dots" style="top:10%;right:5%;"><div class="dot" style="width:8px;height:8px;"></div><div class="dot" style="width:6px;height:6px;top:40px;left:20px;"></div><div class="dot" style="width:10px;height:10px;top:80px;left:-10px;"></div></div>
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">#THE TRANSFORMATION</span>
@@ -2567,6 +2799,8 @@
     </div>
   </section>
 
+  <div class="section-divider"></div>
+
   <!-- TWO TRACKS -->
   <section class="services" id="tracks">
     <div class="bg-orb"></div>
@@ -2578,6 +2812,9 @@
       </div>
       <div class="tracks-grid">
         <div class="track-card fade-in">
+          <div class="track-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
           <span class="track-label">TRACK A</span>
           <h3>Custom Build</h3>
           <p class="track-tagline">A React dashboard on Vercel. Your operating system as a piece of real software.</p>
@@ -2594,6 +2831,9 @@
           </div>
         </div>
         <div class="track-card fade-in">
+          <div class="track-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
           <span class="track-label">TRACK B</span>
           <h3>Notion Hub</h3>
           <p class="track-tagline">A duplicatable Notion workspace with live databases, tuned to your business.</p>
@@ -2614,6 +2854,8 @@
     </div>
   </section>
 
+  <div class="section-divider"></div>
+
   <!-- HOW IT WORKS -->
   <section class="services" id="process">
     <div class="bg-orb"></div>
@@ -2624,24 +2866,28 @@
       </div>
       <div class="process-grid">
         <div class="process-step fade-in">
+          <div class="process-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
           <div class="process-number">01</div>
           <div class="process-timeline">WEEK 1</div>
           <h3>Discovery</h3>
           <p>We get on a call. I audit your current tools, workflows, team structure, and pain points — and ask the questions most consultants skip. By the end, we've picked your track.</p>
         </div>
         <div class="process-step fade-in">
+          <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
           <div class="process-number">02</div>
           <div class="process-timeline">WEEK 1–2</div>
           <h3>Your Custom Blueprint</h3>
           <p>You receive a tailored documentation package: Call Summary, Command Center Spec, Privacy & Security Guide, Build Roadmap, Growth Strategy, and Claude Setup &amp; Usage Guide. Pro and Enterprise engagements include additional custom docs.</p>
         </div>
         <div class="process-step fade-in">
+          <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
           <div class="process-number">03</div>
           <div class="process-timeline">WEEK 2–6</div>
           <h3>Build &amp; Launch</h3>
           <p>I build your system, connect your integrations, set up your AI workflows, and train you and your team. You go live with a system that's yours — custom-built for your business.</p>
         </div>
         <div class="process-step fade-in">
+          <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 0 1 9-9"/></svg></div>
           <div class="process-number">04</div>
           <div class="process-timeline">ONGOING</div>
           <h3>Monthly Support</h3>
@@ -2707,7 +2953,10 @@
       </div>
       <div class="who-grid">
         <div class="who-card who-yes fade-in">
-          <h3>This is for you if:</h3>
+          <div class="who-card-header">
+            <div class="who-card-header-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <h3>This is for you if:</h3>
+          </div>
           <ul class="who-list">
             <li>You run a business with 1–35 people and no dedicated CTO or ops person</li>
             <li>You're spending 10+ hours/week on work that should be automatic</li>
@@ -2716,7 +2965,10 @@
           </ul>
         </div>
         <div class="who-card fade-in">
-          <h3>This is NOT for you if:</h3>
+          <div class="who-card-header">
+            <div class="who-card-header-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+            <h3>This is NOT for you if:</h3>
+          </div>
           <ul class="who-list who-list-no">
             <li>You want a ChatGPT tutorial (that's YouTube)</li>
             <li>You need enterprise IT infrastructure (that's Accenture)</li>
@@ -2728,11 +2980,11 @@
       <div class="verticals">
         <p class="verticals-label">Common verticals</p>
         <div class="verticals-grid">
-          <span class="vertical-pill">Coaches &amp; consultants</span>
-          <span class="vertical-pill">DTC &amp; e-commerce brands</span>
-          <span class="vertical-pill">Agencies &amp; creative businesses</span>
-          <span class="vertical-pill">Content creators &amp; personal brands</span>
-          <span class="vertical-pill">Medical &amp; regulated practices</span>
+          <span class="vertical-pill"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Coaches &amp; consultants</span>
+          <span class="vertical-pill"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>DTC &amp; e-commerce brands</span>
+          <span class="vertical-pill"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Agencies &amp; creative businesses</span>
+          <span class="vertical-pill"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Content creators &amp; personal brands</span>
+          <span class="vertical-pill"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Medical &amp; regulated practices</span>
         </div>
       </div>
     </div>
@@ -2837,26 +3089,32 @@
       </div>
       <div class="addons-grid">
         <div class="addon-card fade-in">
+          <div class="addon-icon"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
           <div class="addon-name">Additional Integration</div>
           <div class="addon-price">$250</div>
         </div>
         <div class="addon-card fade-in">
+          <div class="addon-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div class="addon-name">Extra Scheduled Task</div>
           <div class="addon-price">$150</div>
         </div>
         <div class="addon-card fade-in">
+          <div class="addon-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
           <div class="addon-name">Custom Data Pipeline</div>
           <div class="addon-price">$500</div>
         </div>
         <div class="addon-card fade-in">
+          <div class="addon-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
           <div class="addon-name">Monthly Maintenance</div>
           <div class="addon-price">$500/mo</div>
         </div>
         <div class="addon-card fade-in">
+          <div class="addon-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <div class="addon-name">Hourly Consulting</div>
           <div class="addon-price">$150/hr</div>
         </div>
         <div class="addon-card fade-in">
+          <div class="addon-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <div class="addon-name">Emergency Support</div>
           <div class="addon-price">$200/hr</div>
         </div>
@@ -2910,8 +3168,10 @@
   </section>
 
   <!-- RESULTS -->
-  <section class="results" id="results">
+  <section class="results" id="results" style="position:relative;overflow:hidden;">
     <div class="bg-orb"></div>
+    <div class="accent-dots" style="top:15%;left:3%;"><div class="dot" style="width:10px;height:10px;"></div><div class="dot" style="width:7px;height:7px;top:50px;left:30px;"></div><div class="dot" style="width:5px;height:5px;top:20px;left:60px;"></div></div>
+    <div class="accent-dots" style="bottom:20%;right:4%;"><div class="dot" style="width:8px;height:8px;"></div><div class="dot" style="width:6px;height:6px;top:-30px;left:15px;"></div></div>
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">#RESULTS</span>
@@ -2920,30 +3180,35 @@
       </div>
       <div class="results-grid">
         <div class="result-card fade-in">
+          <div class="result-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <h3>$50M DTC Skincare Brand</h3>
           <p>35-person team, 8 years bootstrapped. Phased AI operations plan from senior marketer up through the co-founder/CMO. Content calendar, campaign analytics, and team workflows unified into one system.</p>
           <div class="result-stat">Multi-tier engagement</div>
         </div>
 
         <div class="result-card fade-in">
+          <div class="result-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <h3>Creator Brand + Clothing Line</h3>
           <p>Personal brand plus apparel brand, run by two sisters and an assistant. Delivered full Notion Hub with 12 custom docs, 3 live databases (CRM, Content Calendar, Media Library), and Claude Projects trained on voice and team.</p>
           <div class="result-stat">Full operating system live</div>
         </div>
 
         <div class="result-card fade-in">
+          <div class="result-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
           <h3>Startup Advisor Running Two Businesses</h3>
           <p>Advisory firm plus coaching practice, both run off spreadsheets and memory. Unified command center with CRM, content calendar, coaching intelligence, and daily AI briefings.</p>
           <div class="result-stat">15–20 hrs/week projected back</div>
         </div>
 
         <div class="result-card fade-in">
+          <div class="result-icon"><svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
           <h3>Creative Consulting Agency</h3>
           <p>Command center with client pipeline, lead scoring, AI insights, and revenue tracking. Automated follow-ups reduced response time by 80%.</p>
           <div class="result-stat">40+ hours saved monthly</div>
         </div>
 
         <div class="result-card fade-in">
+          <div class="result-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <h3>Experiential Events Company</h3>
           <p>Scanned 800+ contacts, implemented LinkedIn enrichment, automated follow-up sequences, and built a comprehensive venue pipeline.</p>
           <div class="result-stat">$200K+ reactivated relationships</div>
@@ -2951,6 +3216,8 @@
       </div>
     </div>
   </section>
+
+  <div class="section-divider"></div>
 
   <!-- ABOUT -->
   <section class="about" id="about">
