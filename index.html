@@ -602,44 +602,62 @@
 
     .referral-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
       margin-top: 3rem;
     }
 
     .referral-card {
       background-color: rgba(43, 41, 38, 0.6);
-      border: 1px solid rgba(242, 87, 73, 0.3);
-      border-radius: 8px;
-      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
       text-align: center;
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      gap: 1rem;
     }
 
     .referral-card:hover {
-      background-color: rgba(242, 87, 73, 0.1);
-      border-color: #F25749;
+      background-color: rgba(242, 87, 73, 0.08);
+      border-color: rgba(242, 87, 73, 0.4);
+      transform: translateY(-4px);
     }
 
     .referral-icon {
-      width: 192px;
-      height: 192px;
-      margin: 0 auto 1.5rem;
+      width: 56px;
+      height: 56px;
+      background: rgba(242, 87, 73, 0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #F25749;
+    }
+    .referral-icon svg {
+      width: 28px;
+      height: 28px;
     }
 
     .referral-card h3 {
+      color: #FFFFFF;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .referral-value {
+      font-size: 1.25rem;
+      font-weight: 800;
       color: #F25749;
-      margin-bottom: 0.75rem;
     }
 
     .referral-card p {
       color: #9DA3AE;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin: 0;
     }
 
     /* ============================================
@@ -1471,22 +1489,19 @@
       }
 
       /* --- Referral cards --- */
-      .referral-icon {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 1rem;
+      .referral-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      .referral-card {
-        padding: 1.5rem;
-      }
-
-      .referral-card h3 {
-        font-size: 1.1rem;
-      }
-
-      .referral-card p {
-        font-size: 0.85rem;
+      /* --- Verticals grid --- */
+      .verticals-grid {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       /* --- Results --- */
@@ -1672,11 +1687,7 @@
         font-size: 0.72rem;
       }
 
-      /* Referral icon even smaller */
-      .referral-icon {
-        width: 72px;
-        height: 72px;
-      }
+      /* Referral cards already single-column from 768px breakpoint */
 
       .pricing-card {
         padding: 1.75rem 1.25rem;
@@ -1952,8 +1963,8 @@
       margin-bottom: 1rem;
     }
     .verticals-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
       gap: 0.75rem;
       justify-content: center;
     }
@@ -1988,27 +1999,98 @@
       font-weight: 500;
       line-height: 1.4;
     }
-    .pricing-footer {
-      max-width: 720px;
+    .pricing-extras {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 900px;
       margin: 3rem auto 0;
-      text-align: center;
-      color: #E9ECF2;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      padding: 1.5rem 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
+    }
+    .pricing-extra-card {
       background-color: rgba(43, 41, 38, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      transition: border-color 0.3s ease;
     }
-    .pricing-footer strong {
+    .pricing-extra-card:hover {
+      border-color: rgba(242, 87, 73, 0.3);
+    }
+    .pricing-extra-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(242, 87, 73, 0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pricing-extra-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #F25749;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .pricing-extra-card h4 {
+      font-size: 1.1rem;
       color: #FFFFFF;
+      font-weight: 700;
+      margin: 0;
     }
-    .pricing-footer em {
-      display: block;
-      margin-top: 0.75rem;
+    .pricing-extra-card .price-highlight {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #F25749;
+    }
+    .pricing-extra-card p {
       color: #9DA3AE;
-      font-size: 0.875rem;
-      font-style: normal;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .pricing-extra-card .founding-badge {
+      display: inline-block;
+      background: rgba(242, 87, 73, 0.12);
+      color: #F25749;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .upgrade-path {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.25rem;
+    }
+    .upgrade-step {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #E9ECF2;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .upgrade-step .arrow {
+      color: #F25749;
+    }
+    .upgrade-step .cost {
+      color: #9DA3AE;
+      font-size: 0.8rem;
+    }
+    @media (max-width: 768px) {
+      .pricing-extras {
+        grid-template-columns: 1fr;
+      }
     }
 
 
@@ -2720,13 +2802,28 @@
           <a href="https://calendly.com/jake-radanimal/consulting-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Let's Talk</a>
         </div>
       </div>
-      <p class="pricing-footer">
-        <strong>Ongoing support after launch: $150/hr</strong> — monthly optimization, new automations, troubleshooting, and integration updates. Available to any past client.
-        <em>Founding-client rate of $125/hr is available to the first 10 ongoing clients — grandfather-locked for the life of the engagement.</em>
-      </p>
-      <p class="pricing-footer">
-        <strong>Upgrade anytime.</strong> Outgrow your tier? Your original payment applies as credit toward the next one — you only pay the difference. Available during active engagements and within 60 days of delivery. Starter → Pro costs $2,750. Pro → Enterprise costs $4,000.
-      </p>
+      <div class="pricing-extras">
+        <div class="pricing-extra-card fade-in">
+          <div class="pricing-extra-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <h4>Ongoing Support</h4>
+          <span class="price-highlight">$150/hr</span>
+          <p>Monthly optimization, new automations, troubleshooting, and integration updates. Available to any past client.</p>
+          <span class="founding-badge">First 10 clients: $125/hr — locked for life</span>
+        </div>
+        <div class="pricing-extra-card fade-in">
+          <div class="pricing-extra-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4>Upgrade Anytime</h4>
+          <p>Outgrow your tier? Your original payment applies as credit — you only pay the difference. Available within 60 days of delivery.</p>
+          <div class="upgrade-path">
+            <span class="upgrade-step">Starter <span class="arrow">→</span> Pro <span class="cost">$2,750</span></span>
+            <span class="upgrade-step">Pro <span class="arrow">→</span> Enterprise <span class="cost">$4,000</span></span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2778,32 +2875,35 @@
       <div class="referral-grid">
         <div class="referral-card fade-in">
           <div class="referral-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
             </svg>
           </div>
           <h3>Refer a Friend</h3>
-          <p>Both get 10% off any package</p>
+          <span class="referral-value">10% off for both</span>
+          <p>You and your referral each get 10% off any package</p>
         </div>
 
         <div class="referral-card fade-in">
           <div class="referral-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
             </svg>
           </div>
           <h3>Refer 3+</h3>
-          <p>Earn a free Starter package upgrade</p>
+          <span class="referral-value">Free upgrade</span>
+          <p>Earn a complimentary Starter package upgrade</p>
         </div>
 
         <div class="referral-card fade-in">
           <div class="referral-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
           </div>
           <h3>Active Client Referral</h3>
-          <p>$250 credit per successful referral</p>
+          <span class="referral-value">$250 credit</span>
+          <p>Per successful referral while you're an active client</p>
         </div>
       </div>
     </div>
