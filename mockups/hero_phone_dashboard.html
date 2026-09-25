@@ -10,7 +10,7 @@ body{width:390px;height:844px;overflow:hidden;background:#0f1013;color:#e7e7ea;f
 h1{font-size:24px;font-weight:700;color:#fff;margin-bottom:16px}
 .brief{background:linear-gradient(135deg,rgba(242,87,73,.18),rgba(242,87,73,.06));border:1px solid rgba(242,87,73,.3);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.45;color:#f1d6d2;margin-bottom:14px}
 .brief b{color:#fff}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
 .tile{background:#181a1f;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:12px 14px}
 .lab{font-size:10.5px;color:#7c7f89;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
 .val{font-size:22px;font-weight:700;color:#fff}
@@ -19,33 +19,46 @@ h1{font-size:24px;font-weight:700;color:#fff;margin-bottom:16px}
 .spark i{flex:1;border-radius:2px;background:#F25749;opacity:.85}
 h2{font-size:14px;font-weight:600;color:#fff;margin:4px 0 8px;display:flex;justify-content:space-between}
 h2 span{font-size:12px;color:#7c7f89;font-weight:500}
-.card{background:#181a1f;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:4px 14px;margin-bottom:14px}
-.row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13.5px}
+.card{background:#181a1f;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:3px 14px;margin-bottom:12px}
+.row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13.5px}
 .row:last-child{border:none}
 .box{width:16px;height:16px;border-radius:5px;border:1.5px solid #5b5e68;flex:0 0 16px}
 .box.on{background:#F25749;border-color:#F25749}
 .row .t{flex:1}.row .m{font-size:11.5px;color:#7c7f89}
 .dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.18);flex:0 0 8px}
+.line{display:block;width:100%;height:24px;margin-top:8px;overflow:visible}
 .pill{font-size:10.5px;padding:2px 7px;border-radius:6px;background:rgba(52,211,153,.14);color:#6ee7b7;font-weight:600}
+.tm{font-size:12px;color:#9a9ca5;width:40px;flex:0 0 40px;font-variant-numeric:tabular-nums}
+.pill.b{background:rgba(129,140,248,.16);color:#a5b4fc}.pill.o{background:rgba(242,87,73,.16);color:#ff9d92}
+.tabs{position:absolute;left:0;right:0;bottom:0;height:82px;padding:10px 20px 26px;display:flex;justify-content:space-around;background:rgba(18,19,23,.96);border-top:1px solid rgba(255,255,255,.07)}
+.tabs a{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;color:#6f727c;font-weight:500}
+.tabs a.on{color:#F25749}
+.tabs svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+body{position:relative}
 </style></head><body><div class="wrap">
 <div class="bar"><div class="brand"><div class="logo">⚡</div>Command Center</div><div class="av">SR</div></div>
 <div class="hi">Friday, Sep 25</div><h1>Good morning, Sam</h1>
 <div class="brief"><b>Morning brief:</b> 3 follow-ups due, 2 proposals out, and your weekly report is ready.</div>
 <div class="grid">
-<div class="tile"><div class="lab">Revenue (MTD)</div><div class="val">$48.2K</div><div class="chg">↑ 18% vs last month</div><div class="spark"><i style="height:30%"></i><i style="height:45%"></i><i style="height:38%"></i><i style="height:60%"></i><i style="height:52%"></i><i style="height:75%"></i><i style="height:90%"></i></div></div>
-<div class="tile"><div class="lab">Pipeline</div><div class="val">$126K</div><div class="chg">↑ 6 new leads</div><div class="spark"><i style="height:40%;background:#818cf8"></i><i style="height:35%;background:#818cf8"></i><i style="height:55%;background:#818cf8"></i><i style="height:50%;background:#818cf8"></i><i style="height:70%;background:#818cf8"></i><i style="height:66%;background:#818cf8"></i><i style="height:85%;background:#818cf8"></i></div></div>
+<div class="tile"><div class="lab">Revenue (MTD)</div><div class="val">$48.2K</div><div class="chg">↑ 18% vs last month</div><div class="spark"><i style="height:24%"></i><i style="height:31%"></i><i style="height:28%"></i><i style="height:40%"></i><i style="height:47%"></i><i style="height:43%"></i><i style="height:56%"></i><i style="height:64%"></i><i style="height:61%"></i><i style="height:78%"></i><i style="height:92%"></i></div></div>
+<div class="tile"><div class="lab">Pipeline</div><div class="val">$126K</div><div class="chg">↑ 6 new leads</div><svg class="line" viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#818cf8" stop-opacity=".45"/><stop offset="1" stop-color="#818cf8" stop-opacity="0"/></linearGradient></defs><polygon points="0,30 0,26 10,25 20,22 30,23 40,17 50,18 60,14 70,15 80,9 90,8 100,3 100,30" fill="url(#g)"/><polyline points="0,26 10,25 20,22 30,23 40,17 50,18 60,14 70,15 80,9 90,8 100,3" fill="none" stroke="#818cf8" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/><circle cx="100" cy="3" r="2.2" fill="#818cf8"/></svg></div>
 </div>
-<h2>Today <span>4 tasks</span></h2>
+<h2>Today <span>3 tasks</span></h2>
 <div class="card">
 <div class="row"><div class="box on"></div><div class="t" style="color:#6b6e78;text-decoration:line-through">Send Lumen proposal</div><div class="m">Done</div></div>
 <div class="row"><div class="box"></div><div class="t">Follow up with Harbor Fitness</div><div class="m">10:30</div></div>
 <div class="row"><div class="box"></div><div class="t">Approve October content</div><div class="m">1:00</div></div>
-<div class="row"><div class="box"></div><div class="t">Review weekly numbers</div><div class="m">3:30</div></div>
 </div>
 <h2>Automations <span>running</span></h2>
 <div class="card">
 <div class="row"><div class="dot"></div><div class="t">New leads to CRM</div><span class="pill">12 today</span></div>
 <div class="row"><div class="dot"></div><div class="t">Meeting notes to tasks</div><span class="pill">3 today</span></div>
-<div class="row"><div class="dot"></div><div class="t">Invoices to bookkeeping</div><span class="pill">5 today</span></div>
 </div>
-</div></body></html>
+<h2>Up next <span>Today</span></h2>
+<div class="card">
+<div class="row"><div class="tm">11:00</div><div class="t">Strategy call · Orbit Labs</div><span class="pill b">Zoom</span></div>
+<div class="row"><div class="tm">2:30</div><div class="t">Content shoot · Studio B</div><span class="pill o">On site</span></div>
+</div>
+</div>
+<nav class="tabs"><a class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a><a><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.6"/><path d="M16 14.6c2.8-.3 4.9 1.3 5.5 4.4"/></svg>Clients</a><a><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Tasks</a><a><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Reports</a></nav>
+</body></html>
