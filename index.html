@@ -2712,6 +2712,50 @@
     .showcase-track-label.first { margin-top: 1rem; }
     /* Balanced headline wrapping: no single-word last lines */
     h1, h2, .section-header h2 { text-wrap: balance; }
+
+    /* ===== Referral promo cards ===== */
+    .referral-grid { gap: 1.75rem; }
+    .referral-card.promo {
+      --notch: 11px; --perf: 168px;
+      position: relative; overflow: hidden; isolation: isolate;
+      text-align: left; align-items: stretch; gap: 0; padding: 0;
+      border: none; border-radius: 16px; min-height: 290px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.14);
+      -webkit-mask: radial-gradient(circle var(--notch) at 0 var(--perf), transparent 98%, #000 100%) left / 51% 100% no-repeat,
+                    radial-gradient(circle var(--notch) at 100% var(--perf), transparent 98%, #000 100%) right / 51% 100% no-repeat;
+              mask: radial-gradient(circle var(--notch) at 0 var(--perf), transparent 98%, #000 100%) left / 51% 100% no-repeat,
+                    radial-gradient(circle var(--notch) at 100% var(--perf), transparent 98%, #000 100%) right / 51% 100% no-repeat;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
+    }
+    .promo--a { background: radial-gradient(120% 90% at 100% 0%, #FF8A6B 0%, transparent 55%), linear-gradient(140deg, #F25749 0%, #B8322A 100%); }
+    .promo--b { background: radial-gradient(110% 80% at 0% 0%, rgba(242,87,73,0.35) 0%, transparent 60%), linear-gradient(150deg, #2B2926 0%, #121214 100%); box-shadow: 0 18px 40px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(242,87,73,0.45); }
+    .promo--c { background: radial-gradient(120% 90% at 100% 0%, #FFD59A 0%, transparent 55%), linear-gradient(140deg, #F4A261 0%, #C2562E 100%); }
+    /* fine diagonal texture + shine */
+    .referral-card.promo::before {
+      content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 9px);
+    }
+    .referral-card.promo::after {
+      content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%; pointer-events: none;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.28), transparent);
+      transform: skewX(-18deg); transition: left 0.8s ease;
+    }
+    .referral-card.promo:hover { background-color: transparent; transform: translateY(-6px); box-shadow: 0 26px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.22); }
+    .referral-card.promo:hover::after { left: 120%; }
+    .promo-top { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 1.5rem 0; }
+    .promo-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); padding: 0.3rem 0.6rem; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; }
+    .referral-card.promo .referral-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.16); color: #FFFFFF; }
+    .referral-card.promo .referral-icon svg { width: 22px; height: 22px; }
+    .referral-card.promo .referral-value { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.9rem 1.5rem 0; color: #FFFFFF; font-weight: 800; height: calc(var(--perf) - 1.4rem - 44px); box-sizing: border-box; }
+    .promo-big { font-size: 3.4rem; line-height: 1; letter-spacing: -0.03em; }
+    .promo-unit { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; }
+    .promo-perf { height: 0; margin: 0 calc(var(--notch) + 8px); border-top: 2px dashed rgba(255,255,255,0.35); }
+    .promo-bottom { padding: 1.1rem 1.5rem 1.5rem; }
+    .referral-card.promo h3 { font-size: 1.1rem; color: #FFFFFF; margin: 0 0 0.35rem; }
+    .referral-card.promo p { color: rgba(255,255,255,0.82); margin: 0; font-size: 0.92rem; line-height: 1.5; }
+    .promo--b .promo-big { color: #F25749; }
+    .promo--b .promo-tag { border-color: rgba(242,87,73,0.6); color: #FF8A7D; }
+    @media (prefers-reduced-motion: reduce) { .referral-card.promo::after { display: none; } }
     .about-signature { margin-top: 0.5rem; }
     .about-signature .sig-name { display: block; font-family: 'Mrs Saint Delafield', cursive; font-size: 3.4rem; line-height: 1; color: #FFFFFF; font-weight: 400; transform: translateX(-4px); }
     .about-signature .sig-title { display: block; margin-top: 0.35rem; font-size: 0.8rem; letter-spacing: 0.02em; color: #9DA3AE; }
@@ -3340,7 +3384,6 @@
           <h4>Ongoing Support</h4>
           <span class="price-highlight">$150/hr</span>
           <p>Monthly optimization, new automations, troubleshooting, and integration updates. Available to any past client.</p>
-          <span class="founding-badge">First 10 clients: $125/hr, locked for life</span>
         </div>
         <div class="pricing-extra-card fade-in">
           <div class="pricing-extra-icon">
@@ -3407,37 +3450,41 @@
         <h2>Share the advantage.</h2>
       </div>
       <div class="referral-grid">
-        <div class="referral-card fade-in">
-          <div class="referral-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
-            </svg>
+        <div class="referral-card promo promo--a fade-in">
+          <div class="promo-top">
+            <span class="promo-tag">Referral</span>
+            <div class="referral-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
           </div>
-          <h3>Refer a Friend</h3>
-          <span class="referral-value">10% off for both</span>
-          <p>You and your referral each get 10% off any package</p>
+          <div class="referral-value"><span class="promo-big">10%</span><span class="promo-unit">off for both</span></div>
+          <div class="promo-perf" aria-hidden="true"></div>
+          <div class="promo-bottom">
+            <h3>Refer a Friend</h3>
+            <p>You and your referral each get 10% off any package.</p>
+          </div>
         </div>
-
-        <div class="referral-card fade-in">
-          <div class="referral-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
-            </svg>
+        <div class="referral-card promo promo--b fade-in">
+          <div class="promo-top">
+            <span class="promo-tag">Reward</span>
+            <div class="referral-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
           </div>
-          <h3>Refer 3+</h3>
-          <span class="referral-value">Free upgrade</span>
-          <p>Earn a complimentary Starter package upgrade</p>
+          <div class="referral-value"><span class="promo-big">Free</span><span class="promo-unit">Starter upgrade</span></div>
+          <div class="promo-perf" aria-hidden="true"></div>
+          <div class="promo-bottom">
+            <h3>Refer 3+</h3>
+            <p>Earn a complimentary Starter package upgrade.</p>
+          </div>
         </div>
-
-        <div class="referral-card fade-in">
-          <div class="referral-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
+        <div class="referral-card promo promo--c fade-in">
+          <div class="promo-top">
+            <span class="promo-tag">Credit</span>
+            <div class="referral-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
           </div>
-          <h3>Active Client Referral</h3>
-          <span class="referral-value">$250 credit</span>
-          <p>Per successful referral while you're an active client</p>
+          <div class="referral-value"><span class="promo-big">$250</span><span class="promo-unit">per referral</span></div>
+          <div class="promo-perf" aria-hidden="true"></div>
+          <div class="promo-bottom">
+            <h3>Active Client Referral</h3>
+            <p>Credit for each successful referral while you're an active client.</p>
+          </div>
         </div>
       </div>
     </div>
