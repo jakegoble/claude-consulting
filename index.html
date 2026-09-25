@@ -2668,6 +2668,33 @@
       }
     }
 
+  
+    /* ---- Header logo, mobile menu, scroll cue (2026-09-25) ---- */
+    .logo { display: block; line-height: 0; }
+    .logo img { height: 32px; width: auto; display: block; }
+    .hamburger { position: relative; width: 44px; height: 44px; padding: 0; margin-right: -10px; align-items: center; justify-content: center; }
+    .hamburger span { position: absolute; left: 11px; width: 22px; height: 2px; border-radius: 2px; background: #FFFFFF; transition: transform 0.25s ease, opacity 0.2s ease; }
+    .hamburger span:nth-child(1) { top: 15px; }
+    .hamburger span:nth-child(2) { top: 21px; }
+    .hamburger span:nth-child(3) { top: 27px; }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .mobile-menu { position: fixed; top: var(--hdr-h, 64px); left: 0; right: 0; bottom: 0; max-width: none; display: flex; flex-direction: column; padding: 1.5rem 1.25rem 2rem; background: #0B0C10; text-align: left; overflow-y: auto; z-index: 999; }
+    .mobile-menu[hidden] { display: none; }
+    .mobile-menu a { padding: 1.1rem 0.25rem; font-size: 1.35rem; font-weight: 600; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+    .mobile-menu a.nav-cta { margin: 1.75rem 0 0; padding: 1rem 1.25rem !important; font-size: 1rem !important; text-align: center; border-bottom: 0; color: #FFFFFF; }
+    body.menu-open { overflow: hidden; }
+    @media (min-width: 769px) { .mobile-menu { display: none !important; } }
+    @media (max-width: 768px) { .logo img { height: 26px; } }
+
+    .scroll-cue { position: absolute; left: 50%; bottom: 1.75rem; width: 44px; height: 44px; margin-left: -22px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 50%; color: #FFFFFF; z-index: 2; transition: opacity 0.3s ease, border-color 0.2s ease, background-color 0.2s ease; animation: cueBob 2.2s ease-in-out infinite; }
+    .scroll-cue svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .scroll-cue:hover, .scroll-cue:focus-visible { border-color: #F25749; background-color: rgba(242, 87, 73, 0.12); animation-play-state: paused; }
+    .scroll-cue.is-hidden { opacity: 0; pointer-events: none; }
+    @keyframes cueBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    @media (max-width: 768px) { .hero { padding-bottom: 6rem; } .scroll-cue { bottom: 1.25rem; } }
+    @media (prefers-reduced-motion: reduce) { .scroll-cue { animation: none; } .hamburger span { transition: none; } }
   </style>
 
   <script type="application/ld+json">
@@ -2736,7 +2763,7 @@
   <!-- HEADER -->
   <header>
     <div class="header-container">
-      <div class="logo">RAD ANIMAL</div>
+      <a class="logo" href="/" aria-label="Rad Animal home"><img src="/images/rad-animal-logo.png" alt="Rad Animal" width="1000" height="228"></a>
       <nav id="nav">
         <a href="#process">How It Works</a>
         <a href="#tracks">Two Tracks</a>
@@ -2746,13 +2773,9 @@
         <a href="#contact">Contact</a>
         <a href="https://cal.com/radanimal" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book a Strategy Call</a>
       </nav>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
-        </svg>
-      </button>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </div>
-    <div class="mobile-menu" id="mobileMenu"></div>
+    <div class="mobile-menu" id="mobileMenu" hidden></div>
   </header>
 
   <main>
@@ -2760,7 +2783,6 @@
   <section class="hero">
     <canvas id="particle-canvas"></canvas>
     <div class="hero-content">
-      <span class="hero-eyebrow">RAD ANIMAL · AI CONSULTING</span>
       <h1 class="hero-title" aria-label="Custom-built AI operating systems for leaders running real businesses."><span class="word" style="animation-delay:0.1s">Custom-built</span> <span class="word" style="animation-delay:0.2s">AI</span> <span class="word" style="animation-delay:0.3s">operating</span> <span class="word" style="animation-delay:0.4s">systems</span> <span class="word" style="animation-delay:0.55s">for</span> <span class="word" style="animation-delay:0.65s">leaders</span> <span class="word" style="animation-delay:0.75s">running</span> <span class="word" style="animation-delay:0.9s">real</span> <span class="word" style="animation-delay:1.05s">businesses.</span></h1>
       <p class="hero-subtitle">Your business runs on a patchwork of tools that don't talk to each other. I build the system that connects them, automates the repetitive work, and runs your workflows end-to-end. Whether that's a command center that puts everything in one place or an automated pipeline that handles entire processes without you. You own it. You keep your tools. You just stop doing the work they should be doing for you.</p>
       <div class="hero-ctas">
@@ -2768,10 +2790,11 @@
         <button class="btn btn-secondary" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">View Packages</button>
       </div>
     </div>
+      <a class="scroll-cue" href="#after-hero" aria-label="Scroll to the next section"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></a>
   </section>
 
   <!-- PAIN POINTS -->
-  <section class="pain-points cursor-glow">
+  <section id="after-hero" class="pain-points cursor-glow">
     <div class="bg-orb"></div>
     <div class="container">
       <div class="section-header">
@@ -3779,23 +3802,30 @@
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const nav = document.getElementById('nav');
+    nav.querySelectorAll('a').forEach(link => mobileMenu.appendChild(link.cloneNode(true)));
+    document.body.appendChild(mobileMenu); // outside the blurred header so position:fixed works
+    const siteHeader = document.querySelector('header');
+    const setHeaderHeight = () => document.documentElement.style.setProperty('--hdr-h', siteHeader.offsetHeight + 'px');
+    setHeaderHeight();
+    window.addEventListener('resize', setHeaderHeight);
+    function setMenu(open) {
+      mobileMenu.hidden = !open;
+      document.body.classList.toggle('menu-open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    hamburger.addEventListener('click', () => setMenu(mobileMenu.hidden));
+    mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mobileMenu.hidden) { setMenu(false); hamburger.focus(); } });
+    window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 
-    hamburger.addEventListener('click', () => {
-      if (mobileMenu.children.length === 0) {
-        const navLinks = Array.from(nav.querySelectorAll('a'));
-        navLinks.forEach(link => {
-          const clone = link.cloneNode(true);
-          mobileMenu.appendChild(clone);
-        });
-      }
-      mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-        mobileMenu.style.display = 'none';
-      }
-    });
+    // Scroll cue: hide once the visitor starts scrolling
+    const scrollCue = document.querySelector('.scroll-cue');
+    if (scrollCue) {
+      const toggleCue = () => scrollCue.classList.toggle('is-hidden', window.scrollY > 80);
+      window.addEventListener('scroll', toggleCue, { passive: true });
+      toggleCue();
+    }
 
     // ============================================
     // ACCORDION
