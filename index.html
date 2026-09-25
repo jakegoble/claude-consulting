@@ -6,20 +6,20 @@
   <meta name="description" content="Custom-built AI operating systems for business leaders. One system that connects your tools, automates your workflows, and puts everything in one place, designed around how you actually work.">
   <meta property="og:title" content="Custom-built AI operating systems for business leaders">
   <meta property="og:description" content="Your business runs on a patchwork of tools that don't talk to each other. Let's connect them into one system that automates the repetitive work and runs your workflows end-to-end. Easy to build. You own it.">
-  <meta property="og:image" content="https://claude-consulting.vercel.app/og-image.png">
+  <meta property="og:image" content="https://consulting.radanimal.co/og-image.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://claude-consulting.vercel.app">
+  <meta property="og:url" content="https://consulting.radanimal.co">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Custom-built AI operating systems for business leaders.">
   <meta name="twitter:description" content="Your business runs on a patchwork of tools that don't talk to each other. Let's connect them into one system that automates the repetitive work and runs your workflows end-to-end. Easy to build. You own it.">
-  <meta name="twitter:image" content="https://claude-consulting.vercel.app/og-image.png">
+  <meta name="twitter:image" content="https://consulting.radanimal.co/og-image.png">
   <title>Rad Animal | Custom-built AI operating systems for business leaders.</title>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://claude-consulting.vercel.app">
+  <link rel="canonical" href="https://consulting.radanimal.co">
 
   <!-- Google Fonts - Roboto Flex -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2685,7 +2685,7 @@
     .mobile-menu a { padding: 1.1rem 0.25rem; font-size: 1.35rem; font-weight: 600; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
     .mobile-menu a.nav-cta { margin: 1.75rem 0 0; padding: 1rem 1.25rem !important; font-size: 1rem !important; text-align: center; border-bottom: 0; color: #FFFFFF; }
     body.menu-open { overflow: hidden; }
-    @media (min-width: 769px) { .mobile-menu { display: none !important; } }
+    @media (min-width: 1101px) { .mobile-menu { display: none !important; } }
     @media (max-width: 768px) { .logo img { height: 26px; } }
 
     .scroll-cue { position: absolute; left: 50%; bottom: 1.75rem; width: 44px; height: 44px; margin-left: -22px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 50%; color: #FFFFFF; z-index: 2; transition: opacity 0.3s ease, border-color 0.2s ease, background-color 0.2s ease; animation: cueBob 2.2s ease-in-out infinite; }
@@ -2780,6 +2780,56 @@
     }
     @media (max-width: 480px) { .hero-phone { width: 210px; } .hp-status { font-size: 10px; } .hp-status svg { transform: scale(0.85); } }
     @media (prefers-reduced-motion: reduce) { .hero-phone { animation: none; opacity: 1; } .hp-body, .hp-glow { animation: none; } }
+    /* ===== Shared Rad Animal nav + footer (2026-09-25) ===== */
+    .lockup { display: flex; align-items: center; gap: 0.7rem; }
+    .lockup-sep { color: rgba(255,255,255,0.3); font-size: 1.2rem; font-weight: 300; }
+    .lockup-site { color: #FFFFFF; text-decoration: none; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em; white-space: nowrap; }
+    .lockup-site:hover { color: #F25749; }
+    nav { gap: 2.25rem; }
+    .ra-menu { position: relative; }
+    .ra-menu-btn { display: inline-flex; align-items: center; gap: 0.35rem; background: none; border: 0; padding: 0; color: #E9ECF2; font: inherit; font-size: 0.95rem; font-weight: 500; cursor: pointer; }
+    .ra-menu-btn svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s ease; }
+    .ra-menu-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .ra-menu-btn:hover, .ra-menu-btn[aria-expanded="true"] { color: #FFFFFF; }
+    .ra-menu-list { position: absolute; top: calc(100% + 18px); right: -12px; width: 270px; padding: 0.5rem; background: #15161B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; box-shadow: 0 24px 50px rgba(0,0,0,0.5); display: grid; gap: 2px; z-index: 1001; }
+    .ra-menu-list[hidden] { display: none; }
+    .ra-menu-list a { display: flex; flex-direction: column; gap: 2px; padding: 0.65rem 0.8rem; border-radius: 8px; text-decoration: none; }
+    .ra-menu-list a::after { display: none; }
+    .ra-menu-list a:hover { background: rgba(255,255,255,0.05); }
+    .ra-menu-list .ra-name { color: #FFFFFF; font-size: 0.92rem; font-weight: 600; }
+    .ra-menu-list .ra-desc { color: #8B909B; font-size: 0.78rem; font-weight: 400; }
+    .ra-menu-list a.is-current { background: rgba(242,87,73,0.1); }
+    .ra-menu-list a.is-current .ra-desc { color: #F25749; }
+    @media (max-width: 1100px) { nav { display: none !important; } .hamburger { display: flex !important; } }
+    @media (min-width: 1101px) { .mobile-menu { display: none !important; } .hamburger { display: none !important; } }
+    @media (max-width: 768px) { .lockup { gap: 0.5rem; } .lockup-site { font-size: 0.85rem; } }
+    @media (max-width: 360px) { .lockup-sep, .lockup-site { display: none; } }
+    .mobile-menu { padding-bottom: 2.5rem; }
+    .mobile-menu > * { flex-shrink: 0; }
+    .mobile-menu a.mm-cta { line-height: 1.2; min-height: 52px; display: flex; align-items: center; justify-content: center; }
+    .mobile-menu .mm-group { display: flex; flex-direction: column; }
+    .mobile-menu .mm-group a { padding: 0.85rem 0.25rem; font-size: 1.2rem; color: #FFFFFF; text-decoration: none; }
+    .mobile-menu .mm-label { margin: 1.75rem 0 0.25rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8B909B; }
+    .mobile-menu .mm-family a { font-size: 1.05rem; font-weight: 500; color: #D5D8DF; }
+    .mobile-menu .mm-family a.is-current { color: #F25749; }
+    .mobile-menu a.mm-cta { margin: 2rem 0 0; padding: 1rem 1.25rem; text-align: center; border-bottom: 0; font-size: 1rem; color: #FFFFFF; }
+    .mobile-menu a.mm-email { border-bottom: 0; margin-top: 1rem; padding: 0.5rem; text-align: center; font-size: 0.95rem; font-weight: 500; color: #9DA3AE; }
+    footer.ra-footer { padding: 4rem 2rem 2rem; }
+    .rf-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; }
+    .rf-brand img { height: 30px; width: auto; display: block; margin-bottom: 1rem; }
+    .rf-brand p { color: #9DA3AE; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.75rem; max-width: 26ch; }
+    .rf-brand .rf-email { color: #FFFFFF; font-size: 0.9rem; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.25); }
+    .rf-brand .rf-email:hover { color: #F25749; border-color: #F25749; }
+    .rf-col { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+    .rf-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6F7480; margin-bottom: 0.35rem; }
+    .rf-col a { color: #C9CDD5; font-size: 0.9rem; text-decoration: none; transition: color 0.2s ease; }
+    .rf-col a:hover { color: #F25749; }
+    .rf-col a[aria-current="page"] { color: #F25749; }
+    .rf-legal { max-width: 1200px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; color: #6F7480; font-size: 0.8rem; }
+    .rf-legal a { color: #9DA3AE; text-decoration: none; }
+    .rf-legal a:hover { color: #F25749; }
+    @media (max-width: 900px) { .rf-grid { grid-template-columns: 1fr 1fr; } .rf-brand { grid-column: 1 / -1; } }
+    @media (max-width: 480px) { footer.ra-footer { padding: 3rem 1.25rem 1.5rem; } .rf-grid { gap: 2rem 1.5rem; } }
     .about-signature { margin-top: 0.5rem; }
     .about-signature .sig-name { display: block; font-family: 'Mrs Saint Delafield', cursive; font-size: 3.4rem; line-height: 1; color: #FFFFFF; font-weight: 400; transform: translateX(-4px); }
     .about-signature .sig-title { display: block; margin-top: 0.35rem; font-size: 0.8rem; letter-spacing: 0.02em; color: #9DA3AE; }
@@ -2793,7 +2843,7 @@
     {
       "@type": "ProfessionalService",
       "name": "Rad Animal AI Consulting",
-      "url": "https://claude-consulting.vercel.app",
+      "url": "https://consulting.radanimal.co",
       "description": "Custom-built AI operating systems for business leaders.",
       "founder": {
         "@type": "Person",
@@ -2804,7 +2854,7 @@
       "email": "jake@radanimal.co",
       "sameAs": [
         "https://linkedin.com/in/jakegoble",
-        "https://instagram.com/jakke"
+        "https://www.instagram.com/jakke"
       ]
     },
     {
@@ -2852,19 +2902,32 @@
   <!-- HEADER -->
   <header>
     <div class="header-container">
-      <a class="logo" href="/" aria-label="Rad Animal home"><img src="/images/rad-animal-logo.png" alt="Rad Animal" width="1000" height="228"></a>
-      <nav id="nav">
+      <div class="lockup">
+        <a class="logo" href="https://radanimal.co/" aria-label="Rad Animal home"><img src="/images/rad-animal-logo.png" alt="Rad Animal" width="1000" height="228"></a>
+        <span class="lockup-sep" aria-hidden="true">/</span>
+        <a class="lockup-site" href="/">AI Consulting</a>
+      </div>
+      <nav id="nav" aria-label="Main">
         <a href="#process">How It Works</a>
         <a href="#tracks">Two Tracks</a>
         <a href="#pricing">Packages</a>
         <a href="#results">Results</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <div class="ra-menu">
+          <button class="ra-menu-btn" type="button" aria-expanded="false" aria-controls="raMenuList">Rad Animal <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5"/></svg></button>
+          <div class="ra-menu-list" id="raMenuList" hidden><a href="https://consulting.radanimal.co/" aria-current="page" class="is-current"><span class="ra-name">AI Consulting</span><span class="ra-desc">You are here</span></a><a href="https://web.radanimal.co/"><span class="ra-name">Web</span><span class="ra-desc">Websites and digital builds</span></a><a href="https://www.radanimal.co/"><span class="ra-name">Studio</span><span class="ra-desc">Experiential and content</span></a><a href="https://design.radanimal.co/"><span class="ra-name">Design</span><span class="ra-desc">Branding and identity</span></a></div>
+        </div>
         <a href="https://cal.com/radanimal" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book a Strategy Call</a>
       </nav>
       <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </div>
-    <div class="mobile-menu" id="mobileMenu" hidden></div>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <div class="mm-group"><a href="#process">How It Works</a><a href="#tracks">Two Tracks</a><a href="#showcase">Examples</a><a href="#who">Who It's For</a><a href="#pricing">Packages</a><a href="#results">Results</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+      <p class="mm-label">Rad Animal</p>
+      <div class="mm-group mm-family"><a href="https://consulting.radanimal.co/" aria-current="page" class="is-current">AI Consulting</a><a href="https://web.radanimal.co/">Web</a><a href="https://www.radanimal.co/">Studio</a><a href="https://design.radanimal.co/">Design</a><a href="https://jakegoble.com/">Portfolio Index</a></div>
+      <a href="https://cal.com/radanimal" target="_blank" rel="noopener noreferrer" class="btn btn-primary mm-cta">Book a Strategy Call</a>
+      <a class="mm-email" href="mailto:jake@radanimal.co">jake@radanimal.co</a>
+    </div>
   </header>
 
   <main>
@@ -3625,7 +3688,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq">
+  <section class="faq" id="faq">
     <div class="bg-orb"></div>
     <div class="container">
       <div class="section-header">
@@ -3767,36 +3830,18 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-left">
-        <p>© RAD ANIMAL</p>
-        <p>ALL RIGHTS RESERVED</p>
-        <p style="margin-top: 0.75rem; font-size: 0.8rem;"><a href="/privacy" style="color: #9DA3AE; text-decoration: none;">Privacy</a> · <a href="/terms" style="color: #9DA3AE; text-decoration: none;">Terms</a></p>
+  <footer class="ra-footer">
+    <div class="rf-grid">
+      <div class="rf-brand">
+        <a href="https://radanimal.co/" aria-label="Rad Animal home"><img src="/images/rad-animal-logo.png" alt="Rad Animal" width="1000" height="228"></a>
+        <p>Creative technology studio in Venice, California.</p>
+        <a class="rf-email" href="mailto:jake@radanimal.co">jake@radanimal.co</a>
       </div>
-
-      <div class="footer-center">
-        <a href="#process">How It Works</a>
-        <a href="#tracks">Two Tracks</a>
-        <a href="#pricing">Packages</a>
-        <a href="#results">Results</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-      <div class="footer-right">
-        <a href="https://www.linkedin.com/in/jakegoble" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
-          </svg>
-        </a>
-        <a href="https://www.instagram.com/jakke" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-          </svg>
-        </a>
-      </div>
+      <div class="rf-col"><h4>Rad Animal</h4><a href="https://consulting.radanimal.co/" aria-current="page">AI Consulting</a><a href="https://web.radanimal.co/">Web</a><a href="https://www.radanimal.co/">Studio</a><a href="https://design.radanimal.co/">Design</a></div>
+      <div class="rf-col"><h4>AI Consulting</h4><a href="#process">How It Works</a><a href="#tracks">Two Tracks</a><a href="#showcase">Examples</a><a href="#who">Who It's For</a><a href="#pricing">Packages</a><a href="#results">Results</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+      <div class="rf-col"><h4>Connect</h4><a href="https://cal.com/radanimal" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a><a href="mailto:jake@radanimal.co">Email</a><a href="https://www.linkedin.com/in/jakegoble" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://www.instagram.com/jakke" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://jakegoble.com/">Portfolio Index</a></div>
     </div>
+    <div class="rf-legal"><span>© 2026 Rad Animal LLC. All rights reserved.</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span></div>
   </footer>
 
   <!-- JAVASCRIPT -->
@@ -3933,7 +3978,6 @@
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const nav = document.getElementById('nav');
-    nav.querySelectorAll('a').forEach(link => mobileMenu.appendChild(link.cloneNode(true)));
     document.body.appendChild(mobileMenu); // outside the blurred header so position:fixed works
     const siteHeader = document.querySelector('header');
     const setHeaderHeight = () => document.documentElement.style.setProperty('--hdr-h', siteHeader.offsetHeight + 'px');
@@ -3948,7 +3992,16 @@
     hamburger.addEventListener('click', () => setMenu(mobileMenu.hidden));
     mobileMenu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mobileMenu.hidden) { setMenu(false); hamburger.focus(); } });
-    window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+    window.matchMedia('(min-width: 1101px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+    // Rad Animal family menu (desktop)
+    const raBtn = document.querySelector('.ra-menu-btn');
+    const raList = document.getElementById('raMenuList');
+    if (raBtn && raList) {
+      const setRa = (open) => { raList.hidden = !open; raBtn.setAttribute('aria-expanded', String(open)); };
+      raBtn.addEventListener('click', (e) => { e.stopPropagation(); setRa(raList.hidden); });
+      document.addEventListener('click', (e) => { if (!e.target.closest('.ra-menu')) setRa(false); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !raList.hidden) { setRa(false); raBtn.focus(); } });
+    }
 
     // Scroll cue: hide once the visitor starts scrolling
     const scrollCue = document.querySelector('.scroll-cue');
