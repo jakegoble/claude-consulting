@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Custom-built AI operating systems for leaders running real businesses. One system that connects your tools, automates your workflows, and puts everything in one place — designed around how you actually work.">
+  <meta name="description" content="Custom-built AI operating systems for leaders running real businesses. One system that connects your tools, automates your workflows, and puts everything in one place, designed around how you actually work.">
   <meta property="og:title" content="Custom-built AI operating systems for leaders running real businesses">
   <meta property="og:description" content="Your business runs on a patchwork of tools that don't talk to each other. I build the system that connects them, automates the repetitive work, and runs your workflows end-to-end.">
   <meta property="og:image" content="https://claude-consulting.vercel.app/og-image.png">
@@ -13,7 +13,7 @@
   <meta name="twitter:title" content="Custom-built AI operating systems for leaders running real businesses.">
   <meta name="twitter:description" content="Your business runs on a patchwork of tools that don't talk to each other. I build the system that connects them.">
   <meta name="twitter:image" content="https://claude-consulting.vercel.app/og-image.png">
-  <title>Rad Animal — Custom-built AI operating systems for leaders running real businesses.</title>
+  <title>Rad Animal | Custom-built AI operating systems for leaders running real businesses.</title>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -24,7 +24,7 @@
   <!-- Google Fonts - Roboto Flex -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Roboto+Flex:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -2529,7 +2529,7 @@
     }
 
     /* ============================================
-       IMPROVED SCROLL REVEAL — STAGGERED SECTIONS
+       IMPROVED SCROLL REVEAL: STAGGERED SECTIONS
        ============================================ */
     .section-header .eyebrow {
       opacity: 0;
@@ -2695,7 +2695,24 @@
     @keyframes cueBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
     @media (max-width: 768px) { .hero { padding-bottom: 6rem; } .scroll-cue { bottom: 1.25rem; } }
     @media (prefers-reduced-motion: reduce) { .scroll-cue { animation: none; } .hamburger span { transition: none; } }
-  </style>
+  
+    /* ===== 2026-09-25 round 2: process 2x2, tracks CTA, no pricing tilt, referral icon scale, signature ===== */
+    .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 768px) { .process-grid { grid-template-columns: 1fr; } }
+    .tracks-cta { text-align: center; margin-top: 1.5rem; }
+    .pricing-card:hover { transform: translateY(-8px); }
+    .referral-icon { animation: iconGrow 3s ease-in-out infinite; }
+    .referral-card:hover .referral-icon { animation: iconGrow 1.5s ease-in-out infinite; }
+    @keyframes iconGrow {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(242, 87, 73, 0)); }
+      50% { transform: scale(1.14); filter: drop-shadow(0 0 16px rgba(242, 87, 73, 0.5)); }
+    }
+    .about-text h2 em { font-style: italic; }
+    .about-signature { margin-top: 0.5rem; }
+    .about-signature .sig-name { display: block; font-family: 'Mrs Saint Delafield', cursive; font-size: 3.4rem; line-height: 1; color: #FFFFFF; font-weight: 400; transform: translateX(-4px); }
+    .about-signature .sig-title { display: block; margin-top: 0.35rem; font-size: 0.8rem; letter-spacing: 0.02em; color: #9DA3AE; }
+    @media (prefers-reduced-motion: reduce) { .referral-icon, .referral-card:hover .referral-icon { animation: none; } }
+</style>
 
   <script type="application/ld+json">
 {
@@ -2829,7 +2846,7 @@
             </svg>
           </div>
           <h3>Data Sitting in Silos</h3>
-          <p>Analytics, contacts, content — all in different places. Every decision means digging through three tools to find the answer.</p>
+          <p>Analytics, contacts, content. All in different places. Every decision means digging through three tools to find the answer.</p>
         </div>
 
         <div class="card fade-in">
@@ -2839,7 +2856,7 @@
             </svg>
           </div>
           <h3>No Unified View</h3>
-          <p>You don't have a single place that shows where your business stands today. You have a feeling — and hope it's right.</p>
+          <p>You don't have a single place that shows where your business stands today. You have a feeling, and you hope it's right.</p>
         </div>
       </div>
     </div>
@@ -2891,7 +2908,7 @@
             </svg>
           </div>
           <h3>One place. Not a patchwork.</h3>
-          <p>Every client, every task, every metric — in one place. Custom-built for how your team actually works. Your command center knows your business as well as you do.</p>
+          <p>Every client, every task, every metric, in one place. Custom-built for how your team actually works. Your command center knows your business as well as you do.</p>
         </div>
 
         <div class="service-card fade-in glow-border tilt-card">
@@ -2926,7 +2943,7 @@
             </svg>
           </div>
           <h3>Your AI works while you sleep.</h3>
-          <p>Morning briefings. Auto-processed meeting notes. Follow-up emails drafted before your first coffee. Content calendars that populate themselves. Not "AI features" — actual workflows that run daily.</p>
+          <p>Morning briefings. Auto-processed meeting notes. Follow-up emails drafted before your first coffee. Content calendars that populate themselves. Not "AI features." Actual workflows that run daily.</p>
         </div>
 
         <div class="service-card fade-in glow-border tilt-card">
@@ -3013,7 +3030,7 @@
           </ul>
           <div class="track-best-for">
             <strong>Best for:</strong>
-            Teams of 5+, agencies, marketing ops — anyone who needs a real app, an automated pipeline, or a system that goes beyond what off-the-shelf tools can do.
+            Teams of 5+, agencies, marketing ops: anyone who needs a real app, an automated pipeline, or a system that goes beyond what off-the-shelf tools can do.
           </div>
         </div>
         <div class="track-card fade-in">
@@ -3079,7 +3096,8 @@
           </div>
         </div>
       </div>
-      <p class="tracks-footer">Not sure which is right for you? A 30-minute call figures it out. Most clients end up on Track B — Custom Build is for when a Notion hub won't cut it.</p>
+      <p class="tracks-footer">Not sure which is right for you? A 30-minute call figures it out. Most clients end up on Track B. Custom Build is for when a Notion hub won't cut it.</p>
+      <div class="tracks-cta"><a href="https://cal.com/radanimal" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a 30-Minute Call</a></div>
     </div>
   </section>
 
@@ -3099,7 +3117,7 @@
           <div class="process-number">01</div>
           <div class="process-timeline">WEEK 1</div>
           <h3>Discovery</h3>
-          <p>We get on a call. I audit your current tools, workflows, team structure, and pain points — and ask the questions most consultants skip. By the end, we've picked your track.</p>
+          <p>We get on a call. I audit your current tools, workflows, team structure, and pain points, and ask the questions most consultants skip. By the end, we've picked your track.</p>
         </div>
         <div class="process-step fade-in">
           <div class="process-photo" style="background-image:url('/images/process-blueprint.webp');"></div>
@@ -3113,14 +3131,14 @@
           <div class="process-number">03</div>
           <div class="process-timeline">WEEK 2–6</div>
           <h3>Build &amp; Launch</h3>
-          <p>I build your system, connect your integrations, set up your AI workflows, and train you and your team. You go live with a system that's yours — custom-built for your business.</p>
+          <p>I build your system, connect your integrations, set up your AI workflows, and train you and your team. You go live with a system that's yours, custom-built for your business.</p>
         </div>
         <div class="process-step fade-in">
           <div class="process-photo" style="background-image:url('/images/process-support.webp');"></div>
           <div class="process-number">04</div>
           <div class="process-timeline">ONGOING</div>
           <h3>Monthly Support</h3>
-          <p>New automations, optimization, troubleshooting. Your business evolves — your system evolves with it.</p>
+          <p>New automations, optimization, troubleshooting. Your business evolves. Your system evolves with it.</p>
         </div>
       </div>
     </div>
@@ -3139,10 +3157,10 @@
         <div class="showcase-item fade-in">
           <picture>
             <source srcset="/images/showcase_dashboard.webp" type="image/webp">
-            <img src="/images/showcase_dashboard.png" alt="AI Command Center — Pipeline Dashboard with $2.4M deal flow, win rates, and kanban board" loading="lazy">
+            <img src="/images/showcase_dashboard.png" alt="Pipeline Dashboard on a laptop and phone, with $2.4M deal flow, win rates, and kanban board" loading="lazy">
           </picture>
           <div class="showcase-caption">
-            <h3>Pipeline Command Center — Deal Flow & Revenue Tracking</h3>
+            <h3>Pipeline Command Center: Deal Flow & Revenue Tracking</h3>
             <span class="industry-tag">Sales Operations</span>
           </div>
         </div>
@@ -3150,20 +3168,20 @@
           <div class="showcase-item fade-in">
             <picture>
               <source srcset="/images/showcase_contacts.webp" type="image/webp">
-              <img src="/images/showcase_contacts.png" alt="CRM Contact Intelligence with lead scoring, deal values, and mobile companion app" loading="lazy">
+              <img src="/images/showcase_contacts.png" alt="Contact Intelligence on a laptop and phone, with lead scoring and deal values" loading="lazy">
             </picture>
             <div class="showcase-caption">
-              <h3>Contact Intelligence — Lead Scoring & Mobile CRM</h3>
+              <h3>Contact Intelligence: Lead Scoring & Mobile CRM</h3>
               <span class="industry-tag">CRM</span>
             </div>
           </div>
           <div class="showcase-item fade-in">
             <picture>
               <source srcset="/images/showcase_analytics.webp" type="image/webp">
-              <img src="/images/showcase_analytics.png" alt="Analytics Dashboard with revenue trends, conversion charts, and team performance metrics" loading="lazy">
+              <img src="/images/showcase_analytics.png" alt="Analytics Dashboard on a laptop and phone, with revenue trends, conversion charts, and team performance" loading="lazy">
             </picture>
             <div class="showcase-caption">
-              <h3>Analytics & Reports — Revenue Trends & KPIs</h3>
+              <h3>Analytics & Reports: Revenue Trends & KPIs</h3>
               <span class="industry-tag">Analytics</span>
             </div>
           </div>
@@ -3226,11 +3244,11 @@
       <div class="section-header">
         <span class="eyebrow">#PACKAGES</span>
         <h2>Packages.</h2>
-        <p class="section-subtitle">Each tier's tagline names who does the work. Price scales with how much of my time you're buying — not with feature counts.</p>
+        <p class="section-subtitle">Each tier's tagline names who does the work. Price scales with how much of my time you're buying, not with feature counts.</p>
       </div>
       <div class="pricing-grid">
         <!-- Starter -->
-        <div class="pricing-card fade-in tilt-card">
+        <div class="pricing-card fade-in">
           <h3>Starter</h3>
           <p class="pricing-tagline">"I set up the foundation. You build on it."</p>
           <div class="price">$750</div>
@@ -3241,7 +3259,7 @@
             <li>2 automated daily workflows (morning briefing + end-of-day review)</li>
             <li>Basic Notion architecture</li>
             <li>1-hour training session</li>
-            <li>2 weeks of async Q&amp;A — up to 1 hour of my time, 2-business-day response</li>
+            <li>2 weeks of async Q&amp;A, up to 1 hour of my time, 2-business-day response</li>
           </ul>
           <a href="https://cal.com/radanimal" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Get Started</a>
         </div>
@@ -3256,17 +3274,17 @@
           <ul class="pricing-features">
             <li>Deep discovery call + follow-up questionnaire</li>
             <li>Custom documentation package (5–8 tailored docs)</li>
-            <li>Full command center — Notion Hub with up to 5 integrations, or React dashboard (Custom Build track)</li>
+            <li>Full command center: Notion Hub with up to 5 integrations, or React dashboard (Custom Build track)</li>
             <li>5+ automated workflows (briefings, meeting processing, content calendar, lead management)</li>
             <li>Claude Projects fully configured for your team</li>
             <li>3-hour training + video walkthroughs</li>
-            <li>30 days of post-launch support — up to 3 hours of my time, 1-business-day response via Slack or email</li>
+            <li>30 days of post-launch support, up to 3 hours of my time, 1-business-day response via Slack or email</li>
           </ul>
           <a href="https://cal.com/radanimal" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a Call</a>
         </div>
 
         <!-- Enterprise -->
-        <div class="pricing-card fade-in tilt-card">
+        <div class="pricing-card fade-in">
           <h3>Enterprise</h3>
           <p class="pricing-tagline">"I build everything. You show up and use it."</p>
           <div class="price">$7,500+</div>
@@ -3278,7 +3296,7 @@
             <li>Multiple dashboards or workspaces for different teams</li>
             <li>Up to 20-person team onboarding</li>
             <li>Custom automation development</li>
-            <li>90 days of dedicated support — up to 10 hours of my time + 1-hour quarterly optimization call, same-business-day response via private Slack channel</li>
+            <li>90 days of dedicated support, up to 10 hours of my time + 1-hour quarterly optimization call, same-business-day response via private Slack channel</li>
           </ul>
           <a href="https://cal.com/radanimal" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Let's Talk</a>
         </div>
@@ -3291,14 +3309,14 @@
           <h4>Ongoing Support</h4>
           <span class="price-highlight">$150/hr</span>
           <p>Monthly optimization, new automations, troubleshooting, and integration updates. Available to any past client.</p>
-          <span class="founding-badge">First 10 clients: $125/hr — locked for life</span>
+          <span class="founding-badge">First 10 clients: $125/hr, locked for life</span>
         </div>
         <div class="pricing-extra-card fade-in">
           <div class="pricing-extra-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
           <h4>Upgrade Anytime</h4>
-          <p>Outgrow your tier? Your original payment applies as credit — you only pay the difference. Available within 60 days of delivery.</p>
+          <p>Outgrow your tier? Your original payment applies as credit. You only pay the difference. Available within 60 days of delivery.</p>
           <div class="upgrade-path">
             <span class="upgrade-step">Starter <span class="arrow">→</span> Pro <span class="cost">$2,750</span></span>
             <span class="upgrade-step">Pro <span class="arrow">→</span> Enterprise <span class="cost">$4,000</span></span>
@@ -3467,8 +3485,12 @@
       </div>
       <div class="about-content">
         <div class="about-text fade-in">
-          <h2>I've been in the room with a lot of different businesses.</h2>
-          <p>Over 17 years I've worked with venues, beauty and skincare brands, beverage companies, fitness studios, music teams, tech startups and solo founders. Almost every one of them had the same problem: good people buried in admin. I run my own businesses on the system I build, and it's the reason I have time to do this work at all.</p>
+          <h2>Helping you work smarter, <em>not harder.</em></h2>
+          <p>Over 17 years I've worked with tech startups, venues, beauty and skincare brands, beverage companies, fitness studios, music teams, and solo founders. Almost every one of them had the same problem: good people buried in admin. I run my own businesses on the system I build, and it's saved me countless hours of time and energy to avoid burnout and scale.</p>
+          <div class="about-signature">
+            <span class="sig-name">Jake Goble</span>
+            <span class="sig-title">Jake Goble, Creative Technologist and Entrepreneur</span>
+          </div>
         </div>
         <div class="about-visual fade-in">
           <img src="/images/jake.jpg" alt="Jake Goble" class="about-photo">
@@ -3510,7 +3532,7 @@
             </div>
           </button>
           <div class="accordion-body" aria-hidden="true">
-            <p class="accordion-text">One system that connects your tools, automates your workflows, and puts everything in one place. Depending on your track, it's either a custom React dashboard on Vercel (Custom Build) or a duplicatable Notion workspace with Claude Projects trained on your business (Notion Hub). Either way: one place for every client, task, and metric — designed around how your team actually works.</p>
+            <p class="accordion-text">One system that connects your tools, automates your workflows, and puts everything in one place. Depending on your track, it's either a custom React dashboard on Vercel (Custom Build) or a duplicatable Notion workspace with Claude Projects trained on your business (Notion Hub). Either way: one place for every client, task, and metric, designed around how your team actually works.</p>
           </div>
         </div>
 
@@ -3594,7 +3616,7 @@
             </div>
           </button>
           <div class="accordion-body" aria-hidden="true">
-            <p class="accordion-text">Yes. If you outgrow your tier during your engagement or within 60 days of delivery, the price you paid applies as credit toward the next tier — you just pay the difference. Starter → Pro costs $2,750 to upgrade. Pro → Enterprise costs $4,000. Starter → Enterprise costs $6,750. Works across tracks (Notion Hub or Custom Build).</p>
+            <p class="accordion-text">Yes. If you outgrow your tier during your engagement or within 60 days of delivery, the price you paid applies as credit toward the next tier. You just pay the difference. Starter → Pro costs $2,750 to upgrade. Pro → Enterprise costs $4,000. Starter → Enterprise costs $6,750. Works across tracks (Notion Hub or Custom Build).</p>
           </div>
         </div>
       </div>
