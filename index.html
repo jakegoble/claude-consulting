@@ -3302,7 +3302,7 @@
         <div class="showcase-item fade-in">
           <picture>
             <source srcset="/images/showcase_dashboard.webp" type="image/webp">
-            <img src="/images/showcase_dashboard.png" alt="Pipeline Dashboard on a laptop and phone, with $2.4M deal flow, win rates, and kanban board" loading="lazy">
+            <img src="/images/showcase_dashboard.png" width="1400" height="900" alt="Pipeline Dashboard on a laptop and phone, with $2.4M deal flow, win rates, and kanban board" loading="lazy">
           </picture>
           <div class="showcase-caption">
             <h3>Pipeline Command Center: Deal Flow & Revenue Tracking</h3>
@@ -3313,7 +3313,7 @@
           <div class="showcase-item fade-in">
             <picture>
               <source srcset="/images/showcase_contacts.webp" type="image/webp">
-              <img src="/images/showcase_contacts.png" alt="Contact Intelligence on a laptop and phone, with lead scoring and deal values" loading="lazy">
+              <img src="/images/showcase_contacts.png" width="1400" height="900" alt="Contact Intelligence on a laptop and phone, with lead scoring and deal values" loading="lazy">
             </picture>
             <div class="showcase-caption">
               <h3>Contact Intelligence: Lead Scoring & Mobile CRM</h3>
@@ -3323,7 +3323,7 @@
           <div class="showcase-item fade-in">
             <picture>
               <source srcset="/images/showcase_analytics.webp" type="image/webp">
-              <img src="/images/showcase_analytics.png" alt="Analytics Dashboard on a laptop and phone, with revenue trends, conversion charts, and team performance" loading="lazy">
+              <img src="/images/showcase_analytics.png" width="1400" height="900" alt="Analytics Dashboard on a laptop and phone, with revenue trends, conversion charts, and team performance" loading="lazy">
             </picture>
             <div class="showcase-caption">
               <h3>Analytics & Reports: Revenue Trends & KPIs</h3>
@@ -3337,7 +3337,7 @@
         <div class="showcase-item fade-in">
           <picture>
             <source srcset="/images/showcase_notion_home.webp" type="image/webp">
-            <img src="/images/showcase_notion_home.png" alt="Notion Hub Command Center on a laptop and phone, with today's tasks, pipeline and upcoming content" loading="lazy">
+            <img src="/images/showcase_notion_home.png" width="1400" height="900" alt="Notion Hub Command Center on a laptop and phone, with today's tasks, pipeline and upcoming content" loading="lazy">
           </picture>
           <div class="showcase-caption">
             <h3>Command Center: Daily Brief, Tasks & Pipeline</h3>
@@ -3348,7 +3348,7 @@
           <div class="showcase-item fade-in">
             <picture>
               <source srcset="/images/showcase_notion_crm.webp" type="image/webp">
-              <img src="/images/showcase_notion_crm.png" alt="Notion Hub CRM database on a laptop and phone, with deal stages, values and next steps" loading="lazy">
+              <img src="/images/showcase_notion_crm.png" width="1400" height="900" alt="Notion Hub CRM database on a laptop and phone, with deal stages, values and next steps" loading="lazy">
             </picture>
             <div class="showcase-caption">
               <h3>CRM: Every Lead, Client & Deal</h3>
@@ -3358,7 +3358,7 @@
           <div class="showcase-item fade-in">
             <picture>
               <source srcset="/images/showcase_notion_calendar.webp" type="image/webp">
-              <img src="/images/showcase_notion_calendar.png" alt="Notion Hub content calendar on a laptop and phone, with a month of planned posts across channels" loading="lazy">
+              <img src="/images/showcase_notion_calendar.png" width="1400" height="900" alt="Notion Hub content calendar on a laptop and phone, with a month of planned posts across channels" loading="lazy">
             </picture>
             <div class="showcase-caption">
               <h3>Content Calendar: Planned Across Every Channel</h3>
@@ -3667,7 +3667,7 @@
           </div>
         </div>
         <div class="about-visual fade-in">
-          <img src="/images/jake.jpg" alt="Jake Goble" class="about-photo">
+          <img src="/images/jake.jpg" alt="Jake Goble" class="about-photo" width="400" height="499">
         </div>
       </div>
       <div class="stats-row">
@@ -4003,6 +4003,23 @@
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !raList.hidden) { setRa(false); raBtn.focus(); } });
     }
 
+
+    // In-page links: re-aim after the smooth scroll settles, in case content above grew while scrolling
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a || a.getAttribute('href').length < 2) return;
+      const el = document.querySelector(a.getAttribute('href'));
+      if (!el) return;
+      let last = -1, still = 0;
+      const check = () => {
+        const y = window.scrollY;
+        still = (y === last) ? still + 1 : 0; last = y;
+        if (still < 3) return setTimeout(check, 120);
+        const off = el.getBoundingClientRect().top - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0);
+        if (Math.abs(off) > 40) el.scrollIntoView({ behavior: 'smooth' });
+      };
+      setTimeout(check, 300);
+    });
     // Scroll cue: hide once the visitor starts scrolling
     const scrollCue = document.querySelector('.scroll-cue');
     if (scrollCue) {
