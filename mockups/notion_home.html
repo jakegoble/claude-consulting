@@ -1,0 +1,94 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Command Center</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1440px;height:900px;overflow:hidden;background:#191919;color:#e6e6e4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',sans-serif;font-size:14px}
+.side{position:fixed;left:0;top:0;bottom:0;width:240px;background:#202020;border-right:1px solid #2a2a2a;padding:12px 8px}
+.ws{display:flex;align-items:center;gap:8px;padding:6px 8px 14px;font-weight:600;font-size:14px;color:#e6e6e4}
+.ws i{width:22px;height:22px;border-radius:5px;background:linear-gradient(135deg,#F25749,#f59e0b);display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:12px;color:#fff;font-weight:700}
+.sl{font-size:11px;color:#7d7d7a;padding:12px 8px 4px;font-weight:600}
+.si{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:5px;color:#a3a3a0;font-size:13.5px}
+.si.on{background:#2c2c2c;color:#fff}
+.main{margin-left:240px;height:900px;overflow:hidden}
+.top{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;color:#8f8f8c;font-size:13px}
+.top .r{display:flex;gap:14px}
+.cover{height:150px;background:linear-gradient(120deg,#3b1f1c,#6b2a22 40%,#b8452f 75%,#e0763c)}
+.page{padding:0 96px}
+.icon{font-size:54px;margin-top:-36px;line-height:1}
+h1{font-size:38px;font-weight:700;margin:10px 0 6px;color:#fff}
+.sub{color:#8f8f8c;font-size:14px;margin-bottom:18px}
+.callout{display:flex;gap:10px;background:#2a2622;border-radius:6px;padding:14px 16px;margin-bottom:22px;color:#e6e6e4}
+.cols{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:22px}
+h3{font-size:15px;font-weight:600;margin-bottom:10px;color:#fff;display:flex;align-items:center;gap:6px}
+.card{background:#202020;border:1px solid #2c2c2c;border-radius:6px;padding:10px 12px;margin-bottom:8px}
+.chk{display:flex;align-items:center;gap:9px;padding:6px 0;border-bottom:1px solid #262626;font-size:13.5px}
+.box{width:15px;height:15px;border:1.5px solid #6f6f6c;border-radius:3px;flex:0 0 15px}
+.box.done{background:#2f80ed;border-color:#2f80ed}
+.done+span{color:#6f6f6c;text-decoration:line-through}
+.pill{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;font-weight:500}
+.p-red{background:#5c2b2b;color:#ffb3a7}.p-yel{background:#5a4a1e;color:#f5d479}.p-grn{background:#1f4a33;color:#8fe3b0}.p-blu{background:#1e3a5c;color:#9cc7ff}.p-pur{background:#3d2a5c;color:#cdb3ff}.p-gry{background:#373737;color:#c4c4c1}.p-org{background:#5c3a1e;color:#ffc187}
+.meta{font-size:12px;color:#8f8f8c;margin-top:5px;display:flex;justify-content:space-between;align-items:center}
+.t{font-size:13.5px;font-weight:500;color:#eee}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;color:#8f8f8c;font-weight:500;font-size:12.5px;padding:8px 10px;border-bottom:1px solid #2c2c2c;border-right:1px solid #2c2c2c;white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid #2c2c2c;border-right:1px solid #2c2c2c;white-space:nowrap}
+th:last-child,td:last-child{border-right:none}
+.views{display:flex;gap:16px;border-bottom:1px solid #2c2c2c;margin-bottom:0;font-size:13.5px;color:#8f8f8c}
+.views span{padding:8px 0}.views .on{color:#fff;border-bottom:2px solid #fff}
+.tools{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
+.new{background:#2f80ed;color:#fff;border-radius:5px;padding:5px 12px;font-size:13px;font-weight:500}
+.av{display:inline-flex;width:20px;height:20px;border-radius:50%;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;margin-right:6px;vertical-align:middle}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid #2c2c2c;border-left:1px solid #2c2c2c}
+.cal .h{font-size:12px;color:#8f8f8c;padding:6px 8px;border-right:1px solid #2c2c2c;border-bottom:1px solid #2c2c2c}
+.cal .d{height:118px;border-right:1px solid #2c2c2c;border-bottom:1px solid #2c2c2c;padding:6px;font-size:12px;color:#8f8f8c;overflow:hidden}
+.cal .d.today .n{background:#eb5757;color:#fff;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center}
+.ev{display:block;background:#252525;border:1px solid #333;border-radius:4px;padding:4px 6px;margin-top:4px;color:#e6e6e4;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev b{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.mbar{display:none}
+.mlist{display:none}
+@media (max-width:500px){
+ body{width:390px;height:844px}
+ .side,.top{display:none}
+ .main{margin-left:0;height:844px;padding-top:58px}
+ .cover{height:96px}
+ .page{padding:0 18px}
+ .icon{font-size:40px;margin-top:-24px}
+ h1{font-size:28px}
+ .cols{grid-template-columns:1fr;gap:14px}
+ .hide-m{display:none!important}
+ .dtable{display:none}
+ .mlist{display:block}
+ .cal{grid-template-columns:repeat(7,1fr)}
+ .cal .d{height:58px;padding:3px}
+ .cal .ev{display:none}
+ .cal .d.has::after{content:'';display:block;width:6px;height:6px;border-radius:50%;background:#f2994a;margin:6px auto 0}
+ .agenda{display:block!important;margin-top:14px}
+}
+.agenda{display:none}
+</style></head><body><div class="side"><div class="ws"><i>E</i>Ember Studio HQ</div>
+<div class="si">🔍 Search</div><div class="si">🏠 Home</div><div class="si">📥 Inbox</div>
+<div class="sl">Workspace</div>
+<div class="si on">🧭 Command Center</div><div class="si ">🤝 CRM</div><div class="si ">🗓️ Content Calendar</div>
+<div class="si">📁 Projects</div><div class="si">🖼️ Media Library</div><div class="si">📘 SOPs &amp; Playbooks</div><div class="si">👥 Team Wiki</div>
+<div class="sl">Claude Projects</div><div class="si">✨ Brand Voice</div><div class="si">✨ Client Onboarding</div><div class="si">✨ Weekly Report</div></div>
+<div class="main"><div class="top"><span>Ember Studio HQ / Command Center</span><div class="r"><span>Share</span><span>☆</span><span>···</span></div></div>
+<div class="cover"></div><div class="page"><div class="icon">🧭</div><h1>Command Center</h1>
+<div class="sub">Friday, Sep 25 · Everything the team needs today, in one place.</div>
+<div class="callout"><span>☀️</span><span><b>Morning brief:</b> 3 follow-ups due, 2 posts scheduled, 1 proposal waiting on approval.</span></div>
+<div class="cols">
+<div><h3>✅ Today</h3>
+<div class="chk"><div class="box done"></div><span>Send Lumen Skincare proposal</span></div>
+<div class="chk"><div class="box"></div><span>Follow up with Harbor Fitness</span></div>
+<div class="chk"><div class="box"></div><span>Approve Oct content batch</span></div>
+<div class="chk"><div class="box"></div><span>Review weekly numbers</span></div>
+<div class="chk hide-m"><div class="box done"></div><span>Onboard new VA to SOPs</span></div>
+<div class="chk hide-m"><div class="box"></div><span>Book venue walkthrough</span></div></div>
+<div><h3>🤝 Pipeline</h3>
+<div class="card"><div class="t">Lumen Skincare</div><div class="meta"><span class="pill p-yel">Proposal</span><span>$8,500</span></div></div>
+<div class="card"><div class="t">Harbor Fitness</div><div class="meta"><span class="pill p-blu">Discovery</span><span>$4,200</span></div></div>
+<div class="card hide-m"><div class="t">Northside Brewing</div><div class="meta"><span class="pill p-grn">Won</span><span>$12,000</span></div></div>
+<div class="card hide-m"><div class="t">Sol Yoga Collective</div><div class="meta"><span class="pill p-pur">Negotiation</span><span>$6,000</span></div></div></div>
+<div class="hide-m"><h3>🗓️ Up next</h3>
+<div class="card"><div class="t">Reel: behind the scenes</div><div class="meta"><span class="pill p-org">Instagram</span><span>Today</span></div></div>
+<div class="card"><div class="t">Newsletter #42</div><div class="meta"><span class="pill p-blu">Email</span><span>Sat</span></div></div>
+<div class="card"><div class="t">Client spotlight carousel</div><div class="meta"><span class="pill p-org">Instagram</span><span>Mon</span></div></div>
+<div class="card"><div class="t">Podcast guest prep</div><div class="meta"><span class="pill p-gry">Internal</span><span>Tue</span></div></div></div>
+</div></div></div></body></html>
