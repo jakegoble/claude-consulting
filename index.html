@@ -2899,6 +2899,28 @@
 }
   </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style id="mobile-fixes">
+/* Mobile fixes 2026-09-25: these override base rules that sat after the older media queries */
+@media (max-width: 768px) {
+  .verticals-grid { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 0.5rem; max-width: 100% !important; }
+  .vertical-pill { white-space: nowrap; font-size: 0.82rem; padding: 0.5rem 0.9rem; }
+  .pricing-extras { grid-template-columns: minmax(0, 1fr) !important; }
+  .pricing-extra-card { padding: 1.5rem; min-width: 0; }
+  .upgrade-path { flex-wrap: wrap; gap: 0.4rem 1rem; }
+  .upgrade-step { white-space: nowrap; }
+  .showcase { padding: 3.5rem 0 3rem; }
+  .showcase-grid { gap: 20px; }
+  .showcase-row { gap: 20px; }
+  .showcase-caption { flex-direction: column; align-items: flex-start; text-align: left; gap: 8px; padding: 14px 16px; }
+  .showcase-caption h3 { font-size: 0.95rem; line-height: 1.35; }
+  .showcase-caption .industry-tag { font-size: 0.65rem; padding: 4px 10px; }
+  .showcase-item:hover { transform: none; }
+}
+@media (max-width: 380px) {
+  .vertical-pill { font-size: 0.78rem; padding: 0.45rem 0.75rem; }
+  .upgrade-step { font-size: 0.8rem; }
+}
+</style>
 </head>
 <body>
 <header class="ran ran-fixed" id="ran"><div class="ran-row ran-top"><a class="ran-logo" href="https://radanimal.co/" aria-label="Rad Animal home"><img src="/images/rad-animal-logo.png" alt="Rad Animal" width="1000" height="228"></a><div class="ran-fam" role="navigation" aria-label="Rad Animal"><a href="https://consulting.radanimal.co/" aria-current="page">AI Consulting</a><a href="https://web.radanimal.co/">Web</a><a href="https://studio.radanimal.co/">Studio</a><a href="https://design.radanimal.co/">Design</a><a href="https://radanimal.co/#capabilities">Capabilities</a></div><a class="ran-cta" href="https://cal.com/radanimal" target="_blank" rel="noopener">Book a Strategy Call</a><button class="ran-burger" id="ranBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ranMM"><span></span><span></span><span></span></button></div><div class="ran-sub"><div class="ran-row"><div class="ran-pages" role="navigation" aria-label="AI Consulting pages"><a href="#process">How It Works</a><a href="#tracks">Tracks</a><a href="#showcase">Examples</a><a href="#pricing">Packages</a><a href="#results">Results</a><a href="#about">About</a><a href="#faq">FAQ</a></div></div></div></header><div class="ran-mm" id="ranMM" hidden><div class="ran-cur"><a class="ran-f" href="https://consulting.radanimal.co/" aria-current="page">AI Consulting</a><div class="ran-subs"><a href="#process">How It Works</a><a href="#tracks">Tracks</a><a href="#showcase">Examples</a><a href="#pricing">Packages</a><a href="#results">Results</a><a href="#about">About</a><a href="#faq">FAQ</a></div></div><a class="ran-f" href="https://web.radanimal.co/">Web</a><a class="ran-f" href="https://studio.radanimal.co/">Studio</a><a class="ran-f" href="https://design.radanimal.co/">Design</a><a class="ran-f" href="https://radanimal.co/#capabilities">Capabilities</a><a class="ran-ext" href="https://jakegoble.com/">Portfolio Index ↗</a><a class="ran-cta" href="https://cal.com/radanimal" target="_blank" rel="noopener">Book a Strategy Call</a></div>
