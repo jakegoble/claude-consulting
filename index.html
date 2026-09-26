@@ -4215,6 +4215,7 @@ html body header.ran.ran-fixed{position:fixed}
 .ran .ran-dd a{display:block;padding:9px 12px;border-radius:8px;font-size:14px;font-weight:500;color:var(--ran-fg)}
 .ran .ran-dd a:hover{background:rgba(127,127,127,.12)}
 .ran .ran-burger{display:none;position:relative;width:44px;height:44px;margin:0 -10px 0 auto;flex:none}
+.ran .ran-burger,.ran .ran-burger:hover,.ran .ran-burger:focus,.ran .ran-burger:active{background:transparent!important;box-shadow:none!important;border:0!important}
 .ran-burger span{position:absolute;left:11px;width:22px;height:2px;border-radius:2px;background:var(--ran-fg);transition:transform .25s ease,opacity .2s ease}
 .ran-burger span:nth-child(1){top:15px}.ran-burger span:nth-child(2){top:21px}.ran-burger span:nth-child(3){top:27px}
 .ran-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
@@ -4233,7 +4234,8 @@ html body header.ran.ran-fixed{position:fixed}
 .ran-mm .ran-ext{display:block;margin-top:18px;font-size:14px;font-weight:500;color:var(--ran-dim)}
 .ran-mm .ran-cta{display:flex;margin-top:22px;min-height:52px;font-size:15px}
 .ran-mm .ran-mtools{margin-top:14px;display:flex;justify-content:center}
-html.ran-lock,html.ran-lock body{overflow:hidden}
+body.ran-lock{overflow:hidden!important}
+.ran-mm{overscroll-behavior:contain;touch-action:pan-y}
 @media (max-width:900px){
  .ran-row{padding:0 18px}
  .ran-top{height:56px}
@@ -4250,7 +4252,7 @@ html.ran-lock,html.ran-lock body{overflow:hidden}
 }
 @media (min-width:901px){.ran-mm{display:none!important}}
 @media (prefers-reduced-motion:reduce){.ran *,.ran-mm *{transition:none!important}}
-</style>
+@media (max-width:900px){.hero{padding-top:calc(var(--ran-h,104px) + 2.5rem)!important}}</style>
 <script id="ran-js">
 /* Rad Animal shared nav (2026-09-26) */
 (function(){
@@ -4260,10 +4262,10 @@ html.ran-lock,html.ran-lock body{overflow:hidden}
  document.body.appendChild(mm);
  function h(){return H.getBoundingClientRect().height}
  function setH(){var v=Math.round(h());root.style.setProperty('--ran-h',v+'px');root.style.setProperty('--hdrh',v+'px');root.style.setProperty('--hdr-h',v+'px');root.style.scrollPaddingTop=(v+12)+'px';
-  var t=H.querySelector('.ran-top');root.style.setProperty('--ran-top',Math.round(t.getBoundingClientRect().bottom)+'px')}
+  var t=H.querySelector('.ran-top');root.style.setProperty('--ran-top',Math.max(0,Math.round(H.getBoundingClientRect().top+t.offsetHeight))+'px')}
  setH();window.addEventListener('resize',setH);window.addEventListener('scroll',function(){if(!mm.hidden)setH()},{passive:true});
  if(window.ResizeObserver)new ResizeObserver(setH).observe(H);
- function setMenu(o){mm.hidden=!o;root.classList.toggle('ran-open',o);root.classList.toggle('ran-lock',o);bg.setAttribute('aria-expanded',String(o));bg.setAttribute('aria-label',o?'Close menu':'Open menu');setH()}
+ function setMenu(o){mm.hidden=!o;root.classList.toggle('ran-open',o);document.body.classList.toggle('ran-lock',o);bg.setAttribute('aria-expanded',String(o));bg.setAttribute('aria-label',o?'Close menu':'Open menu');setH()}
  bg.addEventListener('click',function(){setMenu(mm.hidden)});
  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(!mm.hidden){setMenu(false);bg.focus()}closeDD()}});
  window.matchMedia('(min-width:901px)').addEventListener('change',function(e){if(e.matches)setMenu(false)});
