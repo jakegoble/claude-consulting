@@ -2,63 +2,69 @@
     "version": 2,
     "name": "claude-consulting",
     "builds": [
-          {
-                  "src": "index.html",
-                  "use": "@vercel/static"
-          },
-          {
-                  "src": "thanks.html",
-                  "use": "@vercel/static"
-          },
-          {
-                  "src": "privacy.html",
-                  "use": "@vercel/static"
-          },
-          {
-                  "src": "terms.html",
-                  "use": "@vercel/static"
-          },
-          {
-                  "src": "og-image.png",
-                  "use": "@vercel/static"
-          },
-          {
-                  "src": "images/**",
-                  "use": "@vercel/static"
-          },
-          {
-                  "src": "mockups/**",
-                  "use": "@vercel/static"
-          }
+        {
+            "src": "index.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "thanks.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "privacy.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "terms.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "og-image.png",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "images/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "mockups/**",
+            "use": "@vercel/static"
+        }
     ],
     "routes": [
-          {
-                  "src": "/og-image.png",
-                  "dest": "/og-image.png"
-          },
-          {
-                  "src": "/images/(.*)",
-                  "dest": "/images/$1"
-          },
-          {
-                  "src": "/mockups/(.*)",
-                  "dest": "/mockups/$1"
-          },
-          {
-                  "src": "/thanks(\\.html)?",
-                  "dest": "/thanks.html"
-          },
-          {
-                  "src": "/privacy(\\.html)?",
-                  "dest": "/privacy.html"
-          },
-          {
-                  "src": "/terms(\\.html)?",
-                  "dest": "/terms.html"
-          },
-          {
-                  "src": "/(.*)",
-                  "dest": "/index.html"
-          }
+        {
+            "src": "/og-image.png",
+            "dest": "/og-image.png"
+        },
+        {
+            "src": "/images/(.*)",
+            "dest": "/images/$1"
+        },
+        {
+            "src": "/mockups/(.*)",
+            "dest": "/mockups/$1"
+        },
+        {
+            "src": "/thanks(\\.html)?",
+            "dest": "/thanks.html"
+        },
+        {
+            "src": "/privacy(\\.html)?/?",
+            "status": 308,
+            "headers": {
+                "Location": "https://radanimal.co/privacy"
+            }
+        },
+        {
+            "src": "/terms(\\.html)?/?",
+            "status": 308,
+            "headers": {
+                "Location": "https://radanimal.co/terms"
+            }
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
+        }
     ]
 }
